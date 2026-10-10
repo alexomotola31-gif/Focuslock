@@ -52,7 +52,7 @@ class LockActivity : ComponentActivity() {
                     )
                     Button(enabled = input.length == 6, onClick = {
                         when (val r = Vault.tryCode(this@LockActivity, input)) {
-                            is VaultResult.Ok -> { SessionStore.end(this@LockActivity); finish() }
+                            is VaultResult.Ok -> { SessionStore.end(this@LockActivity, early = true); finish() }
                             is VaultResult.Wrong -> message = "Wrong code. ${r.triesBeforeLockout} tries before a delay."
                             is VaultResult.LockedOut -> message = "Too many attempts. Try again in ${r.ms / 1000}s."
                             is VaultResult.DailyLimit -> message = "Daily emergency limit (${Vault.MAX_DAILY_USES}) reached."

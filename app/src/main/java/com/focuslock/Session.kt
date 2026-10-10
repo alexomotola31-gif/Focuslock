@@ -23,19 +23,34 @@ object SessionStore {
             .putStringSet("apps", apps)
             .putLong("endElapsed", SystemClock.elapsedRealtime() + durationMs)
             .putLong("endWall", System.currentTimeMillis() + durationMs)
+            .putLong("startWall", System.currentTimeMillis())
+            .putLong("planned", durationMs)
             .putInt("boot", bootCount(c))
             .putBoolean("active", true)
             .apply()
     }
 
-    fun end(c: Context) { prefs(c).edit().clear().apply(); Vault.wipe(c) }
+    fun plannedMs(c: Context): Long = prefs(c).getLong("planned", 0)
+
+    /** Ends the session and logs it. early = true when ended with the emergency code. */
+    fun end(c: Context, early: Boolean = false) {
+        val p = prefs(c)
+        val startWall = p.getLong("startWall", 0)
+        val planned = p.getLong("planned", 0)
+        if (p.getBoolean("active", false) && startWall > 0 && planned > 0) {
+            val spent = if (early) (System.currentTimeMillis() - startWall).coerceIn(0, planned) else planned
+            HistoryStore.add(c, FocusRecord(startWall, spent, planned, !early))
+        }
+        p.edit().clear().apply()
+        Vault.wipe(c)
+    }
 
     /** Remaining time in ms. Uses elapsedRealtime (immune to clock changes) unless the phone rebooted. */
     fun remainingMs(c: Context, s: Session): Long =
         if (s.bootCount == bootCount(c)) s.endElapsed - SystemClock.elapsedRealtime()
         else s.endWall - System.currentTimeMillis()
 
-    /** Returns the active session, or null (and clears it) if none or expired. */
+    /** Returns the active session, or null (and logs/clears it) if none or expired. */
     fun active(c: Context): Session? {
         val p = prefs(c)
         if (!p.getBoolean("active", false)) return null

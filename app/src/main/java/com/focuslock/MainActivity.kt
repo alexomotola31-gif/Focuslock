@@ -190,12 +190,10 @@ class MainActivity : ComponentActivity() {
                     Page.Home -> Column(Modifier.fillMaxSize().verticalScroll(rememberScrollState())) {
                         Header(active)
                         Spacer(Modifier.height(18.dp))
+                        DailyProgressCard(active)
+                        Spacer(Modifier.height(12.dp))
                         if (active) {
-                            FocusCard {
-                                Text("Stay focused", style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold, color = Amber)
-                                Spacer(Modifier.height(6.dp))
-                                Text("A session is running. Locked apps can't be opened until it ends.")
-                            }
+                            ActiveSessionCard { active = false }
                         } else {
                             FocusCard {
                                 Text("Focus time", style = MaterialTheme.typography.labelLarge, color = MaterialTheme.colorScheme.onSurfaceVariant)
