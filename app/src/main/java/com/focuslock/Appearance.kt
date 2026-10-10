@@ -33,7 +33,7 @@ fun AppearanceCard() {
                 Box(
                     Modifier.clip(RoundedCornerShape(50))
                         .background(if (sel) cs.primary else cs.surfaceVariant)
-                        .clickable { ThemePrefs.setMode(i) }
+                        .clickable { ThemePrefs.changeMode(i) }
                         .padding(horizontal = 16.dp, vertical = 10.dp)
                 ) { Text(t, color = if (sel) cs.onPrimary else cs.onSurface) }
             }
@@ -44,7 +44,7 @@ fun AppearanceCard() {
         Row(horizontalArrangement = Arrangement.spacedBy(4.dp)) {
             ThemePrefs.accents.forEachIndexed { i, (name, color) ->
                 Box(
-                    Modifier.size(48.dp).clip(CircleShape).clickable { ThemePrefs.setAccent(i) }
+                    Modifier.size(48.dp).clip(CircleShape).clickable { ThemePrefs.changeAccent(i) }
                         .semantics { contentDescription = "$name accent" },
                     contentAlignment = Alignment.Center
                 ) {
@@ -59,7 +59,7 @@ fun AppearanceCard() {
         Text("Text size ${(ThemePrefs.textScale * 100).toInt()}%", color = cs.onSurfaceVariant)
         Slider(
             value = ThemePrefs.textScale,
-            onValueChange = { ThemePrefs.setTextScale(it) },
+            onValueChange = { ThemePrefs.changeTextScale(it) },
             valueRange = 0.85f..1.3f
         )
         OutlinedButton(onClick = { ThemePrefs.reset() }) { Text("Reset to defaults") }

@@ -35,9 +35,9 @@ object ThemePrefs {
         textScale = prefs.getFloat("textScale", 1f).coerceIn(0.85f, 1.3f)
     }
 
-    fun setMode(v: Int) { mode = v; prefs.edit().putInt("mode", v).apply() }
-    fun setAccent(v: Int) { accentIndex = v; prefs.edit().putInt("accent", v).apply() }
-    fun setTextScale(v: Float) { textScale = v; prefs.edit().putFloat("textScale", v).apply() }
+    fun changeMode(v: Int) { mode = v; prefs.edit().putInt("mode", v).apply() }
+    fun changeAccent(v: Int) { accentIndex = v; prefs.edit().putInt("accent", v).apply() }
+    fun changeTextScale(v: Float) { textScale = v; prefs.edit().putFloat("textScale", v).apply() }
     fun reset() {
         prefs.edit().clear().apply()
         mode = 0; accentIndex = 0; textScale = 1f
