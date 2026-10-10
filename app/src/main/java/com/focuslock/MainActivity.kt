@@ -395,6 +395,8 @@ class MainActivity : ComponentActivity() {
                             TextButton(onClick = { openAppInfo() }) { Text("Open App info") }
                         }
                         Spacer(Modifier.height(10.dp))
+                        PrivacyCard()
+                        Spacer(Modifier.height(10.dp))
                         AppearanceCard()
                     }
 
