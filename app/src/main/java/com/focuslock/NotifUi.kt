@@ -17,7 +17,8 @@ fun NotifSettingsCard() {
         "started" to "Session started",
         "done" to "Session completed",
         "phase" to "Pomodoro focus and break changes",
-        "goal" to "Daily goal reached"
+        "goal" to "Daily goal reached",
+        "sched" to "Upcoming scheduled locks"
     )
     val states = remember {
         mutableStateMapOf<String, Boolean>().apply { items.forEach { put(it.first, NotifPrefs.on(ctx, it.first)) } }

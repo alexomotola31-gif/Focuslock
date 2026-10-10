@@ -17,8 +17,10 @@ class LockService : AccessibilityService() {
         if (e.eventType != AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED) return
         val pkg = e.packageName?.toString() ?: return
         if (pkg == packageName) return // never block ourselves
-        val session = SessionStore.active(this) ?: return
-        if ((pkg in session.lockedApps && !SessionStore.breakUnlocked(this)) || pkg in guarded) {
+        val session = SessionStore.active(this)
+        val bySession = session != null &&
+            ((pkg in session.lockedApps && !SessionStore.breakUnlocked(this)) || pkg in guarded)
+        if (bySession || Schedules.isBlocked(this, pkg)) {
             startActivity(
                 Intent(this, LockActivity::class.java)
                     .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP)

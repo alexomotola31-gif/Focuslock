@@ -88,6 +88,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         ThemePrefs.init(this)
         PomodoroPrefs.init(this)
+        ScheduleAlarms.rescheduleAll(this)
         val apps = loadApps()
         setContent {
             FocusTheme {
@@ -129,7 +130,8 @@ class MainActivity : ComponentActivity() {
 
         var page by remember { mutableStateOf(Page.Home) }
         BackHandler(enabled = page == Page.Insights || page == Page.Goals) { page = Page.Home }
-        var picked by remember { mutableStateOf(setOf<String>()) }
+        var picked by remember { mutableStateOf(PickedStore.load(this@MainActivity).filter { p -> apps.any { it.pkg == p } }.toSet()) }
+        LaunchedEffect(picked) { PickedStore.save(this@MainActivity, picked) }
         var minutes by remember { mutableStateOf("30") }
         var query by remember { mutableStateOf("") }
         var active by remember(refresh) { mutableStateOf(SessionStore.active(this@MainActivity) != null) }
@@ -347,67 +349,7 @@ class MainActivity : ComponentActivity() {
                         AppearanceCard()
                     }
 
-                    Page.Schedule -> Column(Modifier.fillMaxSize().verticalScroll(rememberScrollState())) {
-                        Text("Schedule", style = MaterialTheme.typography.headlineSmall, fontWeight = FontWeight.Bold)
-                        Spacer(Modifier.height(4.dp))
-                        Text("Lock your selected apps automatically, like 7 PM to 10 PM.", color = MaterialTheme.colorScheme.onSurfaceVariant)
-                        Spacer(Modifier.height(14.dp))
-                        FocusCard {
-                            Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
-                                OutlinedButton(
-                                    onClick = {
-                                        TimePickerDialog(this@MainActivity, { _, h, m -> startMin = h * 60 + m },
-                                            startMin / 60, startMin % 60, false).show()
-                                    },
-                                    modifier = Modifier.weight(1f)
-                                ) { Text("From ${fmtTime(startMin)}") }
-                                OutlinedButton(
-                                    onClick = {
-                                        TimePickerDialog(this@MainActivity, { _, h, m -> endMin = h * 60 + m },
-                                            endMin / 60, endMin % 60, false).show()
-                                    },
-                                    modifier = Modifier.weight(1f)
-                                ) { Text("To ${fmtTime(endMin)}") }
-                            }
-                            Spacer(Modifier.height(10.dp))
-                            Text(
-                                "${picked.size} apps selected (change them on the Apps page)",
-                                color = MaterialTheme.colorScheme.onSurfaceVariant
-                            )
-                            Spacer(Modifier.height(10.dp))
-                            Button(
-                                enabled = picked.isNotEmpty() && startMin != endMin,
-                                onClick = {
-                                    ScheduleStore.add(
-                                        this@MainActivity,
-                                        Schedule(System.currentTimeMillis(), startMin, endMin, picked)
-                                    )
-                                    schedules = ScheduleStore.all(this@MainActivity)
-                                },
-                                shape = RoundedCornerShape(14.dp),
-                                modifier = Modifier.fillMaxWidth()
-                            ) { Text(if (picked.isEmpty()) "Choose apps first" else "Add schedule", fontWeight = FontWeight.Bold) }
-                        }
-                        Spacer(Modifier.height(14.dp))
-                        if (schedules.isEmpty()) {
-                            Text("No schedules yet.", color = MaterialTheme.colorScheme.onSurfaceVariant)
-                        }
-                        schedules.forEach { s ->
-                            FocusCard {
-                                Row(verticalAlignment = Alignment.CenterVertically) {
-                                    Column(Modifier.weight(1f)) {
-                                        Text("${fmtTime(s.startMin)} – ${fmtTime(s.endMin)}", fontWeight = FontWeight.Bold, color = Amber)
-                                        Text("${s.pkgs.size} apps", color = MaterialTheme.colorScheme.onSurfaceVariant)
-                                    }
-                                    IconButton(onClick = {
-                                        ScheduleStore.remove(this@MainActivity, s.id)
-                                        schedules = ScheduleStore.all(this@MainActivity)
-                                    }) { Icon(Icons.Filled.Delete, contentDescription = "Delete") }
-                                }
-                            }
-                            Spacer(Modifier.height(10.dp))
-                        }
-                    }
+                    Page.Schedule -> ScheduleScreen(picked)
                 }
             }
         }
