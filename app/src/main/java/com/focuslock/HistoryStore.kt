@@ -5,7 +5,10 @@ import org.json.JSONArray
 import org.json.JSONObject
 import java.util.Calendar
 
-data class FocusRecord(val start: Long, val durationMs: Long, val plannedMs: Long, val completed: Boolean)
+data class FocusRecord(
+    val start: Long, val durationMs: Long, val plannedMs: Long,
+    val completed: Boolean, val cycles: Int = 0
+)
 
 /** Real session records, stored locally. Everything in Insights/Goals is computed from this. */
 object HistoryStore {
@@ -15,7 +18,7 @@ object HistoryStore {
         val arr = JSONArray(prefs(c).getString("list", "[]"))
         (0 until arr.length()).map {
             val o = arr.getJSONObject(it)
-            FocusRecord(o.getLong("s"), o.getLong("d"), o.getLong("p"), o.getBoolean("c"))
+            FocusRecord(o.getLong("s"), o.getLong("d"), o.getLong("p"), o.getBoolean("c"), o.optInt("k", 0))
         }
     } catch (e: Exception) { emptyList() }
 
@@ -25,7 +28,7 @@ object HistoryStore {
         val arr = JSONArray()
         list.forEach {
             arr.put(JSONObject().put("s", it.start).put("d", it.durationMs)
-                .put("p", it.plannedMs).put("c", it.completed))
+                .put("p", it.plannedMs).put("c", it.completed).put("k", it.cycles))
         }
         prefs(c).edit().putString("list", arr.toString()).apply()
     }
