@@ -131,5 +131,6 @@ class PhaseReceiver : BroadcastReceiver() {
         if (SessionStore.startWall(c) != i.getLongExtra("tok", -1L)) return
         if (SessionStore.active(c) == null) return   // session ended: end() already notified
         Notifier.phaseChange(c)
+        FocusWidget.update(c)
     }
 }

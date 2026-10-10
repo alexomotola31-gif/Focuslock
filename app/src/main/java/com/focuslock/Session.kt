@@ -31,6 +31,7 @@ object SessionStore {
             .putBoolean("active", true)
             .apply()
         Notifier.scheduleAll(c)
+        FocusWidget.update(c)
         Notifier.sessionStarted(c)
     }
 
@@ -101,6 +102,7 @@ object SessionStore {
             .putLong("endWall", p.getLong("endWall", 0) - delta)
             .apply()
         Notifier.scheduleAll(c)
+        FocusWidget.update(c)
     }
 
     fun skipBreak(c: Context) {
@@ -154,5 +156,7 @@ object SessionStore {
         Notifier.cancelAll(c)
         p.edit().clear().apply()
         Vault.wipe(c)
+        FocusSound.stop()
+        FocusWidget.update(c)
     }
 }

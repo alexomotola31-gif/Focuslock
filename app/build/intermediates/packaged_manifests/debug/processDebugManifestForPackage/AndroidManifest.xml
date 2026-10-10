@@ -40,7 +40,12 @@
         android:theme="@android:style/Theme.Material.Light.NoActionBar" >
         <activity
             android:name="com.focuslock.MainActivity"
-            android:exported="true" >
+            android:exported="true"
+            android:launchMode="singleTop" >
+            <meta-data
+                android:name="android.app.shortcuts"
+                android:resource="@xml/shortcuts" />
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -90,6 +95,17 @@
                 <action android:name="android.intent.action.TIMEZONE_CHANGED" />
                 <action android:name="android.intent.action.TIME_SET" />
             </intent-filter>
+        </receiver>
+        <receiver
+            android:name="com.focuslock.FocusWidget"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_info" />
         </receiver>
 
         <provider

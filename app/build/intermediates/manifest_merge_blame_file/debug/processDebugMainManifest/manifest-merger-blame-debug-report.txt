@@ -51,7 +51,7 @@
 31-->[androidx.core:core:1.13.1] /home/codespace/.gradle/caches/transforms-4/8e0a0bff2d388b6446750efdf4a5758f/transformed/core-1.13.1/AndroidManifest.xml:26:22-94
 32
 33    <application
-33-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:15:5-47:19
+33-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:15:5-54:19
 34        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
 34-->[androidx.core:core:1.13.1] /home/codespace/.gradle/caches/transforms-4/8e0a0bff2d388b6446750efdf4a5758f/transformed/core-1.13.1/AndroidManifest.xml:28:18-86
 35        android:debuggable="true"
@@ -65,170 +65,199 @@
 40        android:theme="@android:style/Theme.Material.Light.NoActionBar" >
 40-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:15:126-189
 41        <activity
-41-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:16:9-21:20
+41-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:16:9-22:20
 42            android:name="com.focuslock.MainActivity"
 42-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:16:19-47
-43            android:exported="true" >
+43            android:exported="true"
 43-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:16:48-71
-44            <intent-filter>
-44-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:17:13-20:29
-45                <action android:name="android.intent.action.MAIN" />
-45-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:7:13-65
-45-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:7:21-62
-46
-47                <category android:name="android.intent.category.LAUNCHER" />
-47-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:8:13-73
-47-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:8:23-70
-48            </intent-filter>
-49        </activity>
-50        <activity
-50-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:22:9-23:81
-51            android:name="com.focuslock.LockActivity"
-51-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:22:19-47
-52            android:excludeFromRecents="true"
-52-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:23:45-78
-53            android:exported="false"
-53-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:22:48-72
-54            android:launchMode="singleTask" />
-54-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:23:13-44
-55
-56        <receiver
-56-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:24:9-30:20
-57            android:name="com.focuslock.AdminReceiver"
-57-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:24:19-48
-58            android:exported="true"
-58-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:24:49-72
-59            android:permission="android.permission.BIND_DEVICE_ADMIN" >
-59-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:25:13-70
-60            <meta-data
-60-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:26:13-103
-61                android:name="android.app.device_admin"
-61-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:26:24-63
-62                android:resource="@xml/device_admin" />
-62-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:26:64-100
-63
-64            <intent-filter>
-64-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:27:13-29:29
-65                <action android:name="android.app.action.DEVICE_ADMIN_ENABLED" />
-65-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:28:17-82
-65-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:28:25-79
-66            </intent-filter>
-67        </receiver>
+44            android:launchMode="singleTop" >
+44-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:16:72-102
+45            <meta-data
+45-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:17:13-97
+46                android:name="android.app.shortcuts"
+46-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:17:24-60
+47                android:resource="@xml/shortcuts" />
+47-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:17:61-94
+48
+49            <intent-filter>
+49-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:18:13-21:29
+50                <action android:name="android.intent.action.MAIN" />
+50-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:7:13-65
+50-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:7:21-62
+51
+52                <category android:name="android.intent.category.LAUNCHER" />
+52-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:8:13-73
+52-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:8:23-70
+53            </intent-filter>
+54        </activity>
+55        <activity
+55-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:23:9-24:81
+56            android:name="com.focuslock.LockActivity"
+56-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:23:19-47
+57            android:excludeFromRecents="true"
+57-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:24:45-78
+58            android:exported="false"
+58-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:23:48-72
+59            android:launchMode="singleTask" />
+59-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:24:13-44
+60
+61        <receiver
+61-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:25:9-31:20
+62            android:name="com.focuslock.AdminReceiver"
+62-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:25:19-48
+63            android:exported="true"
+63-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:25:49-72
+64            android:permission="android.permission.BIND_DEVICE_ADMIN" >
+64-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:26:13-70
+65            <meta-data
+65-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:27:13-103
+66                android:name="android.app.device_admin"
+66-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:27:24-63
+67                android:resource="@xml/device_admin" />
+67-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:27:64-100
 68
-69        <service
-69-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:31:9-38:19
-70            android:name="com.focuslock.LockService"
-70-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:31:18-45
-71            android:exported="false"
-71-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:31:46-70
-72            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE" >
-72-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:32:13-79
-73            <intent-filter>
-73-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:33:13-35:29
-74                <action android:name="android.accessibilityservice.AccessibilityService" />
-74-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:34:17-92
-74-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:34:25-89
-75            </intent-filter>
-76
-77            <meta-data
-77-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:36:13-37:64
-78                android:name="android.accessibilityservice"
-78-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:36:24-67
-79                android:resource="@xml/accessibility_config" />
-79-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:37:17-61
-80        </service>
+69            <intent-filter>
+69-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:28:13-30:29
+70                <action android:name="android.app.action.DEVICE_ADMIN_ENABLED" />
+70-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:29:17-82
+70-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:29:25-79
+71            </intent-filter>
+72        </receiver>
+73
+74        <service
+74-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:32:9-39:19
+75            android:name="com.focuslock.LockService"
+75-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:32:18-45
+76            android:exported="false"
+76-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:32:46-70
+77            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE" >
+77-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:33:13-79
+78            <intent-filter>
+78-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:34:13-36:29
+79                <action android:name="android.accessibilityservice.AccessibilityService" />
+79-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:35:17-92
+79-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:35:25-89
+80            </intent-filter>
 81
-82        <receiver
-82-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:39:13-79
-83            android:name="com.focuslock.PhaseReceiver"
-83-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:39:23-52
-84            android:exported="false" />
-84-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:39:53-77
-85        <receiver
-85-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:40:13-46:20
-86            android:name="com.focuslock.ScheduleReceiver"
-86-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:40:23-55
-87            android:exported="true" >
-87-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:40:56-79
-88            <intent-filter>
-88-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:41:13-45:29
-89                <action android:name="android.intent.action.BOOT_COMPLETED" />
-89-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:42:17-78
-89-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:42:25-76
-90                <action android:name="android.intent.action.TIMEZONE_CHANGED" />
-90-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:43:17-80
-90-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:43:25-78
-91                <action android:name="android.intent.action.TIME_SET" />
-91-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:44:17-72
-91-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:44:25-70
-92            </intent-filter>
-93        </receiver>
-94
-95        <provider
-95-->[androidx.emoji2:emoji2:1.3.0] /home/codespace/.gradle/caches/transforms-4/192474c036ec43764acdf6f3e34ae042/transformed/emoji2-1.3.0/AndroidManifest.xml:24:9-32:20
-96            android:name="androidx.startup.InitializationProvider"
-96-->[androidx.emoji2:emoji2:1.3.0] /home/codespace/.gradle/caches/transforms-4/192474c036ec43764acdf6f3e34ae042/transformed/emoji2-1.3.0/AndroidManifest.xml:25:13-67
-97            android:authorities="com.focuslock.androidx-startup"
-97-->[androidx.emoji2:emoji2:1.3.0] /home/codespace/.gradle/caches/transforms-4/192474c036ec43764acdf6f3e34ae042/transformed/emoji2-1.3.0/AndroidManifest.xml:26:13-68
-98            android:exported="false" >
-98-->[androidx.emoji2:emoji2:1.3.0] /home/codespace/.gradle/caches/transforms-4/192474c036ec43764acdf6f3e34ae042/transformed/emoji2-1.3.0/AndroidManifest.xml:27:13-37
-99            <meta-data
-99-->[androidx.emoji2:emoji2:1.3.0] /home/codespace/.gradle/caches/transforms-4/192474c036ec43764acdf6f3e34ae042/transformed/emoji2-1.3.0/AndroidManifest.xml:29:13-31:52
-100                android:name="androidx.emoji2.text.EmojiCompatInitializer"
-100-->[androidx.emoji2:emoji2:1.3.0] /home/codespace/.gradle/caches/transforms-4/192474c036ec43764acdf6f3e34ae042/transformed/emoji2-1.3.0/AndroidManifest.xml:30:17-75
-101                android:value="androidx.startup" />
-101-->[androidx.emoji2:emoji2:1.3.0] /home/codespace/.gradle/caches/transforms-4/192474c036ec43764acdf6f3e34ae042/transformed/emoji2-1.3.0/AndroidManifest.xml:31:17-49
-102            <meta-data
-102-->[androidx.lifecycle:lifecycle-process:2.6.2] /home/codespace/.gradle/caches/transforms-4/44d9374c2fc79a1ce870385ec114cea5/transformed/lifecycle-process-2.6.2/AndroidManifest.xml:29:13-31:52
-103                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
-103-->[androidx.lifecycle:lifecycle-process:2.6.2] /home/codespace/.gradle/caches/transforms-4/44d9374c2fc79a1ce870385ec114cea5/transformed/lifecycle-process-2.6.2/AndroidManifest.xml:30:17-78
-104                android:value="androidx.startup" />
-104-->[androidx.lifecycle:lifecycle-process:2.6.2] /home/codespace/.gradle/caches/transforms-4/44d9374c2fc79a1ce870385ec114cea5/transformed/lifecycle-process-2.6.2/AndroidManifest.xml:31:17-49
-105            <meta-data
-105-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/codespace/.gradle/caches/transforms-4/4e16cc280eaa0a1f5277c41379c36ea2/transformed/profileinstaller-1.3.1/AndroidManifest.xml:29:13-31:52
-106                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
-106-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/codespace/.gradle/caches/transforms-4/4e16cc280eaa0a1f5277c41379c36ea2/transformed/profileinstaller-1.3.1/AndroidManifest.xml:30:17-85
-107                android:value="androidx.startup" />
-107-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/codespace/.gradle/caches/transforms-4/4e16cc280eaa0a1f5277c41379c36ea2/transformed/profileinstaller-1.3.1/AndroidManifest.xml:31:17-49
-108        </provider>
-109
-110        <receiver
-110-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/codespace/.gradle/caches/transforms-4/4e16cc280eaa0a1f5277c41379c36ea2/transformed/profileinstaller-1.3.1/AndroidManifest.xml:34:9-52:20
-111            android:name="androidx.profileinstaller.ProfileInstallReceiver"
-111-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/codespace/.gradle/caches/transforms-4/4e16cc280eaa0a1f5277c41379c36ea2/transformed/profileinstaller-1.3.1/AndroidManifest.xml:35:13-76
-112            android:directBootAware="false"
-112-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/codespace/.gradle/caches/transforms-4/4e16cc280eaa0a1f5277c41379c36ea2/transformed/profileinstaller-1.3.1/AndroidManifest.xml:36:13-44
-113            android:enabled="true"
-113-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/codespace/.gradle/caches/transforms-4/4e16cc280eaa0a1f5277c41379c36ea2/transformed/profileinstaller-1.3.1/AndroidManifest.xml:37:13-35
-114            android:exported="true"
-114-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/codespace/.gradle/caches/transforms-4/4e16cc280eaa0a1f5277c41379c36ea2/transformed/profileinstaller-1.3.1/AndroidManifest.xml:38:13-36
-115            android:permission="android.permission.DUMP" >
-115-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/codespace/.gradle/caches/transforms-4/4e16cc280eaa0a1f5277c41379c36ea2/transformed/profileinstaller-1.3.1/AndroidManifest.xml:39:13-57
-116            <intent-filter>
-116-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/codespace/.gradle/caches/transforms-4/4e16cc280eaa0a1f5277c41379c36ea2/transformed/profileinstaller-1.3.1/AndroidManifest.xml:40:13-42:29
-117                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
-117-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/codespace/.gradle/caches/transforms-4/4e16cc280eaa0a1f5277c41379c36ea2/transformed/profileinstaller-1.3.1/AndroidManifest.xml:41:17-91
-117-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/codespace/.gradle/caches/transforms-4/4e16cc280eaa0a1f5277c41379c36ea2/transformed/profileinstaller-1.3.1/AndroidManifest.xml:41:25-88
-118            </intent-filter>
-119            <intent-filter>
-119-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/codespace/.gradle/caches/transforms-4/4e16cc280eaa0a1f5277c41379c36ea2/transformed/profileinstaller-1.3.1/AndroidManifest.xml:43:13-45:29
-120                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
-120-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/codespace/.gradle/caches/transforms-4/4e16cc280eaa0a1f5277c41379c36ea2/transformed/profileinstaller-1.3.1/AndroidManifest.xml:44:17-85
-120-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/codespace/.gradle/caches/transforms-4/4e16cc280eaa0a1f5277c41379c36ea2/transformed/profileinstaller-1.3.1/AndroidManifest.xml:44:25-82
-121            </intent-filter>
-122            <intent-filter>
-122-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/codespace/.gradle/caches/transforms-4/4e16cc280eaa0a1f5277c41379c36ea2/transformed/profileinstaller-1.3.1/AndroidManifest.xml:46:13-48:29
-123                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
-123-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/codespace/.gradle/caches/transforms-4/4e16cc280eaa0a1f5277c41379c36ea2/transformed/profileinstaller-1.3.1/AndroidManifest.xml:47:17-88
-123-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/codespace/.gradle/caches/transforms-4/4e16cc280eaa0a1f5277c41379c36ea2/transformed/profileinstaller-1.3.1/AndroidManifest.xml:47:25-85
-124            </intent-filter>
-125            <intent-filter>
-125-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/codespace/.gradle/caches/transforms-4/4e16cc280eaa0a1f5277c41379c36ea2/transformed/profileinstaller-1.3.1/AndroidManifest.xml:49:13-51:29
-126                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
-126-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/codespace/.gradle/caches/transforms-4/4e16cc280eaa0a1f5277c41379c36ea2/transformed/profileinstaller-1.3.1/AndroidManifest.xml:50:17-95
-126-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/codespace/.gradle/caches/transforms-4/4e16cc280eaa0a1f5277c41379c36ea2/transformed/profileinstaller-1.3.1/AndroidManifest.xml:50:25-92
-127            </intent-filter>
-128        </receiver>
-129    </application>
-130
-131</manifest>
+82            <meta-data
+82-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:37:13-38:64
+83                android:name="android.accessibilityservice"
+83-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:37:24-67
+84                android:resource="@xml/accessibility_config" />
+84-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:38:17-61
+85        </service>
+86
+87        <receiver
+87-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:40:13-79
+88            android:name="com.focuslock.PhaseReceiver"
+88-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:40:23-52
+89            android:exported="false" />
+89-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:40:53-77
+90        <receiver
+90-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:41:13-47:20
+91            android:name="com.focuslock.ScheduleReceiver"
+91-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:41:23-55
+92            android:exported="true" >
+92-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:41:56-79
+93            <intent-filter>
+93-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:42:13-46:29
+94                <action android:name="android.intent.action.BOOT_COMPLETED" />
+94-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:43:17-78
+94-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:43:25-76
+95                <action android:name="android.intent.action.TIMEZONE_CHANGED" />
+95-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:44:17-80
+95-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:44:25-78
+96                <action android:name="android.intent.action.TIME_SET" />
+96-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:45:17-72
+96-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:45:25-70
+97            </intent-filter>
+98        </receiver>
+99        <receiver
+99-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:48:13-53:20
+100            android:name="com.focuslock.FocusWidget"
+100-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:48:23-50
+101            android:exported="false" >
+101-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:48:51-75
+102            <intent-filter>
+102-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:49:13-51:29
+103                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+103-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:50:17-83
+103-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:50:25-81
+104            </intent-filter>
+105
+106            <meta-data
+106-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:52:13-103
+107                android:name="android.appwidget.provider"
+107-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:52:24-65
+108                android:resource="@xml/widget_info" />
+108-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:52:66-101
+109        </receiver>
+110
+111        <provider
+111-->[androidx.emoji2:emoji2:1.3.0] /home/codespace/.gradle/caches/transforms-4/192474c036ec43764acdf6f3e34ae042/transformed/emoji2-1.3.0/AndroidManifest.xml:24:9-32:20
+112            android:name="androidx.startup.InitializationProvider"
+112-->[androidx.emoji2:emoji2:1.3.0] /home/codespace/.gradle/caches/transforms-4/192474c036ec43764acdf6f3e34ae042/transformed/emoji2-1.3.0/AndroidManifest.xml:25:13-67
+113            android:authorities="com.focuslock.androidx-startup"
+113-->[androidx.emoji2:emoji2:1.3.0] /home/codespace/.gradle/caches/transforms-4/192474c036ec43764acdf6f3e34ae042/transformed/emoji2-1.3.0/AndroidManifest.xml:26:13-68
+114            android:exported="false" >
+114-->[androidx.emoji2:emoji2:1.3.0] /home/codespace/.gradle/caches/transforms-4/192474c036ec43764acdf6f3e34ae042/transformed/emoji2-1.3.0/AndroidManifest.xml:27:13-37
+115            <meta-data
+115-->[androidx.emoji2:emoji2:1.3.0] /home/codespace/.gradle/caches/transforms-4/192474c036ec43764acdf6f3e34ae042/transformed/emoji2-1.3.0/AndroidManifest.xml:29:13-31:52
+116                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+116-->[androidx.emoji2:emoji2:1.3.0] /home/codespace/.gradle/caches/transforms-4/192474c036ec43764acdf6f3e34ae042/transformed/emoji2-1.3.0/AndroidManifest.xml:30:17-75
+117                android:value="androidx.startup" />
+117-->[androidx.emoji2:emoji2:1.3.0] /home/codespace/.gradle/caches/transforms-4/192474c036ec43764acdf6f3e34ae042/transformed/emoji2-1.3.0/AndroidManifest.xml:31:17-49
+118            <meta-data
+118-->[androidx.lifecycle:lifecycle-process:2.6.2] /home/codespace/.gradle/caches/transforms-4/44d9374c2fc79a1ce870385ec114cea5/transformed/lifecycle-process-2.6.2/AndroidManifest.xml:29:13-31:52
+119                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+119-->[androidx.lifecycle:lifecycle-process:2.6.2] /home/codespace/.gradle/caches/transforms-4/44d9374c2fc79a1ce870385ec114cea5/transformed/lifecycle-process-2.6.2/AndroidManifest.xml:30:17-78
+120                android:value="androidx.startup" />
+120-->[androidx.lifecycle:lifecycle-process:2.6.2] /home/codespace/.gradle/caches/transforms-4/44d9374c2fc79a1ce870385ec114cea5/transformed/lifecycle-process-2.6.2/AndroidManifest.xml:31:17-49
+121            <meta-data
+121-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/codespace/.gradle/caches/transforms-4/4e16cc280eaa0a1f5277c41379c36ea2/transformed/profileinstaller-1.3.1/AndroidManifest.xml:29:13-31:52
+122                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+122-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/codespace/.gradle/caches/transforms-4/4e16cc280eaa0a1f5277c41379c36ea2/transformed/profileinstaller-1.3.1/AndroidManifest.xml:30:17-85
+123                android:value="androidx.startup" />
+123-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/codespace/.gradle/caches/transforms-4/4e16cc280eaa0a1f5277c41379c36ea2/transformed/profileinstaller-1.3.1/AndroidManifest.xml:31:17-49
+124        </provider>
+125
+126        <receiver
+126-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/codespace/.gradle/caches/transforms-4/4e16cc280eaa0a1f5277c41379c36ea2/transformed/profileinstaller-1.3.1/AndroidManifest.xml:34:9-52:20
+127            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+127-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/codespace/.gradle/caches/transforms-4/4e16cc280eaa0a1f5277c41379c36ea2/transformed/profileinstaller-1.3.1/AndroidManifest.xml:35:13-76
+128            android:directBootAware="false"
+128-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/codespace/.gradle/caches/transforms-4/4e16cc280eaa0a1f5277c41379c36ea2/transformed/profileinstaller-1.3.1/AndroidManifest.xml:36:13-44
+129            android:enabled="true"
+129-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/codespace/.gradle/caches/transforms-4/4e16cc280eaa0a1f5277c41379c36ea2/transformed/profileinstaller-1.3.1/AndroidManifest.xml:37:13-35
+130            android:exported="true"
+130-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/codespace/.gradle/caches/transforms-4/4e16cc280eaa0a1f5277c41379c36ea2/transformed/profileinstaller-1.3.1/AndroidManifest.xml:38:13-36
+131            android:permission="android.permission.DUMP" >
+131-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/codespace/.gradle/caches/transforms-4/4e16cc280eaa0a1f5277c41379c36ea2/transformed/profileinstaller-1.3.1/AndroidManifest.xml:39:13-57
+132            <intent-filter>
+132-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/codespace/.gradle/caches/transforms-4/4e16cc280eaa0a1f5277c41379c36ea2/transformed/profileinstaller-1.3.1/AndroidManifest.xml:40:13-42:29
+133                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+133-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/codespace/.gradle/caches/transforms-4/4e16cc280eaa0a1f5277c41379c36ea2/transformed/profileinstaller-1.3.1/AndroidManifest.xml:41:17-91
+133-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/codespace/.gradle/caches/transforms-4/4e16cc280eaa0a1f5277c41379c36ea2/transformed/profileinstaller-1.3.1/AndroidManifest.xml:41:25-88
+134            </intent-filter>
+135            <intent-filter>
+135-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/codespace/.gradle/caches/transforms-4/4e16cc280eaa0a1f5277c41379c36ea2/transformed/profileinstaller-1.3.1/AndroidManifest.xml:43:13-45:29
+136                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+136-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/codespace/.gradle/caches/transforms-4/4e16cc280eaa0a1f5277c41379c36ea2/transformed/profileinstaller-1.3.1/AndroidManifest.xml:44:17-85
+136-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/codespace/.gradle/caches/transforms-4/4e16cc280eaa0a1f5277c41379c36ea2/transformed/profileinstaller-1.3.1/AndroidManifest.xml:44:25-82
+137            </intent-filter>
+138            <intent-filter>
+138-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/codespace/.gradle/caches/transforms-4/4e16cc280eaa0a1f5277c41379c36ea2/transformed/profileinstaller-1.3.1/AndroidManifest.xml:46:13-48:29
+139                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+139-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/codespace/.gradle/caches/transforms-4/4e16cc280eaa0a1f5277c41379c36ea2/transformed/profileinstaller-1.3.1/AndroidManifest.xml:47:17-88
+139-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/codespace/.gradle/caches/transforms-4/4e16cc280eaa0a1f5277c41379c36ea2/transformed/profileinstaller-1.3.1/AndroidManifest.xml:47:25-85
+140            </intent-filter>
+141            <intent-filter>
+141-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/codespace/.gradle/caches/transforms-4/4e16cc280eaa0a1f5277c41379c36ea2/transformed/profileinstaller-1.3.1/AndroidManifest.xml:49:13-51:29
+142                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+142-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/codespace/.gradle/caches/transforms-4/4e16cc280eaa0a1f5277c41379c36ea2/transformed/profileinstaller-1.3.1/AndroidManifest.xml:50:17-95
+142-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/codespace/.gradle/caches/transforms-4/4e16cc280eaa0a1f5277c41379c36ea2/transformed/profileinstaller-1.3.1/AndroidManifest.xml:50:25-92
+143            </intent-filter>
+144        </receiver>
+145    </application>
+146
+147</manifest>

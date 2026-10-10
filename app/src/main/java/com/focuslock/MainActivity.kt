@@ -81,12 +81,20 @@ private fun fmtTime(min: Int): String {
 
 class MainActivity : ComponentActivity() {
     private var tick by mutableStateOf(0)   // bumped in onResume to refresh setup status
+    private var goTo by mutableStateOf<String?>(null)
 
     override fun onResume() { super.onResume(); tick++ }
+
+    override fun onNewIntent(intent: Intent) {
+        super.onNewIntent(intent)
+        goTo = intent.getStringExtra("go")
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         ThemePrefs.init(this)
+        FocusSound.init(this)
+        goTo = intent?.getStringExtra("go")
         PomodoroPrefs.init(this)
         ScheduleAlarms.rescheduleAll(this)
         val apps = loadApps()
@@ -130,6 +138,14 @@ class MainActivity : ComponentActivity() {
 
         var page by remember { mutableStateOf(Page.Home) }
         BackHandler(enabled = page == Page.Insights || page == Page.Goals) { page = Page.Home }
+        LaunchedEffect(goTo) {
+            when (goTo) {
+                "apps" -> page = Page.Apps
+                "insights" -> page = Page.Insights
+                "home" -> page = Page.Home
+            }
+            goTo = null
+        }
         var picked by remember { mutableStateOf(PickedStore.load(this@MainActivity).filter { p -> apps.any { it.pkg == p } }.toSet()) }
         LaunchedEffect(picked) { PickedStore.save(this@MainActivity, picked) }
         var minutes by remember { mutableStateOf("30") }
@@ -205,6 +221,8 @@ class MainActivity : ComponentActivity() {
                             OutlinedButton(onClick = { page = Page.Insights }, modifier = Modifier.weight(1f)) { Text("Insights") }
                             OutlinedButton(onClick = { page = Page.Goals }, modifier = Modifier.weight(1f)) { Text("Goals") }
                         }
+                        Spacer(Modifier.height(12.dp))
+                        SoundCard()
                         Spacer(Modifier.height(12.dp))
                         if (active) {
                             ActiveSessionCard { active = false }

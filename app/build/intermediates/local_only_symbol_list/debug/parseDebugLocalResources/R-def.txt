@@ -1,8 +1,23 @@
 R_DEF: Internal format may change without notice
 local
 drawable logo
+drawable widget_bg
+id widget_root
+id widget_sub
+id widget_timer
+id widget_title
+layout widget_focus
 mipmap ic_launcher
 string app_name
+string sc_apps
+string sc_apps_long
+string sc_start
+string sc_start_long
+string sc_stats
+string sc_stats_long
 string service_desc
+string widget_desc
 xml accessibility_config
 xml device_admin
+xml shortcuts
+xml widget_info
