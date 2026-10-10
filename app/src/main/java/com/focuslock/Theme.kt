@@ -1,6 +1,10 @@
 package com.focuslock
 
 import androidx.compose.foundation.isSystemInDarkTheme
+import android.app.Activity
+import androidx.compose.runtime.SideEffect
+import androidx.compose.ui.platform.LocalView
+import androidx.core.view.WindowCompat
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.lightColorScheme
@@ -30,6 +34,15 @@ fun FocusTheme(content: @Composable () -> Unit) {
         surfaceVariant = Color(0xFFE3E8F5), onSurfaceVariant = Color(0xFF43507A),
         outline = Color(0xFF9AA6C8)
     )
+    val view = LocalView.current
+    SideEffect {
+        val w = (view.context as? Activity)?.window
+        if (w != null) {
+            val c = WindowCompat.getInsetsController(w, view)
+            c.isAppearanceLightStatusBars = !dark
+            c.isAppearanceLightNavigationBars = !dark
+        }
+    }
     val d = LocalDensity.current
     CompositionLocalProvider(LocalDensity provides Density(d.density, d.fontScale * ThemePrefs.textScale)) {
         MaterialTheme(colorScheme = scheme, content = content)

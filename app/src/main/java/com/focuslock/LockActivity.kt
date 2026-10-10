@@ -54,7 +54,7 @@ class LockActivity : ComponentActivity() {
         }
         LaunchedEffect(skipWait) { if (skipWait > 0) { delay(1000); skipWait -= 1 } }
         Column(
-            Modifier.fillMaxSize().padding(24.dp),
+            Modifier.fillMaxSize().safeDrawingPadding().padding(24.dp),
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {

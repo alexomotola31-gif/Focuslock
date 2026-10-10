@@ -1,50 +1,50 @@
 [
     {
-        "merged": "/home/codespace/.gradle/daemon/8.7/com.focuslock.app-debug-40:/mipmap-hdpi_ic_launcher.png.flat",
-        "source": "/home/codespace/.gradle/daemon/8.7/com.focuslock.app-main-42:/mipmap-hdpi/ic_launcher.png"
-    },
-    {
-        "merged": "/home/codespace/.gradle/daemon/8.7/com.focuslock.app-debug-40:/mipmap-xxhdpi_ic_launcher.png.flat",
-        "source": "/home/codespace/.gradle/daemon/8.7/com.focuslock.app-main-42:/mipmap-xxhdpi/ic_launcher.png"
+        "merged": "com.focuslock.app-debug-40:/drawable-nodpi_logo.png.flat",
+        "source": "com.focuslock.app-main-42:/drawable-nodpi/logo.png"
     },
     {
         "merged": "com.focuslock.app-debug-40:/xml_shortcuts.xml.flat",
         "source": "com.focuslock.app-main-42:/xml/shortcuts.xml"
     },
     {
-        "merged": "/home/codespace/.gradle/daemon/8.7/com.focuslock.app-debug-40:/mipmap-mdpi_ic_launcher.png.flat",
-        "source": "/home/codespace/.gradle/daemon/8.7/com.focuslock.app-main-42:/mipmap-mdpi/ic_launcher.png"
+        "merged": "com.focuslock.app-debug-40:/mipmap-mdpi_ic_launcher.png.flat",
+        "source": "com.focuslock.app-main-42:/mipmap-mdpi/ic_launcher.png"
     },
     {
         "merged": "com.focuslock.app-debug-40:/layout_widget_focus.xml.flat",
         "source": "com.focuslock.app-main-42:/layout/widget_focus.xml"
     },
     {
-        "merged": "/home/codespace/.gradle/daemon/8.7/com.focuslock.app-debug-40:/xml_device_admin.xml.flat",
-        "source": "/home/codespace/.gradle/daemon/8.7/com.focuslock.app-main-42:/xml/device_admin.xml"
+        "merged": "com.focuslock.app-debug-40:/mipmap-hdpi_ic_launcher.png.flat",
+        "source": "com.focuslock.app-main-42:/mipmap-hdpi/ic_launcher.png"
     },
     {
-        "merged": "/home/codespace/.gradle/daemon/8.7/com.focuslock.app-debug-40:/mipmap-xxxhdpi_ic_launcher.png.flat",
-        "source": "/home/codespace/.gradle/daemon/8.7/com.focuslock.app-main-42:/mipmap-xxxhdpi/ic_launcher.png"
+        "merged": "com.focuslock.app-debug-40:/xml_accessibility_config.xml.flat",
+        "source": "com.focuslock.app-main-42:/xml/accessibility_config.xml"
     },
     {
-        "merged": "/home/codespace/.gradle/daemon/8.7/com.focuslock.app-debug-40:/mipmap-xhdpi_ic_launcher.png.flat",
-        "source": "/home/codespace/.gradle/daemon/8.7/com.focuslock.app-main-42:/mipmap-xhdpi/ic_launcher.png"
+        "merged": "com.focuslock.app-debug-40:/xml_device_admin.xml.flat",
+        "source": "com.focuslock.app-main-42:/xml/device_admin.xml"
     },
     {
-        "merged": "/home/codespace/.gradle/daemon/8.7/com.focuslock.app-debug-40:/xml_accessibility_config.xml.flat",
-        "source": "/home/codespace/.gradle/daemon/8.7/com.focuslock.app-main-42:/xml/accessibility_config.xml"
+        "merged": "com.focuslock.app-debug-40:/mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "com.focuslock.app-main-42:/mipmap-xhdpi/ic_launcher.png"
     },
     {
         "merged": "com.focuslock.app-debug-40:/drawable_widget_bg.xml.flat",
         "source": "com.focuslock.app-main-42:/drawable/widget_bg.xml"
     },
     {
-        "merged": "/home/codespace/.gradle/daemon/8.7/com.focuslock.app-debug-40:/drawable-nodpi_logo.png.flat",
-        "source": "/home/codespace/.gradle/daemon/8.7/com.focuslock.app-main-42:/drawable-nodpi/logo.png"
-    },
-    {
         "merged": "com.focuslock.app-debug-40:/xml_widget_info.xml.flat",
         "source": "com.focuslock.app-main-42:/xml/widget_info.xml"
+    },
+    {
+        "merged": "com.focuslock.app-debug-40:/mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "com.focuslock.app-main-42:/mipmap-xxxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.focuslock.app-debug-40:/mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "com.focuslock.app-main-42:/mipmap-xxhdpi/ic_launcher.png"
     }
 ]
