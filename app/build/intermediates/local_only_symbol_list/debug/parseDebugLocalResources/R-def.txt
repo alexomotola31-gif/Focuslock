@@ -1,0 +1,8 @@
+R_DEF: Internal format may change without notice
+local
+drawable logo
+mipmap ic_launcher
+string app_name
+string service_desc
+xml accessibility_config
+xml device_admin

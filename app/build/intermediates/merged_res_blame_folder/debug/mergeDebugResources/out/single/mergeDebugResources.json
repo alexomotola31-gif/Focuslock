@@ -1,0 +1,34 @@
+[
+    {
+        "merged": "com.focuslock.app-debug-40:/drawable-nodpi_logo.png.flat",
+        "source": "com.focuslock.app-main-42:/drawable-nodpi/logo.png"
+    },
+    {
+        "merged": "com.focuslock.app-debug-40:/xml_accessibility_config.xml.flat",
+        "source": "com.focuslock.app-main-42:/xml/accessibility_config.xml"
+    },
+    {
+        "merged": "com.focuslock.app-debug-40:/xml_device_admin.xml.flat",
+        "source": "com.focuslock.app-main-42:/xml/device_admin.xml"
+    },
+    {
+        "merged": "com.focuslock.app-debug-40:/mipmap-mdpi_ic_launcher.png.flat",
+        "source": "com.focuslock.app-main-42:/mipmap-mdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.focuslock.app-debug-40:/mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "com.focuslock.app-main-42:/mipmap-xhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.focuslock.app-debug-40:/mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "com.focuslock.app-main-42:/mipmap-xxxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.focuslock.app-debug-40:/mipmap-hdpi_ic_launcher.png.flat",
+        "source": "com.focuslock.app-main-42:/mipmap-hdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.focuslock.app-debug-40:/mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "com.focuslock.app-main-42:/mipmap-xxhdpi/ic_launcher.png"
+    }
+]
