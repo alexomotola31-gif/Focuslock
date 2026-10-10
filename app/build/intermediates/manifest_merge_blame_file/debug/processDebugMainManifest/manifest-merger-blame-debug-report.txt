@@ -62,7 +62,7 @@
 39                <action android:name="android.intent.action.MAIN" />
 39-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:6:13-65
 39-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:6:21-62
-40         )       
+40
 41                <category android:name="android.intent.category.LAUNCHER" />
 41-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:7:13-73
 41-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:7:23-70

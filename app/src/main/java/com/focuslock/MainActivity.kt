@@ -57,18 +57,14 @@ private enum class Page(val title: String, val icon: ImageVector) {
     Schedule("Schedule", Icons.Filled.DateRange)
 }
 
-private val Navy = Color(0xFF0B1430)
-private val CardBg = Color(0xFF131F45)
-private val Amber = Color(0xFFFFB020)
-private val OnAmber = Color(0xFF1A1200)
-private val FocusColors = darkColorScheme(
-    primary = Amber, onPrimary = OnAmber,
-    secondary = Color(0xFF4DA3FF), onSecondary = Color(0xFF001B3A),
-    background = Navy, onBackground = Color(0xFFE8ECF8),
-    surface = CardBg, onSurface = Color(0xFFE8ECF8),
-    surfaceVariant = Color(0xFF1B2A5C), onSurfaceVariant = Color(0xFFB4BEDC),
-    outline = Color(0xFF3A4A7A)
-)
+private val Navy: Color
+    @Composable get() = MaterialTheme.colorScheme.background
+private val CardBg: Color
+    @Composable get() = MaterialTheme.colorScheme.surface
+private val Amber: Color
+    @Composable get() = MaterialTheme.colorScheme.primary
+private val OnAmber: Color
+    @Composable get() = MaterialTheme.colorScheme.onPrimary
 
 private fun fmtTime(min: Int): String {
     val h = min / 60
@@ -85,9 +81,10 @@ class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        ThemePrefs.init(this)
         val apps = loadApps()
         setContent {
-            MaterialTheme(colorScheme = FocusColors) {
+            FocusTheme {
                 Surface(Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
                     var showSplash by remember { mutableStateOf(true) }
                     LaunchedEffect(Unit) { delay(1400); showSplash = false }
@@ -321,6 +318,7 @@ class MainActivity : ComponentActivity() {
                         SetupCard("Run in background", "Recommended. Keeps the lock running when the phone is idle.", battery, "Allow") {
                             requestBatteryExemption()
                         }
+                        AppearanceCard()
                     }
 
                     Page.Schedule -> Column(Modifier.fillMaxSize().verticalScroll(rememberScrollState())) {
