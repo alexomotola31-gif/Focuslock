@@ -87,6 +87,7 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         ThemePrefs.init(this)
+        PomodoroPrefs.init(this)
         val apps = loadApps()
         setContent {
             FocusTheme {
@@ -206,7 +207,10 @@ class MainActivity : ComponentActivity() {
                         if (active) {
                             ActiveSessionCard { active = false }
                         } else {
-                            FocusCard {
+                            ModeToggle()
+                            Spacer(Modifier.height(12.dp))
+                            if (PomodoroPrefs.enabled) { PomodoroSetupCard(); Spacer(Modifier.height(12.dp)) }
+                            if (!PomodoroPrefs.enabled) FocusCard {
                                 Text("Focus time", style = MaterialTheme.typography.labelLarge, color = MaterialTheme.colorScheme.onSurfaceVariant)
                                 Row(verticalAlignment = Alignment.Bottom) {
                                     Text(if (minutes.isEmpty()) "0" else minutes, fontSize = 56.sp, fontWeight = FontWeight.Bold, color = Amber)
@@ -238,10 +242,10 @@ class MainActivity : ComponentActivity() {
                             }
                             Spacer(Modifier.height(16.dp))
                             Button(
-                                enabled = a11y && picked.isNotEmpty() && (minutes.toLongOrNull() ?: 0) > 0,
+                                enabled = a11y && picked.isNotEmpty() && (PomodoroPrefs.enabled || (minutes.toLongOrNull() ?: 0) > 0),
                                 onClick = {
                                     shownCode = Vault.newCode(this@MainActivity)
-                                    SessionStore.start(this@MainActivity, picked, minutes.toLong() * 60_000)
+                                    if (PomodoroPrefs.enabled) Pomodoro.startRun(this@MainActivity, picked) else SessionStore.start(this@MainActivity, picked, minutes.toLong() * 60_000)
                                     active = true
                                 },
                                 shape = RoundedCornerShape(16.dp),
@@ -330,6 +334,16 @@ class MainActivity : ComponentActivity() {
                         SetupCard("Run in background", "Recommended. Keeps the lock running when the phone is idle.", battery, "Allow") {
                             requestBatteryExemption()
                         }
+                        val notifOk = remember(refresh) { androidx.core.app.NotificationManagerCompat.from(this@MainActivity).areNotificationsEnabled() }
+                        SetupCard("Notifications", "Optional. Lets FocusLock tell you when sessions, breaks and goals finish.", notifOk, "Allow") {
+                            if (android.os.Build.VERSION.SDK_INT >= 33) {
+                                androidx.core.app.ActivityCompat.requestPermissions(this@MainActivity, arrayOf("android.permission.POST_NOTIFICATIONS"), 7)
+                            } else {
+                                startActivity(Intent(Settings.ACTION_APP_NOTIFICATION_SETTINGS).putExtra(Settings.EXTRA_APP_PACKAGE, packageName))
+                            }
+                        }
+                        TextButton(onClick = { startActivity(Intent(Settings.ACTION_APP_NOTIFICATION_SETTINGS).putExtra(Settings.EXTRA_APP_PACKAGE, packageName)) }) { Text("Notification settings") }
+                        NotifSettingsCard()
                         AppearanceCard()
                     }
 

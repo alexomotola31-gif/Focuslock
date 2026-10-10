@@ -15,6 +15,7 @@ import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import kotlinx.coroutines.delay
@@ -31,23 +32,40 @@ fun ActiveSessionCard(onEnded: () -> Unit) {
     val cs = MaterialTheme.colorScheme
     var remaining by remember { mutableStateOf(0L) }
     var total by remember { mutableStateOf(1L) }
+    var info by remember { mutableStateOf<PhaseInfo?>(null) }
+    var lockBreaks by remember { mutableStateOf(true) }
     LaunchedEffect(Unit) {
         while (true) {
             val s = SessionStore.active(ctx)
             if (s == null) { onEnded(); break }
             remaining = SessionStore.remainingMs(ctx, s)
             total = SessionStore.plannedMs(ctx).coerceAtLeast(remaining).coerceAtLeast(1)
+            info = SessionStore.phase(ctx)
+            lockBreaks = SessionStore.locksBreaks(ctx)
             delay(500)
         }
     }
-    val progress = (1f - remaining.toFloat() / total.toFloat()).coerceIn(0f, 1f)
+    val i = info
+    val br = i?.isBreak == true
+    val shownRem = i?.phaseRemainingMs ?: remaining
+    val shownTotal = (i?.phaseTotalMs ?: total).coerceAtLeast(1)
+    val progress = (1f - shownRem.toFloat() / shownTotal.toFloat()).coerceIn(0f, 1f)
+    val title = if (i == null) "Session active"
+        else if (i.isBreak) (if (i.isLong) "Long break" else "Short break")
+        else "Focus ${i.focusNumber} of ${i.focusTotal}"
+    val note = when {
+        i == null -> "Your selected apps are locked until the timer ends."
+        br && !lockBreaks -> "Break: your apps are unlocked until the next focus period."
+        br -> "Break: apps stay locked. Total remaining ${clock(remaining)}."
+        else -> "Apps are locked. Total remaining ${clock(remaining)}."
+    }
     val track = cs.surfaceVariant
     val arc = cs.primary
     Column(
         Modifier.fillMaxWidth().clip(RoundedCornerShape(18.dp)).background(cs.surface).padding(20.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Text("Session active", color = cs.primary, fontWeight = FontWeight.Bold)
+        Text(title, color = cs.primary, fontWeight = FontWeight.Bold)
         Spacer(Modifier.height(14.dp))
         Box(Modifier.size(210.dp), contentAlignment = Alignment.Center) {
             Canvas(Modifier.fillMaxSize()) {
@@ -58,15 +76,23 @@ fun ActiveSessionCard(onEnded: () -> Unit) {
                 drawArc(arc, -90f, 360f * progress, false, tl, sz, style = Stroke(w, cap = StrokeCap.Round))
             }
             Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                Text(clock(remaining), fontSize = 40.sp, fontWeight = FontWeight.Bold)
-                Text("remaining", color = cs.onSurfaceVariant)
+                Text(clock(shownRem), fontSize = 40.sp, fontWeight = FontWeight.Bold)
+                Text(if (i == null) "remaining" else if (br) "break left" else "focus left", color = cs.onSurfaceVariant)
             }
         }
         Spacer(Modifier.height(12.dp))
-        Text(
-            "Your selected apps are locked until the timer ends.",
-            color = cs.onSurfaceVariant
-        )
+        Text(note, color = cs.onSurfaceVariant, textAlign = TextAlign.Center)
+        if (i != null) {
+            Spacer(Modifier.height(12.dp))
+            if (i.isBreak) {
+                Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                    OutlinedButton(onClick = { SessionStore.skipBreak(ctx) }, modifier = Modifier.weight(1f)) { Text("Skip break") }
+                    OutlinedButton(onClick = { SessionStore.finishNow(ctx) }, modifier = Modifier.weight(1f)) { Text("Finish cycle") }
+                }
+            } else if (!i.isLast) {
+                OutlinedButton(onClick = { SessionStore.finishAfterCurrent(ctx) }) { Text("Finish after this period") }
+            }
+        }
     }
 }
 

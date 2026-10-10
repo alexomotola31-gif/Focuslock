@@ -114,6 +114,8 @@ fun InsightsScreen() {
             Spacer(Modifier.height(10.dp))
             Panel {
                 Text("Daily goal reached on $reached of the last 7 days", fontWeight = FontWeight.Bold)
+                Spacer(Modifier.height(6.dp))
+                Text("Pomodoro focus periods completed: ${records.sumOf { it.cycles }}", color = cs.onSurfaceVariant)
             }
             Spacer(Modifier.height(14.dp))
 

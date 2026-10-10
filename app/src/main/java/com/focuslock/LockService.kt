@@ -18,7 +18,7 @@ class LockService : AccessibilityService() {
         val pkg = e.packageName?.toString() ?: return
         if (pkg == packageName) return // never block ourselves
         val session = SessionStore.active(this) ?: return
-        if (pkg in session.lockedApps || pkg in guarded) {
+        if ((pkg in session.lockedApps && !SessionStore.breakUnlocked(this)) || pkg in guarded) {
             startActivity(
                 Intent(this, LockActivity::class.java)
                     .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP)
