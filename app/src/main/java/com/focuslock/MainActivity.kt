@@ -11,6 +11,7 @@ import android.os.PowerManager
 import android.provider.Settings
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.activity.compose.BackHandler
 import androidx.compose.animation.Crossfade
 import androidx.compose.animation.core.*
 import androidx.compose.foundation.Image
@@ -54,7 +55,9 @@ private enum class Page(val title: String, val icon: ImageVector) {
     Home("Home", Icons.Filled.Home),
     Apps("Apps", Icons.Filled.Menu),
     Setup("Setup", Icons.Filled.Settings),
-    Schedule("Schedule", Icons.Filled.DateRange)
+    Schedule("Schedule", Icons.Filled.DateRange),
+    Insights("Insights", Icons.Filled.Menu),
+    Goals("Goals", Icons.Filled.Menu)
 }
 
 private val Navy: Color
@@ -65,6 +68,8 @@ private val Amber: Color
     @Composable get() = MaterialTheme.colorScheme.primary
 private val OnAmber: Color
     @Composable get() = MaterialTheme.colorScheme.onPrimary
+
+private fun Page.inBar() = this != Page.Insights && this != Page.Goals
 
 private fun fmtTime(min: Int): String {
     val h = min / 60
@@ -122,6 +127,7 @@ class MainActivity : ComponentActivity() {
         val battery = remember(refresh) { isBatteryExempt() }
 
         var page by remember { mutableStateOf(Page.Home) }
+        BackHandler(enabled = page == Page.Insights || page == Page.Goals) { page = Page.Home }
         var picked by remember { mutableStateOf(setOf<String>()) }
         var minutes by remember { mutableStateOf("30") }
         var query by remember { mutableStateOf("") }
@@ -168,9 +174,9 @@ class MainActivity : ComponentActivity() {
             containerColor = MaterialTheme.colorScheme.background,
             bottomBar = {
                 NavigationBar(containerColor = MaterialTheme.colorScheme.surface) {
-                    Page.values().forEach { p ->
+                    Page.values().filter { it.inBar() }.forEach { p ->
                         NavigationBarItem(
-                            selected = page == p,
+                            selected = page == p || (p == Page.Home && !page.inBar()),
                             onClick = { page = p },
                             icon = { Icon(p.icon, contentDescription = p.title) },
                             label = { Text(p.title) },
@@ -191,6 +197,11 @@ class MainActivity : ComponentActivity() {
                         Header(active)
                         Spacer(Modifier.height(18.dp))
                         DailyProgressCard(active)
+                        Spacer(Modifier.height(12.dp))
+                        Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
+                            OutlinedButton(onClick = { page = Page.Insights }, modifier = Modifier.weight(1f)) { Text("Insights") }
+                            OutlinedButton(onClick = { page = Page.Goals }, modifier = Modifier.weight(1f)) { Text("Goals") }
+                        }
                         Spacer(Modifier.height(12.dp))
                         if (active) {
                             ActiveSessionCard { active = false }
@@ -293,6 +304,9 @@ class MainActivity : ComponentActivity() {
                             }
                         }
                     }
+
+                    Page.Insights -> InsightsScreen()
+                    Page.Goals -> GoalsScreen()
 
                     Page.Setup -> Column(Modifier.fillMaxSize().verticalScroll(rememberScrollState())) {
                         Text("Setup", style = MaterialTheme.typography.headlineSmall, fontWeight = FontWeight.Bold)
