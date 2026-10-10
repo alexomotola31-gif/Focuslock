@@ -288,8 +288,15 @@ class MainActivity : ComponentActivity() {
                                 modifier = Modifier.fillMaxWidth()
                             )
                             Spacer(Modifier.height(6.dp))
-                            Text("${picked.size} selected", style = MaterialTheme.typography.labelLarge, color = MaterialTheme.colorScheme.onSurfaceVariant)
                             val shown = remember(query) { apps.filter { it.label.contains(query, ignoreCase = true) } }
+                            var savedMsg by remember { mutableStateOf(false) }
+                            LaunchedEffect(picked) { savedMsg = false }
+                            Row(verticalAlignment = Alignment.CenterVertically) {
+                                Text("${picked.size} of ${apps.size} selected", Modifier.weight(1f), style = MaterialTheme.typography.labelLarge, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                                TextButton(onClick = { picked = picked + shown.map { it.pkg } }) { Text("Select all") }
+                                TextButton(onClick = { picked = emptySet() }) { Text("Clear") }
+                            }
+                            Text("Essential system apps such as Settings, Phone and your launcher can't be locked.", style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
                             LazyColumn(Modifier.weight(1f)) {
                                 items(shown, key = { it.pkg }) { a ->
                                     val on = a.pkg in picked
@@ -308,6 +315,9 @@ class MainActivity : ComponentActivity() {
                                     }
                                 }
                             }
+                            Spacer(Modifier.height(8.dp))
+                            if (savedMsg) Text("Selection saved. ${picked.size} apps will be locked in sessions.", color = Amber, style = MaterialTheme.typography.bodySmall)
+                            Button(onClick = { PickedStore.save(this@MainActivity, picked); savedMsg = true }, shape = RoundedCornerShape(14.dp), modifier = Modifier.fillMaxWidth()) { Text("Save selection", fontWeight = FontWeight.Bold) }
                         }
                     }
 
@@ -319,6 +329,20 @@ class MainActivity : ComponentActivity() {
                         Spacer(Modifier.height(4.dp))
                         Text("Tap Enable and we'll take you straight to the right screen.", color = MaterialTheme.colorScheme.onSurfaceVariant)
                         Spacer(Modifier.height(14.dp))
+                        val protection = when {
+                            active && !a11y -> "Interrupted" to "A session is running but the accessibility service is off, so apps are NOT locked. Turn it on below."
+                            active -> "Protection active" to "Accessibility is on and your session is running."
+                            !a11y -> "Needs attention" to "Accessibility is off. Turn it on so FocusLock can lock apps."
+                            else -> "Ready" to "Everything required is on. Start a session or add a schedule."
+                        }
+                        FocusCard {
+                            Text(protection.first, style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold, color = Amber)
+                            Spacer(Modifier.height(4.dp))
+                            Text(protection.second, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                            Spacer(Modifier.height(8.dp))
+                            OutlinedButton(onClick = { tick++ }) { Text("Recheck") }
+                        }
+                        Spacer(Modifier.height(10.dp))
                         SetupCard("Accessibility service", "Required. Lets FocusLock block the apps you pick.", a11y, "Enable") {
                             showDisclosure = true
                         }
@@ -333,7 +357,7 @@ class MainActivity : ComponentActivity() {
                         SetupCard("Uninstall protection", "Stops FocusLock from being removed during a session.", admin, "Enable") {
                             requestAdmin()
                         }
-                        SetupCard("Run in background", "Recommended. Keeps the lock running when the phone is idle.", battery, "Allow") {
+                        SetupCard("Run in background", "Recommended. Opens the battery list: find FocusLock and choose Don't optimize.", battery, "Allow") {
                             requestBatteryExemption()
                         }
                         val notifOk = remember(refresh) { androidx.core.app.NotificationManagerCompat.from(this@MainActivity).areNotificationsEnabled() }
@@ -346,6 +370,13 @@ class MainActivity : ComponentActivity() {
                         }
                         TextButton(onClick = { startActivity(Intent(Settings.ACTION_APP_NOTIFICATION_SETTINGS).putExtra(Settings.EXTRA_APP_PACKAGE, packageName)) }) { Text("Notification settings") }
                         NotifSettingsCard()
+                        FocusCard {
+                            Text("Troubleshooting", style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
+                            Spacer(Modifier.height(6.dp))
+                            Text("Apps aren't being blocked: tap Recheck and make sure Accessibility shows On.\n\nAccessibility is greyed out: open App info, tap the three dots, then Allow restricted settings.\n\nLocks stop after a while: use Run in background above, and add FocusLock to any 'autostart' or 'sleeping apps' list your phone has (Xiaomi, Oppo, Vivo, Samsung).\n\nStuck in a session: use Emergency on the lock screen with your code (3 uses a day). A scheduled lock can be skipped from its lock screen.", style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                            TextButton(onClick = { openAppInfo() }) { Text("Open App info") }
+                        }
+                        Spacer(Modifier.height(10.dp))
                         AppearanceCard()
                     }
 
@@ -460,13 +491,8 @@ class MainActivity : ComponentActivity() {
 
     // Opens the system "allow in background" dialog directly; falls back to the list screen.
     private fun requestBatteryExemption() {
-        runCatching {
-            startActivity(
-                Intent(Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS, Uri.parse("package:$packageName"))
-            )
-        }.onFailure {
-            startActivity(Intent(Settings.ACTION_IGNORE_BATTERY_OPTIMIZATION_SETTINGS))
-        }
+        runCatching { startActivity(Intent(Settings.ACTION_IGNORE_BATTERY_OPTIMIZATION_SETTINGS)) }
+            .onFailure { startActivity(Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS, Uri.parse("package:$packageName"))) }
     }
 
     // App info screen: where "Allow restricted settings" lives for sideloaded apps.
@@ -477,10 +503,19 @@ class MainActivity : ComponentActivity() {
     }
 
     private fun loadApps(): List<AppInfo> {
+        val homes = packageManager.queryIntentActivities(
+            Intent(Intent.ACTION_MAIN).addCategory(Intent.CATEGORY_HOME), PackageManager.MATCH_ALL
+        ).map { it.activityInfo.packageName }.toSet()
+        val essential = setOf(
+            "com.android.settings", "com.android.phone", "com.android.dialer", "com.google.android.dialer",
+            "com.samsung.android.dialer", "com.android.systemui", "com.android.emergency",
+            "com.android.contacts", "com.google.android.contacts",
+            "com.google.android.packageinstaller", "com.android.packageinstaller", "com.samsung.android.packageinstaller"
+        )
         val i = Intent(Intent.ACTION_MAIN).addCategory(Intent.CATEGORY_LAUNCHER)
         return packageManager.queryIntentActivities(i, PackageManager.MATCH_ALL)
             .map { AppInfo(it.loadLabel(packageManager).toString(), it.activityInfo.packageName) }
-            .filter { it.pkg != packageName }
+            .filter { it.pkg != packageName && it.pkg !in homes && it.pkg !in essential }
             .distinctBy { it.pkg }
             .sortedBy { it.label.lowercase() }
     }
