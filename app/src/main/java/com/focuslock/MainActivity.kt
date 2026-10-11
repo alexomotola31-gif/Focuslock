@@ -179,7 +179,7 @@ class MainActivity : ComponentActivity() {
         NxBackground { Scaffold(
             containerColor = Color.Transparent,
             bottomBar = {
-                NavigationBar(containerColor = Color.Transparent, tonalElevation = 0.dp) {
+                NxGlassBar { NavigationBar(containerColor = Color.Transparent, tonalElevation = 0.dp) {
                     Page.values().filter { it.inBar() }.forEach { p ->
                         NavigationBarItem(
                             selected = page == p || (p == Page.Home && !page.inBar()),
@@ -194,7 +194,7 @@ class MainActivity : ComponentActivity() {
                             )
                         )
                     }
-                }
+                } }
             }
         ) { pad ->
             Box(Modifier.padding(pad).fillMaxSize().padding(16.dp)) {
@@ -312,7 +312,7 @@ class MainActivity : ComponentActivity() {
                                     Row(
                                         Modifier.fillMaxWidth().padding(vertical = 3.dp)
                                             .clip(RoundedCornerShape(14.dp))
-                                            .background(if (on) Amber.copy(alpha = 0.16f) else MaterialTheme.colorScheme.surface)
+                                            .background(if (on) Amber.copy(alpha = 0.16f) else MaterialTheme.colorScheme.onSurface.copy(alpha = 0.06f))
                                             .clickable { picked = if (on) picked - a.pkg else picked + a.pkg }
                                             .padding(horizontal = 12.dp, vertical = 8.dp),
                                         verticalAlignment = Alignment.CenterVertically
