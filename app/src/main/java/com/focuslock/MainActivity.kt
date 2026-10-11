@@ -338,6 +338,7 @@ class MainActivity : ComponentActivity() {
                         Spacer(Modifier.height(4.dp))
                         Text("Tap Enable and we'll take you straight to the right screen.", color = MaterialTheme.colorScheme.onSurfaceVariant)
                         Spacer(Modifier.height(14.dp))
+                        NxSteps(listOf(a11y, admin, battery, androidx.core.app.NotificationManagerCompat.from(this@MainActivity).areNotificationsEnabled()))
                         val protection = when {
                             active && !a11y -> "Interrupted" to "A session is running but the accessibility service is off, so apps are NOT locked. Turn it on below."
                             active -> "Protection active" to "Accessibility is on and your session is running."
@@ -366,8 +367,13 @@ class MainActivity : ComponentActivity() {
                         SetupCard("Uninstall protection", "Stops FocusLock from being removed during a session.", admin, "Enable") {
                             requestAdmin()
                         }
-                        SetupCard("Run in background", "Recommended. Opens the battery list: find FocusLock and choose Don't optimize.", battery, "Allow") {
+                        SetupCard("Run in background", "Recommended. Tap Allow, then confirm in the box that appears.", battery, "Allow") {
                             requestBatteryExemption()
+                        }
+                        if (packageManager.getLaunchIntentForPackage("com.transsion.phonemaster") != null) {
+                            SetupCard("Keep running (Tecno / Infinix)", "Open Phone Master, go to Autostart and turn FocusLock on. Also lock FocusLock in your recent apps.", false, "Open") {
+                                packageManager.getLaunchIntentForPackage("com.transsion.phonemaster")?.let { startActivity(it) }
+                            }
                         }
                         val notifOk = remember(refresh) { androidx.core.app.NotificationManagerCompat.from(this@MainActivity).areNotificationsEnabled() }
                         SetupCard("Notifications", "Optional. Lets FocusLock tell you when sessions, breaks and goals finish.", notifOk, "Allow") {
@@ -492,8 +498,11 @@ class MainActivity : ComponentActivity() {
 
     // Opens the system "allow in background" dialog directly; falls back to the list screen.
     private fun requestBatteryExemption() {
-        runCatching { startActivity(Intent(Settings.ACTION_IGNORE_BATTERY_OPTIMIZATION_SETTINGS)) }
-            .onFailure { startActivity(Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS, Uri.parse("package:$packageName"))) }
+        runCatching { startActivity(Intent(Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS, Uri.parse("package:$packageName"))) }
+            .onFailure {
+                runCatching { startActivity(Intent(Settings.ACTION_IGNORE_BATTERY_OPTIMIZATION_SETTINGS)) }
+                    .onFailure { startActivity(Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS, Uri.parse("package:$packageName"))) }
+            }
     }
 
     // App info screen: where "Allow restricted settings" lives for sideloaded apps.

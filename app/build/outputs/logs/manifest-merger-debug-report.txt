@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:2:1-55:12
-INJECTED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:2:1-55:12
-INJECTED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:2:1-55:12
-INJECTED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:2:1-55:12
+ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:2:1-56:12
+INJECTED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:2:1-56:12
+INJECTED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:2:1-56:12
+INJECTED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:2:1-56:12
 MERGED from [androidx.compose.material3:material3-android:1.2.1] /home/codespace/.gradle/caches/8.13/transforms/f8e6ae0f8e75e473d1a80a859719d0f3/transformed/material3-release/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.compose.material:material-ripple-android:1.6.8] /home/codespace/.gradle/caches/8.13/transforms/b1c533f94d581fb6d7b35e05a9e979d7/transformed/material-ripple-release/AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.compose.material:material-icons-core-android:1.6.8] /home/codespace/.gradle/caches/8.13/transforms/52a13600fc26e8f74b894ced8beb4ed4/transformed/material-icons-core-release/AndroidManifest.xml:2:1-7:12
@@ -78,9 +78,13 @@ category#android.intent.category.HOME
 ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:12:13-69
 	android:name
 		ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:12:23-66
+uses-permission#android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS
+ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:15:5-94
+	android:name
+		ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:15:22-92
 application
-ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:15:5-54:19
-INJECTED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:15:5-54:19
+ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:16:5-55:19
+INJECTED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:16:5-55:19
 MERGED from [androidx.emoji2:emoji2:1.3.0] /home/codespace/.gradle/caches/8.13/transforms/ce4c2d11f6bdc811f28ad4f64d888acd/transformed/emoji2-1.3.0/AndroidManifest.xml:23:5-33:19
 MERGED from [androidx.emoji2:emoji2:1.3.0] /home/codespace/.gradle/caches/8.13/transforms/ce4c2d11f6bdc811f28ad4f64d888acd/transformed/emoji2-1.3.0/AndroidManifest.xml:23:5-33:19
 MERGED from [androidx.core:core:1.13.1] /home/codespace/.gradle/caches/8.13/transforms/3af0dd5e90c647c9e15c3a43cff59f6b/transformed/core-1.13.1/AndroidManifest.xml:28:5-89
@@ -98,123 +102,123 @@ MERGED from [androidx.startup:startup-runtime:1.1.1] /home/codespace/.gradle/cac
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.13.1] /home/codespace/.gradle/caches/8.13/transforms/3af0dd5e90c647c9e15c3a43cff59f6b/transformed/core-1.13.1/AndroidManifest.xml:28:18-86
 	android:label
-		ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:15:93-125
+		ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:16:93-125
 	android:roundIcon
-		ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:15:53-92
+		ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:16:53-92
 	android:icon
-		ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:15:18-52
+		ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:16:18-52
 	android:theme
-		ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:15:126-189
+		ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:16:126-189
 activity#com.focuslock.MainActivity
-ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:16:9-22:20
+ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:17:9-23:20
 	android:launchMode
-		ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:16:72-102
+		ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:17:72-102
 	android:exported
-		ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:16:48-71
+		ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:17:48-71
 	android:name
-		ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:16:19-47
+		ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:17:19-47
 meta-data#android.app.shortcuts
-ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:17:13-97
+ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:18:13-97
 	android:resource
-		ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:17:61-94
+		ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:18:61-94
 	android:name
-		ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:17:24-60
+		ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:18:24-60
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:18:13-21:29
+ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:19:13-22:29
 activity#com.focuslock.LockActivity
-ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:23:9-24:81
+ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:24:9-25:81
 	android:excludeFromRecents
-		ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:24:45-78
+		ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:25:45-78
 	android:launchMode
-		ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:24:13-44
+		ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:25:13-44
 	android:exported
-		ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:23:48-72
+		ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:24:48-72
 	android:name
-		ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:23:19-47
+		ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:24:19-47
 receiver#com.focuslock.AdminReceiver
-ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:25:9-31:20
+ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:26:9-32:20
 	android:exported
-		ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:25:49-72
+		ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:26:49-72
 	android:permission
-		ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:26:13-70
+		ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:27:13-70
 	android:name
-		ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:25:19-48
+		ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:26:19-48
 meta-data#android.app.device_admin
-ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:27:13-103
+ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:28:13-103
 	android:resource
-		ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:27:64-100
+		ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:28:64-100
 	android:name
-		ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:27:24-63
+		ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:28:24-63
 intent-filter#action:name:android.app.action.DEVICE_ADMIN_ENABLED
-ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:28:13-30:29
+ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:29:13-31:29
 action#android.app.action.DEVICE_ADMIN_ENABLED
-ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:29:17-82
+ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:30:17-82
 	android:name
-		ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:29:25-79
+		ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:30:25-79
 service#com.focuslock.LockService
-ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:32:9-39:19
+ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:33:9-40:19
 	android:exported
-		ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:32:46-70
+		ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:33:46-70
 	android:permission
-		ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:33:13-79
+		ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:34:13-79
 	android:name
-		ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:32:18-45
+		ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:33:18-45
 intent-filter#action:name:android.accessibilityservice.AccessibilityService
-ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:34:13-36:29
+ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:35:13-37:29
 action#android.accessibilityservice.AccessibilityService
-ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:35:17-92
+ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:36:17-92
 	android:name
-		ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:35:25-89
+		ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:36:25-89
 meta-data#android.accessibilityservice
-ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:37:13-38:64
+ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:38:13-39:64
 	android:resource
-		ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:38:17-61
+		ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:39:17-61
 	android:name
-		ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:37:24-67
+		ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:38:24-67
 receiver#com.focuslock.PhaseReceiver
-ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:40:13-79
+ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:41:13-79
 	android:exported
-		ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:40:53-77
+		ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:41:53-77
 	android:name
-		ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:40:23-52
+		ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:41:23-52
 receiver#com.focuslock.ScheduleReceiver
-ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:41:13-47:20
+ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:42:13-48:20
 	android:exported
-		ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:41:56-79
+		ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:42:56-79
 	android:name
-		ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:41:23-55
+		ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:42:23-55
 intent-filter#action:name:android.intent.action.BOOT_COMPLETED+action:name:android.intent.action.TIMEZONE_CHANGED+action:name:android.intent.action.TIME_SET
-ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:42:13-46:29
+ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:43:13-47:29
 action#android.intent.action.BOOT_COMPLETED
-ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:43:17-78
+ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:44:17-78
 	android:name
-		ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:43:25-76
+		ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:44:25-76
 action#android.intent.action.TIMEZONE_CHANGED
-ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:44:17-80
+ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:45:17-80
 	android:name
-		ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:44:25-78
+		ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:45:25-78
 action#android.intent.action.TIME_SET
-ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:45:17-72
+ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:46:17-72
 	android:name
-		ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:45:25-70
+		ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:46:25-70
 receiver#com.focuslock.FocusWidget
-ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:48:13-53:20
+ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:49:13-54:20
 	android:exported
-		ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:48:51-75
+		ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:49:51-75
 	android:name
-		ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:48:23-50
+		ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:49:23-50
 intent-filter#action:name:android.appwidget.action.APPWIDGET_UPDATE
-ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:49:13-51:29
+ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:50:13-52:29
 action#android.appwidget.action.APPWIDGET_UPDATE
-ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:50:17-83
+ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:51:17-83
 	android:name
-		ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:50:25-81
+		ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:51:25-81
 meta-data#android.appwidget.provider
-ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:52:13-103
+ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:53:13-103
 	android:resource
-		ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:52:66-101
+		ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:53:66-101
 	android:name
-		ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:52:24-65
+		ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:53:24-65
 uses-sdk
 INJECTED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml
