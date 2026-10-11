@@ -113,20 +113,7 @@ class MainActivity : ComponentActivity() {
 
     @Composable
     private fun SplashScreen() {
-        val t = rememberInfiniteTransition(label = "splashPulse")
-        val s by t.animateFloat(1f, 1.07f, infiniteRepeatable(tween(900), RepeatMode.Reverse), label = "sp")
-        Box(Modifier.fillMaxSize().background(Navy), contentAlignment = Alignment.Center) {
-            Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                Image(
-                    painterResource(R.drawable.logo), null,
-                    Modifier.size(150.dp).graphicsLayer { scaleX = s; scaleY = s }
-                )
-                Spacer(Modifier.height(20.dp))
-                Text("FocusLock", style = MaterialTheme.typography.headlineLarge, fontWeight = FontWeight.Bold)
-                Spacer(Modifier.height(4.dp))
-                Text("Lock in. Stay focused.", color = Amber)
-            }
-        }
+        NxSplash()
     }
 
     @Composable
@@ -189,10 +176,10 @@ class MainActivity : ComponentActivity() {
             )
         }
 
-        Scaffold(
-            containerColor = MaterialTheme.colorScheme.background,
+        NxBackground { Scaffold(
+            containerColor = Color.Transparent,
             bottomBar = {
-                NavigationBar(containerColor = MaterialTheme.colorScheme.surface) {
+                NavigationBar(containerColor = Color.Transparent, tonalElevation = 0.dp) {
                     Page.values().filter { it.inBar() }.forEach { p ->
                         NavigationBarItem(
                             selected = page == p || (p == Page.Home && !page.inBar()),
@@ -268,8 +255,9 @@ class MainActivity : ComponentActivity() {
                                     if (PomodoroPrefs.enabled) Pomodoro.startRun(this@MainActivity, picked) else SessionStore.start(this@MainActivity, picked, minutes.toLong() * 60_000)
                                     active = true
                                 },
-                                shape = RoundedCornerShape(16.dp),
-                                modifier = Modifier.fillMaxWidth().height(54.dp)
+                                colors = ButtonDefaults.buttonColors(containerColor = NxColors.Blue, contentColor = Color.White, disabledContainerColor = Color.White.copy(alpha = 0.10f), disabledContentColor = NxColors.TextMuted),
+                                shape = RoundedCornerShape(50),
+                                modifier = Modifier.fillMaxWidth().height(56.dp)
                             ) {
                                 Text(
                                     when {
@@ -404,6 +392,7 @@ class MainActivity : ComponentActivity() {
                 }
             }
         }
+        }
     }
 
     @Composable
@@ -432,23 +421,12 @@ class MainActivity : ComponentActivity() {
 
     @Composable
     private fun FocusCard(content: @Composable ColumnScope.() -> Unit) {
-        Column(
-            Modifier.fillMaxWidth().clip(RoundedCornerShape(18.dp))
-                .background(MaterialTheme.colorScheme.surface).padding(16.dp),
-            content = content
-        )
+        NxGlassCard(Modifier.fillMaxWidth(), content = content)
     }
 
     @Composable
     private fun Chip(text: String, selected: Boolean, onClick: () -> Unit) {
-        Box(
-            Modifier.clip(RoundedCornerShape(50))
-                .background(if (selected) Amber else MaterialTheme.colorScheme.surfaceVariant)
-                .clickable(onClick = onClick)
-                .padding(horizontal = 16.dp, vertical = 8.dp)
-        ) {
-            Text(text, color = if (selected) OnAmber else MaterialTheme.colorScheme.onSurface, fontWeight = FontWeight.SemiBold)
-        }
+        NxChip(text, selected, onClick)
     }
 
     @Composable

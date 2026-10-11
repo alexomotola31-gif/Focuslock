@@ -6,6 +6,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -15,6 +16,7 @@ import androidx.compose.ui.draw.blur
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.luminance
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -36,8 +38,12 @@ object NxColors {
 }
 
 @Composable
+fun nxDark(): Boolean = MaterialTheme.colorScheme.background.luminance() < 0.5f
+
+@Composable
 fun NxBackground(content: @Composable BoxScope.() -> Unit) {
-    val bg = Brush.verticalGradient(listOf(NxColors.BgTop, NxColors.BgBottom))
+    val flat = MaterialTheme.colorScheme.background
+    val bg = if (nxDark()) Brush.verticalGradient(listOf(NxColors.BgTop, NxColors.BgBottom)) else Brush.verticalGradient(listOf(flat, flat))
     Box(Modifier.fillMaxSize().background(bg)) {
         Box(
             Modifier.size(320.dp).offset((-90).dp, (-60).dp)
@@ -62,8 +68,8 @@ fun NxGlassCard(
     val shape = RoundedCornerShape(radius.dp)
     Column(
         modifier.clip(shape)
-            .background(Brush.linearGradient(listOf(NxColors.GlassHi, NxColors.Glass)))
-            .border(1.dp, NxColors.GlassBorder, shape)
+            .background(if (nxDark()) Brush.linearGradient(listOf(NxColors.GlassHi, NxColors.Glass)) else Brush.linearGradient(listOf(Color.Black.copy(alpha = 0.07f), Color.Black.copy(alpha = 0.03f))))
+            .border(1.dp, if (nxDark()) NxColors.GlassBorder else Color.Black.copy(alpha = 0.12f), shape)
             .padding(20.dp),
         content = content
     )
@@ -83,15 +89,15 @@ fun NxPillButton(text: String, modifier: Modifier = Modifier, onClick: () -> Uni
 
 @Composable
 fun NxChip(text: String, selected: Boolean, onClick: () -> Unit) {
-    val fill = if (selected) NxColors.Amber.copy(alpha = 0.16f) else Color.White.copy(alpha = 0.06f)
-    val edge = if (selected) NxColors.Amber else Color.White.copy(alpha = 0.12f)
+    val fill = if (selected) NxColors.Amber.copy(alpha = 0.16f) else MaterialTheme.colorScheme.onSurface.copy(alpha = 0.08f)
+    val edge = if (selected) NxColors.Amber else MaterialTheme.colorScheme.onSurface.copy(alpha = 0.15f)
     Box(
         Modifier.clip(CircleShape).background(fill).border(1.dp, edge, CircleShape)
             .clickable(onClick = onClick).padding(horizontal = 16.dp, vertical = 10.dp)
     ) {
         Text(
             text, fontSize = 13.sp, fontWeight = FontWeight.Medium,
-            color = if (selected) NxColors.Amber else NxColors.TextSecondary
+            color = if (selected) NxColors.Amber else MaterialTheme.colorScheme.onSurfaceVariant
         )
     }
 }
