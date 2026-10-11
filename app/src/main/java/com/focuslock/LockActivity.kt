@@ -3,13 +3,19 @@ package com.focuslock
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
 import androidx.activity.addCallback
+import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import kotlinx.coroutines.delay
@@ -22,7 +28,9 @@ class LockActivity : ComponentActivity() {
         onBackPressedDispatcher.addCallback(this) { goHome() }
         setContent {
             FocusTheme {
-                Surface(Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) { LockContent() }
+                Surface(Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
+                    NxBackground { LockContent() }
+                }
             }
         }
     }
@@ -31,11 +39,12 @@ class LockActivity : ComponentActivity() {
     private fun LockContent() {
         val cs = MaterialTheme.colorScheme
         var remaining by remember { mutableStateOf(0L) }
+        var total by remember { mutableStateOf(1L) }
         var scheduled by remember { mutableStateOf(false) }
+        var untilMs by remember { mutableStateOf(0L) }
         var emergency by remember { mutableStateOf(false) }
         var input by remember { mutableStateOf("") }
         var message by remember { mutableStateOf("") }
-        var skipWait by remember { mutableStateOf(-1) }
         LaunchedEffect(Unit) {
             while (true) {
                 val s = SessionStore.active(this@LockActivity)
@@ -43,54 +52,80 @@ class LockActivity : ComponentActivity() {
                     if (SessionStore.breakUnlocked(this@LockActivity)) { finish(); break }
                     scheduled = false
                     remaining = SessionStore.remainingMs(this@LockActivity, s)
+                    total = SessionStore.plannedMs(this@LockActivity).coerceAtLeast(remaining).coerceAtLeast(1)
                 } else {
                     val w = Schedules.activeWindows(this@LockActivity)
                     if (w.isEmpty()) { finish(); break }
                     scheduled = true
-                    remaining = w.maxOf { it.second } - System.currentTimeMillis()
+                    untilMs = w.maxOf { it.second }
+                    remaining = untilMs - System.currentTimeMillis()
                 }
                 delay(1000)
             }
         }
-        LaunchedEffect(skipWait) { if (skipWait > 0) { delay(1000); skipWait -= 1 } }
         Column(
-            Modifier.fillMaxSize().safeDrawingPadding().padding(24.dp),
+            Modifier.fillMaxSize().safeDrawingPadding().padding(20.dp).verticalScroll(rememberScrollState()),
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Text(if (scheduled) "Scheduled focus lock" else "Locked", fontSize = 28.sp)
-            Spacer(Modifier.height(12.dp))
-            Text(format(remaining), fontSize = 48.sp, color = cs.primary)
-            Spacer(Modifier.height(24.dp))
-            Button(onClick = { goHome() }) { Text("Go home") }
-            Spacer(Modifier.height(16.dp))
-            if (scheduled) {
-                val left = Schedules.skipsLeft(this@LockActivity)
-                when {
-                    left <= 0 -> Text("No skips left today.", color = cs.onSurfaceVariant)
-                    skipWait < 0 -> TextButton(onClick = { skipWait = 30 }) { Text("Skip this window ($left left today)") }
-                    skipWait > 0 -> Text("Take a breath. You can confirm in ${skipWait}s.")
-                    else -> Button(onClick = { Schedules.skipActive(this@LockActivity); finish() }) { Text("Confirm skip") }
-                }
-            } else if (!emergency) {
-                TextButton(onClick = { emergency = true }) { Text("Emergency") }
-            } else {
-                OutlinedTextField(
-                    value = input, onValueChange = { if (it.length <= 6) input = it.filter(Char::isDigit) },
-                    label = { Text("6-digit code") }, singleLine = true
-                )
-                Button(enabled = input.length == 6, onClick = {
-                    when (val r = Vault.tryCode(this@LockActivity, input)) {
-                        is VaultResult.Ok -> { SessionStore.end(this@LockActivity, early = true); finish() }
-                        is VaultResult.Wrong -> message = "Wrong code. ${r.triesBeforeLockout} tries before a delay."
-                        is VaultResult.LockedOut -> message = "Too many attempts. Try again in ${r.ms / 1000}s."
-                        is VaultResult.DailyLimit -> message = "Daily emergency limit (${Vault.MAX_DAILY_USES}) reached."
-                        is VaultResult.NoSession -> finish()
+            Text(
+                if (scheduled) "SCHEDULED LOCK ACTIVE" else "MANUAL FOCUS TIMER",
+                color = cs.primary, fontSize = 12.sp, fontWeight = FontWeight.Bold, letterSpacing = 1.5.sp
+            )
+            Spacer(Modifier.height(14.dp))
+            NxGlassCard(Modifier.fillMaxWidth()) {
+                Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
+                    Text("STRICT LOCK", color = NxColors.Crimson, fontSize = 11.sp, fontWeight = FontWeight.Bold, letterSpacing = 1.2.sp)
+                    Spacer(Modifier.height(16.dp))
+                    NxRing(if (scheduled) 1f else (1f - remaining.toFloat() / total).coerceIn(0f, 1f), 190.dp) {
+                        Text("\uD83D\uDD12", fontSize = 40.sp)
                     }
-                    input = ""
-                }) { Text("Unlock") }
-                if (message.isNotEmpty()) Text(message)
+                    Spacer(Modifier.height(16.dp))
+                    Text(if (scheduled) "Locked by schedule" else "Locked", fontSize = 26.sp, fontWeight = FontWeight.Bold)
+                    if (scheduled) {
+                        Text("UNLOCKS AT ${Schedules.clockText(untilMs)}", color = cs.primary, fontSize = 12.sp, fontWeight = FontWeight.Bold, letterSpacing = 1.2.sp)
+                    }
+                    Text(format(remaining), fontSize = 48.sp, fontWeight = FontWeight.Light, color = cs.primary)
+                    Text(if (scheduled) "remaining until this lock ends" else "remaining", color = cs.onSurfaceVariant)
+                    Spacer(Modifier.height(12.dp))
+                    Text("Stay focused, you've got this.", color = cs.onSurfaceVariant, textAlign = TextAlign.Center)
+                }
             }
+            Spacer(Modifier.height(16.dp))
+            NxPillButton("Go home") { goHome() }
+            if (!scheduled) {
+                if (!emergency) {
+                    TextButton(onClick = { emergency = true }) { Text("Emergency") }
+                } else {
+                    Spacer(Modifier.height(12.dp))
+                    NxGlassCard(Modifier.fillMaxWidth()) {
+                        Text("Emergency unlock", fontSize = 18.sp, fontWeight = FontWeight.Bold)
+                        Text("Enter your 6-digit code. Limited to ${Vault.MAX_DAILY_USES} uses per day.", color = cs.onSurfaceVariant, fontSize = 13.sp)
+                        Spacer(Modifier.height(8.dp))
+                        OutlinedTextField(
+                            value = input, onValueChange = { if (it.length <= 6) input = it.filter(Char::isDigit) },
+                            label = { Text("6-digit code") }, singleLine = true,
+                            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.NumberPassword),
+                            modifier = Modifier.fillMaxWidth()
+                        )
+                        Spacer(Modifier.height(8.dp))
+                        Button(enabled = input.length == 6, modifier = Modifier.fillMaxWidth(), onClick = {
+                            when (val r = Vault.tryCode(this@LockActivity, input)) {
+                                is VaultResult.Ok -> { SessionStore.end(this@LockActivity, early = true); finish() }
+                                is VaultResult.Wrong -> message = "Wrong code. ${r.triesBeforeLockout} tries before a delay."
+                                is VaultResult.LockedOut -> message = "Too many attempts. Try again in ${r.ms / 1000}s."
+                                is VaultResult.DailyLimit -> message = "Daily emergency limit (${Vault.MAX_DAILY_USES}) reached."
+                                is VaultResult.NoSession -> finish()
+                            }
+                            input = ""
+                        }) { Text("Unlock now") }
+                        if (message.isNotEmpty()) Text(message, color = cs.error)
+                        TextButton(onClick = { emergency = false; input = ""; message = "" }) { Text("Cancel / return to focus") }
+                    }
+                }
+            }
+            Spacer(Modifier.height(16.dp))
+            Text("Phone and emergency calls are always available.", color = cs.onSurfaceVariant, fontSize = 12.sp, textAlign = TextAlign.Center)
         }
     }
 

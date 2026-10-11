@@ -382,7 +382,7 @@ class MainActivity : ComponentActivity() {
                         FocusCard {
                             Text("Troubleshooting", style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
                             Spacer(Modifier.height(6.dp))
-                            Text("Apps aren't being blocked: tap Recheck and make sure Accessibility shows On.\n\nAccessibility is greyed out: open App info, tap the three dots, then Allow restricted settings.\n\nLocks stop after a while: use Run in background above, and add FocusLock to any 'autostart' or 'sleeping apps' list your phone has (Xiaomi, Oppo, Vivo, Samsung).\n\nStuck in a session: use Emergency on the lock screen with your code (3 uses a day). A scheduled lock can be skipped from its lock screen.", style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                            Text("Apps aren't being blocked: tap Recheck and make sure Accessibility shows On.\n\nAccessibility is greyed out: open App info, tap the three dots, then Allow restricted settings.\n\nLocks stop after a while: use Run in background above, and add FocusLock to any 'autostart' or 'sleeping apps' list your phone has (Xiaomi, Oppo, Vivo, Samsung).\n\nStuck in a session: use Emergency on the lock screen with your code (3 uses a day). Scheduled locks can't be skipped and end at their set time.", style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
                             TextButton(onClick = { openAppInfo() }) { Text("Open App info") }
                         }
                         Spacer(Modifier.height(10.dp))
