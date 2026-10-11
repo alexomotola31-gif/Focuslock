@@ -218,12 +218,15 @@ class MainActivity : ComponentActivity() {
                             Spacer(Modifier.height(12.dp))
                             if (PomodoroPrefs.enabled) { PomodoroSetupCard(); Spacer(Modifier.height(12.dp)) }
                             if (!PomodoroPrefs.enabled) FocusCard {
-                                Text("Focus time", style = MaterialTheme.typography.labelLarge, color = MaterialTheme.colorScheme.onSurfaceVariant)
-                                Row(verticalAlignment = Alignment.Bottom) {
-                                    Text(if (minutes.isEmpty()) "0" else minutes, fontSize = 56.sp, fontWeight = FontWeight.Bold, color = Amber)
-                                    Spacer(Modifier.width(8.dp))
-                                    Text("minutes", Modifier.padding(bottom = 12.dp), color = MaterialTheme.colorScheme.onSurfaceVariant)
+                                Box(Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
+                                    val mins = minutes.toLongOrNull() ?: 0L
+                                    NxRing(1f, 240.dp) {
+                                        Text("FOCUS SESSION", style = MaterialTheme.typography.labelMedium, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                                        Text("%02d:%02d:00".format(mins / 60, mins % 60), fontSize = 44.sp, fontWeight = FontWeight.Light)
+                                        Text("${picked.size} apps selected", style = MaterialTheme.typography.bodySmall, color = Amber)
+                                    }
                                 }
+                                Spacer(Modifier.height(12.dp))
                                 Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                                     listOf("15", "30", "60", "90").forEach { m ->
                                         Chip("${m}m", minutes == m) { minutes = m }

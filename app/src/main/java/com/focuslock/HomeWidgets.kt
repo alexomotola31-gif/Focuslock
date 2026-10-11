@@ -61,24 +61,13 @@ fun ActiveSessionCard(onEnded: () -> Unit) {
     }
     val track = cs.surfaceVariant
     val arc = cs.primary
-    Column(
-        Modifier.fillMaxWidth().clip(RoundedCornerShape(18.dp)).background(cs.surface).padding(20.dp),
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
+    NxGlassCard(Modifier.fillMaxWidth()) {
+    Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
         Text(title, color = cs.primary, fontWeight = FontWeight.Bold)
         Spacer(Modifier.height(14.dp))
-        Box(Modifier.size(210.dp), contentAlignment = Alignment.Center) {
-            Canvas(Modifier.fillMaxSize()) {
-                val w = 16.dp.toPx()
-                val sz = Size(size.width - w, size.height - w)
-                val tl = Offset(w / 2, w / 2)
-                drawArc(track, 0f, 360f, false, tl, sz, style = Stroke(w))
-                drawArc(arc, -90f, 360f * progress, false, tl, sz, style = Stroke(w, cap = StrokeCap.Round))
-            }
-            Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                Text(clock(shownRem), fontSize = 40.sp, fontWeight = FontWeight.Bold)
-                Text(if (i == null) "remaining" else if (br) "break left" else "focus left", color = cs.onSurfaceVariant)
-            }
+        NxRing(progress, 250.dp) {
+            Text(clock(shownRem), fontSize = 44.sp, fontWeight = FontWeight.Light)
+            Text(if (i == null) "remaining" else if (br) "break left" else "focus left", color = cs.onSurfaceVariant)
         }
         Spacer(Modifier.height(12.dp))
         Text(note, color = cs.onSurfaceVariant, textAlign = TextAlign.Center)
@@ -94,6 +83,7 @@ fun ActiveSessionCard(onEnded: () -> Unit) {
             }
         }
     }
+    }
 }
 
 @Composable
@@ -103,9 +93,7 @@ fun DailyProgressCard(refreshKey: Any) {
     val doneMin = remember(refreshKey) { (HistoryStore.todayMs(ctx) / 60_000).toInt() }
     val sessions = remember(refreshKey) { HistoryStore.today(ctx).size }
     val goal = remember(refreshKey) { HistoryStore.goalMinutes(ctx) }
-    Column(
-        Modifier.fillMaxWidth().clip(RoundedCornerShape(18.dp)).background(cs.surface).padding(16.dp)
-    ) {
+    NxGlassCard(Modifier.fillMaxWidth()) {
         Text("Today", style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
         Spacer(Modifier.height(8.dp))
         Text("$doneMin of $goal min focused", color = cs.onSurfaceVariant)
