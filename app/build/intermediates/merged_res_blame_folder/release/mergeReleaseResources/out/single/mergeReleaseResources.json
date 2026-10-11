@@ -1,15 +1,15 @@
 [
     {
         "merged": "com.focuslock.app-release-41:/drawable-xxhdpi-v4_ic_call_decline_low.png.flat",
-        "source": "com.focuslock.app-core-1.13.1-21:/drawable-xxhdpi-v4/ic_call_decline_low.png"
+        "source": "com.focuslock.app-core-1.13.1-8:/drawable-xxhdpi-v4/ic_call_decline_low.png"
     },
     {
         "merged": "com.focuslock.app-release-41:/drawable-hdpi-v4_notification_oversize_large_icon_bg.png.flat",
-        "source": "com.focuslock.app-core-1.13.1-21:/drawable-hdpi-v4/notification_oversize_large_icon_bg.png"
+        "source": "com.focuslock.app-core-1.13.1-8:/drawable-hdpi-v4/notification_oversize_large_icon_bg.png"
     },
     {
         "merged": "com.focuslock.app-release-41:/drawable-ldpi-v4_ic_call_decline_low.png.flat",
-        "source": "com.focuslock.app-core-1.13.1-21:/drawable-ldpi-v4/ic_call_decline_low.png"
+        "source": "com.focuslock.app-core-1.13.1-8:/drawable-ldpi-v4/ic_call_decline_low.png"
     },
     {
         "merged": "com.focuslock.app-release-41:/mipmap-hdpi_ic_launcher.png.flat",
@@ -17,23 +17,23 @@
     },
     {
         "merged": "com.focuslock.app-release-41:/drawable-ldpi-v4_ic_call_answer_video_low.png.flat",
-        "source": "com.focuslock.app-core-1.13.1-21:/drawable-ldpi-v4/ic_call_answer_video_low.png"
+        "source": "com.focuslock.app-core-1.13.1-8:/drawable-ldpi-v4/ic_call_answer_video_low.png"
     },
     {
         "merged": "com.focuslock.app-release-41:/layout_ime_secondary_split_test_activity.xml.flat",
-        "source": "com.focuslock.app-core-1.13.1-21:/layout/ime_secondary_split_test_activity.xml"
+        "source": "com.focuslock.app-core-1.13.1-8:/layout/ime_secondary_split_test_activity.xml"
     },
     {
         "merged": "com.focuslock.app-release-41:/layout-v21_notification_action.xml.flat",
-        "source": "com.focuslock.app-core-1.13.1-21:/layout-v21/notification_action.xml"
+        "source": "com.focuslock.app-core-1.13.1-8:/layout-v21/notification_action.xml"
     },
     {
         "merged": "com.focuslock.app-release-41:/drawable-hdpi-v4_ic_call_answer_low.png.flat",
-        "source": "com.focuslock.app-core-1.13.1-21:/drawable-hdpi-v4/ic_call_answer_low.png"
+        "source": "com.focuslock.app-core-1.13.1-8:/drawable-hdpi-v4/ic_call_answer_low.png"
     },
     {
         "merged": "com.focuslock.app-release-41:/drawable-xxxhdpi-v4_ic_call_answer_low.png.flat",
-        "source": "com.focuslock.app-core-1.13.1-21:/drawable-xxxhdpi-v4/ic_call_answer_low.png"
+        "source": "com.focuslock.app-core-1.13.1-8:/drawable-xxxhdpi-v4/ic_call_answer_low.png"
     },
     {
         "merged": "com.focuslock.app-release-41:/xml_shortcuts.xml.flat",
@@ -41,7 +41,7 @@
     },
     {
         "merged": "com.focuslock.app-release-41:/drawable-hdpi-v4_ic_call_answer_video_low.png.flat",
-        "source": "com.focuslock.app-core-1.13.1-21:/drawable-hdpi-v4/ic_call_answer_video_low.png"
+        "source": "com.focuslock.app-core-1.13.1-8:/drawable-hdpi-v4/ic_call_answer_video_low.png"
     },
     {
         "merged": "com.focuslock.app-release-41:/mipmap-xxhdpi_ic_launcher.png.flat",
@@ -49,23 +49,23 @@
     },
     {
         "merged": "com.focuslock.app-release-41:/layout-v21_notification_template_custom_big.xml.flat",
-        "source": "com.focuslock.app-core-1.13.1-21:/layout-v21/notification_template_custom_big.xml"
+        "source": "com.focuslock.app-core-1.13.1-8:/layout-v21/notification_template_custom_big.xml"
     },
     {
         "merged": "com.focuslock.app-release-41:/drawable-mdpi-v4_ic_call_answer_low.png.flat",
-        "source": "com.focuslock.app-core-1.13.1-21:/drawable-mdpi-v4/ic_call_answer_low.png"
+        "source": "com.focuslock.app-core-1.13.1-8:/drawable-mdpi-v4/ic_call_answer_low.png"
     },
     {
         "merged": "com.focuslock.app-release-41:/drawable_notification_icon_background.xml.flat",
-        "source": "com.focuslock.app-core-1.13.1-21:/drawable/notification_icon_background.xml"
+        "source": "com.focuslock.app-core-1.13.1-8:/drawable/notification_icon_background.xml"
     },
     {
         "merged": "com.focuslock.app-release-41:/layout-v21_notification_template_icon_group.xml.flat",
-        "source": "com.focuslock.app-core-1.13.1-21:/layout-v21/notification_template_icon_group.xml"
+        "source": "com.focuslock.app-core-1.13.1-8:/layout-v21/notification_template_icon_group.xml"
     },
     {
         "merged": "com.focuslock.app-release-41:/drawable_notification_tile_bg.xml.flat",
-        "source": "com.focuslock.app-core-1.13.1-21:/drawable/notification_tile_bg.xml"
+        "source": "com.focuslock.app-core-1.13.1-8:/drawable/notification_tile_bg.xml"
     },
     {
         "merged": "com.focuslock.app-release-41:/drawable-nodpi_logo.png.flat",
@@ -73,31 +73,31 @@
     },
     {
         "merged": "com.focuslock.app-release-41:/drawable-mdpi-v4_ic_call_decline.png.flat",
-        "source": "com.focuslock.app-core-1.13.1-21:/drawable-mdpi-v4/ic_call_decline.png"
+        "source": "com.focuslock.app-core-1.13.1-8:/drawable-mdpi-v4/ic_call_decline.png"
     },
     {
         "merged": "com.focuslock.app-release-41:/drawable-ldpi-v4_ic_call_answer.png.flat",
-        "source": "com.focuslock.app-core-1.13.1-21:/drawable-ldpi-v4/ic_call_answer.png"
+        "source": "com.focuslock.app-core-1.13.1-8:/drawable-ldpi-v4/ic_call_answer.png"
     },
     {
         "merged": "com.focuslock.app-release-41:/drawable-xxhdpi-v4_ic_call_answer.png.flat",
-        "source": "com.focuslock.app-core-1.13.1-21:/drawable-xxhdpi-v4/ic_call_answer.png"
+        "source": "com.focuslock.app-core-1.13.1-8:/drawable-xxhdpi-v4/ic_call_answer.png"
     },
     {
         "merged": "com.focuslock.app-release-41:/drawable-anydpi-v21_ic_call_answer_video_low.xml.flat",
-        "source": "com.focuslock.app-core-1.13.1-21:/drawable-anydpi-v21/ic_call_answer_video_low.xml"
+        "source": "com.focuslock.app-core-1.13.1-8:/drawable-anydpi-v21/ic_call_answer_video_low.xml"
     },
     {
         "merged": "com.focuslock.app-release-41:/drawable-anydpi-v21_ic_call_decline_low.xml.flat",
-        "source": "com.focuslock.app-core-1.13.1-21:/drawable-anydpi-v21/ic_call_decline_low.xml"
+        "source": "com.focuslock.app-core-1.13.1-8:/drawable-anydpi-v21/ic_call_decline_low.xml"
     },
     {
         "merged": "com.focuslock.app-release-41:/drawable-xxxhdpi-v4_ic_call_answer.png.flat",
-        "source": "com.focuslock.app-core-1.13.1-21:/drawable-xxxhdpi-v4/ic_call_answer.png"
+        "source": "com.focuslock.app-core-1.13.1-8:/drawable-xxxhdpi-v4/ic_call_answer.png"
     },
     {
         "merged": "com.focuslock.app-release-41:/drawable-anydpi-v21_ic_call_answer.xml.flat",
-        "source": "com.focuslock.app-core-1.13.1-21:/drawable-anydpi-v21/ic_call_answer.xml"
+        "source": "com.focuslock.app-core-1.13.1-8:/drawable-anydpi-v21/ic_call_answer.xml"
     },
     {
         "merged": "com.focuslock.app-release-41:/xml_accessibility_config.xml.flat",
@@ -105,7 +105,7 @@
     },
     {
         "merged": "com.focuslock.app-release-41:/drawable-mdpi-v4_notification_bg_normal_pressed.9.png.flat",
-        "source": "com.focuslock.app-core-1.13.1-21:/drawable-mdpi-v4/notification_bg_normal_pressed.9.png"
+        "source": "com.focuslock.app-core-1.13.1-8:/drawable-mdpi-v4/notification_bg_normal_pressed.9.png"
     },
     {
         "merged": "com.focuslock.app-release-41:/xml_widget_info.xml.flat",
@@ -113,7 +113,7 @@
     },
     {
         "merged": "com.focuslock.app-release-41:/drawable-xxhdpi-v4_ic_call_answer_low.png.flat",
-        "source": "com.focuslock.app-core-1.13.1-21:/drawable-xxhdpi-v4/ic_call_answer_low.png"
+        "source": "com.focuslock.app-core-1.13.1-8:/drawable-xxhdpi-v4/ic_call_answer_low.png"
     },
     {
         "merged": "com.focuslock.app-release-41:/mipmap-mdpi_ic_launcher.png.flat",
@@ -121,7 +121,7 @@
     },
     {
         "merged": "com.focuslock.app-release-41:/drawable-xhdpi-v4_ic_call_answer_low.png.flat",
-        "source": "com.focuslock.app-core-1.13.1-21:/drawable-xhdpi-v4/ic_call_answer_low.png"
+        "source": "com.focuslock.app-core-1.13.1-8:/drawable-xhdpi-v4/ic_call_answer_low.png"
     },
     {
         "merged": "com.focuslock.app-release-41:/xml_device_admin.xml.flat",
@@ -129,19 +129,19 @@
     },
     {
         "merged": "com.focuslock.app-release-41:/drawable-xhdpi-v4_ic_call_answer_video.png.flat",
-        "source": "com.focuslock.app-core-1.13.1-21:/drawable-xhdpi-v4/ic_call_answer_video.png"
+        "source": "com.focuslock.app-core-1.13.1-8:/drawable-xhdpi-v4/ic_call_answer_video.png"
     },
     {
         "merged": "com.focuslock.app-release-41:/drawable-xhdpi-v4_notification_bg_normal.9.png.flat",
-        "source": "com.focuslock.app-core-1.13.1-21:/drawable-xhdpi-v4/notification_bg_normal.9.png"
+        "source": "com.focuslock.app-core-1.13.1-8:/drawable-xhdpi-v4/notification_bg_normal.9.png"
     },
     {
         "merged": "com.focuslock.app-release-41:/drawable-hdpi-v4_notification_bg_normal_pressed.9.png.flat",
-        "source": "com.focuslock.app-core-1.13.1-21:/drawable-hdpi-v4/notification_bg_normal_pressed.9.png"
+        "source": "com.focuslock.app-core-1.13.1-8:/drawable-hdpi-v4/notification_bg_normal_pressed.9.png"
     },
     {
         "merged": "com.focuslock.app-release-41:/drawable-v21_notification_action_background.xml.flat",
-        "source": "com.focuslock.app-core-1.13.1-21:/drawable-v21/notification_action_background.xml"
+        "source": "com.focuslock.app-core-1.13.1-8:/drawable-v21/notification_action_background.xml"
     },
     {
         "merged": "com.focuslock.app-release-41:/mipmap-xxxhdpi_ic_launcher.png.flat",
@@ -149,39 +149,39 @@
     },
     {
         "merged": "com.focuslock.app-release-41:/drawable-mdpi-v4_notification_bg_low_pressed.9.png.flat",
-        "source": "com.focuslock.app-core-1.13.1-21:/drawable-mdpi-v4/notification_bg_low_pressed.9.png"
+        "source": "com.focuslock.app-core-1.13.1-8:/drawable-mdpi-v4/notification_bg_low_pressed.9.png"
     },
     {
         "merged": "com.focuslock.app-release-41:/drawable-xxhdpi-v4_ic_call_answer_video_low.png.flat",
-        "source": "com.focuslock.app-core-1.13.1-21:/drawable-xxhdpi-v4/ic_call_answer_video_low.png"
+        "source": "com.focuslock.app-core-1.13.1-8:/drawable-xxhdpi-v4/ic_call_answer_video_low.png"
     },
     {
         "merged": "com.focuslock.app-release-41:/drawable-anydpi-v21_ic_call_decline.xml.flat",
-        "source": "com.focuslock.app-core-1.13.1-21:/drawable-anydpi-v21/ic_call_decline.xml"
+        "source": "com.focuslock.app-core-1.13.1-8:/drawable-anydpi-v21/ic_call_decline.xml"
     },
     {
         "merged": "com.focuslock.app-release-41:/layout_notification_template_part_chronometer.xml.flat",
-        "source": "com.focuslock.app-core-1.13.1-21:/layout/notification_template_part_chronometer.xml"
+        "source": "com.focuslock.app-core-1.13.1-8:/layout/notification_template_part_chronometer.xml"
     },
     {
         "merged": "com.focuslock.app-release-41:/drawable-hdpi-v4_notification_bg_normal.9.png.flat",
-        "source": "com.focuslock.app-core-1.13.1-21:/drawable-hdpi-v4/notification_bg_normal.9.png"
+        "source": "com.focuslock.app-core-1.13.1-8:/drawable-hdpi-v4/notification_bg_normal.9.png"
     },
     {
         "merged": "com.focuslock.app-release-41:/drawable-mdpi-v4_ic_call_decline_low.png.flat",
-        "source": "com.focuslock.app-core-1.13.1-21:/drawable-mdpi-v4/ic_call_decline_low.png"
+        "source": "com.focuslock.app-core-1.13.1-8:/drawable-mdpi-v4/ic_call_decline_low.png"
     },
     {
         "merged": "com.focuslock.app-release-41:/drawable-xxxhdpi-v4_ic_call_answer_video_low.png.flat",
-        "source": "com.focuslock.app-core-1.13.1-21:/drawable-xxxhdpi-v4/ic_call_answer_video_low.png"
+        "source": "com.focuslock.app-core-1.13.1-8:/drawable-xxxhdpi-v4/ic_call_answer_video_low.png"
     },
     {
         "merged": "com.focuslock.app-release-41:/drawable-xhdpi-v4_ic_call_decline_low.png.flat",
-        "source": "com.focuslock.app-core-1.13.1-21:/drawable-xhdpi-v4/ic_call_decline_low.png"
+        "source": "com.focuslock.app-core-1.13.1-8:/drawable-xhdpi-v4/ic_call_decline_low.png"
     },
     {
         "merged": "com.focuslock.app-release-41:/drawable-hdpi-v4_ic_call_decline.png.flat",
-        "source": "com.focuslock.app-core-1.13.1-21:/drawable-hdpi-v4/ic_call_decline.png"
+        "source": "com.focuslock.app-core-1.13.1-8:/drawable-hdpi-v4/ic_call_decline.png"
     },
     {
         "merged": "com.focuslock.app-release-41:/mipmap-xhdpi_ic_launcher.png.flat",
@@ -189,15 +189,15 @@
     },
     {
         "merged": "com.focuslock.app-release-41:/drawable-mdpi-v4_notification_bg_normal.9.png.flat",
-        "source": "com.focuslock.app-core-1.13.1-21:/drawable-mdpi-v4/notification_bg_normal.9.png"
+        "source": "com.focuslock.app-core-1.13.1-8:/drawable-mdpi-v4/notification_bg_normal.9.png"
     },
     {
         "merged": "com.focuslock.app-release-41:/color_vector_tint_color.xml.flat",
-        "source": "com.focuslock.app-ui-release-23:/color/vector_tint_color.xml"
+        "source": "com.focuslock.app-ui-release-15:/color/vector_tint_color.xml"
     },
     {
         "merged": "com.focuslock.app-release-41:/drawable-xhdpi-v4_notification_bg_normal_pressed.9.png.flat",
-        "source": "com.focuslock.app-core-1.13.1-21:/drawable-xhdpi-v4/notification_bg_normal_pressed.9.png"
+        "source": "com.focuslock.app-core-1.13.1-8:/drawable-xhdpi-v4/notification_bg_normal_pressed.9.png"
     },
     {
         "merged": "com.focuslock.app-release-41:/layout_widget_focus.xml.flat",
@@ -205,39 +205,39 @@
     },
     {
         "merged": "com.focuslock.app-release-41:/drawable-xhdpi-v4_ic_call_decline.png.flat",
-        "source": "com.focuslock.app-core-1.13.1-21:/drawable-xhdpi-v4/ic_call_decline.png"
+        "source": "com.focuslock.app-core-1.13.1-8:/drawable-xhdpi-v4/ic_call_decline.png"
     },
     {
         "merged": "com.focuslock.app-release-41:/drawable-mdpi-v4_notification_bg_low_normal.9.png.flat",
-        "source": "com.focuslock.app-core-1.13.1-21:/drawable-mdpi-v4/notification_bg_low_normal.9.png"
+        "source": "com.focuslock.app-core-1.13.1-8:/drawable-mdpi-v4/notification_bg_low_normal.9.png"
     },
     {
         "merged": "com.focuslock.app-release-41:/drawable-xhdpi-v4_notification_bg_low_pressed.9.png.flat",
-        "source": "com.focuslock.app-core-1.13.1-21:/drawable-xhdpi-v4/notification_bg_low_pressed.9.png"
+        "source": "com.focuslock.app-core-1.13.1-8:/drawable-xhdpi-v4/notification_bg_low_pressed.9.png"
     },
     {
         "merged": "com.focuslock.app-release-41:/drawable-mdpi-v4_notify_panel_notification_icon_bg.png.flat",
-        "source": "com.focuslock.app-core-1.13.1-21:/drawable-mdpi-v4/notify_panel_notification_icon_bg.png"
+        "source": "com.focuslock.app-core-1.13.1-8:/drawable-mdpi-v4/notify_panel_notification_icon_bg.png"
     },
     {
         "merged": "com.focuslock.app-release-41:/drawable-hdpi-v4_notification_bg_low_pressed.9.png.flat",
-        "source": "com.focuslock.app-core-1.13.1-21:/drawable-hdpi-v4/notification_bg_low_pressed.9.png"
+        "source": "com.focuslock.app-core-1.13.1-8:/drawable-hdpi-v4/notification_bg_low_pressed.9.png"
     },
     {
         "merged": "com.focuslock.app-release-41:/drawable-xxhdpi-v4_ic_call_answer_video.png.flat",
-        "source": "com.focuslock.app-core-1.13.1-21:/drawable-xxhdpi-v4/ic_call_answer_video.png"
+        "source": "com.focuslock.app-core-1.13.1-8:/drawable-xxhdpi-v4/ic_call_answer_video.png"
     },
     {
         "merged": "com.focuslock.app-release-41:/layout_notification_template_part_time.xml.flat",
-        "source": "com.focuslock.app-core-1.13.1-21:/layout/notification_template_part_time.xml"
+        "source": "com.focuslock.app-core-1.13.1-8:/layout/notification_template_part_time.xml"
     },
     {
         "merged": "com.focuslock.app-release-41:/drawable-mdpi-v4_ic_call_answer_video.png.flat",
-        "source": "com.focuslock.app-core-1.13.1-21:/drawable-mdpi-v4/ic_call_answer_video.png"
+        "source": "com.focuslock.app-core-1.13.1-8:/drawable-mdpi-v4/ic_call_answer_video.png"
     },
     {
         "merged": "com.focuslock.app-release-41:/drawable-xxxhdpi-v4_ic_call_decline_low.png.flat",
-        "source": "com.focuslock.app-core-1.13.1-21:/drawable-xxxhdpi-v4/ic_call_decline_low.png"
+        "source": "com.focuslock.app-core-1.13.1-8:/drawable-xxxhdpi-v4/ic_call_decline_low.png"
     },
     {
         "merged": "com.focuslock.app-release-41:/drawable_widget_bg.xml.flat",
@@ -245,102 +245,102 @@
     },
     {
         "merged": "com.focuslock.app-release-41:/drawable-hdpi-v4_ic_call_answer.png.flat",
-        "source": "com.focuslock.app-core-1.13.1-21:/drawable-hdpi-v4/ic_call_answer.png"
+        "source": "com.focuslock.app-core-1.13.1-8:/drawable-hdpi-v4/ic_call_answer.png"
     },
     {
         "merged": "com.focuslock.app-release-41:/drawable-hdpi-v4_notify_panel_notification_icon_bg.png.flat",
-        "source": "com.focuslock.app-core-1.13.1-21:/drawable-hdpi-v4/notify_panel_notification_icon_bg.png"
+        "source": "com.focuslock.app-core-1.13.1-8:/drawable-hdpi-v4/notify_panel_notification_icon_bg.png"
     },
     {
         "merged": "com.focuslock.app-release-41:/layout-v21_notification_action_tombstone.xml.flat",
-        "source": "com.focuslock.app-core-1.13.1-21:/layout-v21/notification_action_tombstone.xml"
+        "source": "com.focuslock.app-core-1.13.1-8:/layout-v21/notification_action_tombstone.xml"
     },
     {
         "merged": "com.focuslock.app-release-41:/drawable-hdpi-v4_ic_call_answer_video.png.flat",
-        "source": "com.focuslock.app-core-1.13.1-21:/drawable-hdpi-v4/ic_call_answer_video.png"
+        "source": "com.focuslock.app-core-1.13.1-8:/drawable-hdpi-v4/ic_call_answer_video.png"
     },
     {
         "merged": "com.focuslock.app-release-41:/drawable-ldpi-v4_ic_call_answer_video.png.flat",
-        "source": "com.focuslock.app-core-1.13.1-21:/drawable-ldpi-v4/ic_call_answer_video.png"
+        "source": "com.focuslock.app-core-1.13.1-8:/drawable-ldpi-v4/ic_call_answer_video.png"
     },
     {
         "merged": "com.focuslock.app-release-41:/drawable-hdpi-v4_ic_call_decline_low.png.flat",
-        "source": "com.focuslock.app-core-1.13.1-21:/drawable-hdpi-v4/ic_call_decline_low.png"
+        "source": "com.focuslock.app-core-1.13.1-8:/drawable-hdpi-v4/ic_call_decline_low.png"
     },
     {
         "merged": "com.focuslock.app-release-41:/drawable-anydpi-v21_ic_call_answer_low.xml.flat",
-        "source": "com.focuslock.app-core-1.13.1-21:/drawable-anydpi-v21/ic_call_answer_low.xml"
+        "source": "com.focuslock.app-core-1.13.1-8:/drawable-anydpi-v21/ic_call_answer_low.xml"
     },
     {
         "merged": "com.focuslock.app-release-41:/drawable_notification_bg_low.xml.flat",
-        "source": "com.focuslock.app-core-1.13.1-21:/drawable/notification_bg_low.xml"
+        "source": "com.focuslock.app-core-1.13.1-8:/drawable/notification_bg_low.xml"
     },
     {
         "merged": "com.focuslock.app-release-41:/layout_ime_base_split_test_activity.xml.flat",
-        "source": "com.focuslock.app-core-1.13.1-21:/layout/ime_base_split_test_activity.xml"
+        "source": "com.focuslock.app-core-1.13.1-8:/layout/ime_base_split_test_activity.xml"
     },
     {
         "merged": "com.focuslock.app-release-41:/layout_custom_dialog.xml.flat",
-        "source": "com.focuslock.app-core-1.13.1-21:/layout/custom_dialog.xml"
+        "source": "com.focuslock.app-core-1.13.1-8:/layout/custom_dialog.xml"
     },
     {
         "merged": "com.focuslock.app-release-41:/drawable-xhdpi-v4_ic_call_answer_video_low.png.flat",
-        "source": "com.focuslock.app-core-1.13.1-21:/drawable-xhdpi-v4/ic_call_answer_video_low.png"
+        "source": "com.focuslock.app-core-1.13.1-8:/drawable-xhdpi-v4/ic_call_answer_video_low.png"
     },
     {
         "merged": "com.focuslock.app-release-41:/drawable-mdpi-v4_ic_call_answer.png.flat",
-        "source": "com.focuslock.app-core-1.13.1-21:/drawable-mdpi-v4/ic_call_answer.png"
+        "source": "com.focuslock.app-core-1.13.1-8:/drawable-mdpi-v4/ic_call_answer.png"
     },
     {
         "merged": "com.focuslock.app-release-41:/drawable-ldpi-v4_ic_call_answer_low.png.flat",
-        "source": "com.focuslock.app-core-1.13.1-21:/drawable-ldpi-v4/ic_call_answer_low.png"
+        "source": "com.focuslock.app-core-1.13.1-8:/drawable-ldpi-v4/ic_call_answer_low.png"
     },
     {
         "merged": "com.focuslock.app-release-41:/drawable_notification_bg.xml.flat",
-        "source": "com.focuslock.app-core-1.13.1-21:/drawable/notification_bg.xml"
+        "source": "com.focuslock.app-core-1.13.1-8:/drawable/notification_bg.xml"
     },
     {
         "merged": "com.focuslock.app-release-41:/drawable-hdpi-v4_notification_bg_low_normal.9.png.flat",
-        "source": "com.focuslock.app-core-1.13.1-21:/drawable-hdpi-v4/notification_bg_low_normal.9.png"
+        "source": "com.focuslock.app-core-1.13.1-8:/drawable-hdpi-v4/notification_bg_low_normal.9.png"
     },
     {
         "merged": "com.focuslock.app-release-41:/drawable-xxhdpi-v4_ic_call_decline.png.flat",
-        "source": "com.focuslock.app-core-1.13.1-21:/drawable-xxhdpi-v4/ic_call_decline.png"
+        "source": "com.focuslock.app-core-1.13.1-8:/drawable-xxhdpi-v4/ic_call_decline.png"
     },
     {
         "merged": "com.focuslock.app-release-41:/drawable-mdpi-v4_ic_call_answer_video_low.png.flat",
-        "source": "com.focuslock.app-core-1.13.1-21:/drawable-mdpi-v4/ic_call_answer_video_low.png"
+        "source": "com.focuslock.app-core-1.13.1-8:/drawable-mdpi-v4/ic_call_answer_video_low.png"
     },
     {
         "merged": "com.focuslock.app-release-41:/color_vector_tint_theme_color.xml.flat",
-        "source": "com.focuslock.app-ui-release-23:/color/vector_tint_theme_color.xml"
+        "source": "com.focuslock.app-ui-release-15:/color/vector_tint_theme_color.xml"
     },
     {
         "merged": "com.focuslock.app-release-41:/drawable-xxxhdpi-v4_ic_call_decline.png.flat",
-        "source": "com.focuslock.app-core-1.13.1-21:/drawable-xxxhdpi-v4/ic_call_decline.png"
+        "source": "com.focuslock.app-core-1.13.1-8:/drawable-xxxhdpi-v4/ic_call_decline.png"
     },
     {
         "merged": "com.focuslock.app-release-41:/drawable-xhdpi-v4_notify_panel_notification_icon_bg.png.flat",
-        "source": "com.focuslock.app-core-1.13.1-21:/drawable-xhdpi-v4/notify_panel_notification_icon_bg.png"
+        "source": "com.focuslock.app-core-1.13.1-8:/drawable-xhdpi-v4/notify_panel_notification_icon_bg.png"
     },
     {
         "merged": "com.focuslock.app-release-41:/drawable-xhdpi-v4_ic_call_answer.png.flat",
-        "source": "com.focuslock.app-core-1.13.1-21:/drawable-xhdpi-v4/ic_call_answer.png"
+        "source": "com.focuslock.app-core-1.13.1-8:/drawable-xhdpi-v4/ic_call_answer.png"
     },
     {
         "merged": "com.focuslock.app-release-41:/drawable-xhdpi-v4_notification_bg_low_normal.9.png.flat",
-        "source": "com.focuslock.app-core-1.13.1-21:/drawable-xhdpi-v4/notification_bg_low_normal.9.png"
+        "source": "com.focuslock.app-core-1.13.1-8:/drawable-xhdpi-v4/notification_bg_low_normal.9.png"
     },
     {
         "merged": "com.focuslock.app-release-41:/drawable-xxxhdpi-v4_ic_call_answer_video.png.flat",
-        "source": "com.focuslock.app-core-1.13.1-21:/drawable-xxxhdpi-v4/ic_call_answer_video.png"
+        "source": "com.focuslock.app-core-1.13.1-8:/drawable-xxxhdpi-v4/ic_call_answer_video.png"
     },
     {
         "merged": "com.focuslock.app-release-41:/drawable-ldpi-v4_ic_call_decline.png.flat",
-        "source": "com.focuslock.app-core-1.13.1-21:/drawable-ldpi-v4/ic_call_decline.png"
+        "source": "com.focuslock.app-core-1.13.1-8:/drawable-ldpi-v4/ic_call_decline.png"
     },
     {
         "merged": "com.focuslock.app-release-41:/drawable-anydpi-v21_ic_call_answer_video.xml.flat",
-        "source": "com.focuslock.app-core-1.13.1-21:/drawable-anydpi-v21/ic_call_answer_video.xml"
+        "source": "com.focuslock.app-core-1.13.1-8:/drawable-anydpi-v21/ic_call_answer_video.xml"
     }
 ]
