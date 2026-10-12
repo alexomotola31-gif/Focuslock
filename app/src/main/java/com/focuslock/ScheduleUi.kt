@@ -48,6 +48,11 @@ fun ScheduleScreen(picked: Set<String>) {
         Spacer(Modifier.height(4.dp))
         Text("Lock apps automatically on the days and times you choose.", color = cs.onSurfaceVariant)
         Spacer(Modifier.height(14.dp))
+        NxGlassCard(Modifier.fillMaxWidth()) {
+            Text("STRICT MODE", style = MaterialTheme.typography.labelMedium, color = cs.primary, fontWeight = FontWeight.Bold)
+            Text("Scheduled locks can't be removed or skipped until their time ends.", style = MaterialTheme.typography.bodySmall, color = cs.onSurfaceVariant)
+        }
+        Spacer(Modifier.height(14.dp))
         Panel {
             Text(
                 if (editingId == null) "New schedule" else "Edit schedule",
@@ -68,7 +73,7 @@ fun ScheduleScreen(picked: Set<String>) {
                     val on = ((days shr i) and 1) == 1
                     Box(
                         Modifier.size(42.dp).clip(CircleShape)
-                            .background(if (on) cs.primary else cs.surfaceVariant)
+                            .background(if (on) cs.primary else cs.onSurface.copy(alpha = 0.10f))
                             .clickable { days = days xor (1 shl i) },
                         contentAlignment = Alignment.Center
                     ) { Text(l, color = if (on) cs.onPrimary else cs.onSurface, fontWeight = FontWeight.Bold) }

@@ -56,11 +56,7 @@ fun fmtDur(ms: Long): String {
 
 @Composable
 fun Panel(modifier: Modifier = Modifier, content: @Composable ColumnScope.() -> Unit) {
-    Column(
-        modifier.fillMaxWidth().clip(RoundedCornerShape(18.dp))
-            .background(MaterialTheme.colorScheme.surface).padding(16.dp),
-        content = content
-    )
+    NxGlassCard(modifier.fillMaxWidth(), radius = 20, content = content)
 }
 
 @Composable
