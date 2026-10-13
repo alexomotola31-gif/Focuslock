@@ -1,50 +1,50 @@
 [
     {
-        "merged": "com.focuslock.app-debug-40:/drawable-nodpi_logo.png.flat",
-        "source": "com.focuslock.app-main-42:/drawable-nodpi/logo.png"
+        "merged": "com.focuslock.app-debug-51:/xml_widget_info.xml.flat",
+        "source": "com.focuslock.app-main-53:/xml/widget_info.xml"
     },
     {
-        "merged": "com.focuslock.app-debug-40:/xml_shortcuts.xml.flat",
-        "source": "com.focuslock.app-main-42:/xml/shortcuts.xml"
+        "merged": "com.focuslock.app-debug-51:/drawable-nodpi_logo.png.flat",
+        "source": "com.focuslock.app-main-53:/drawable-nodpi/logo.png"
     },
     {
-        "merged": "com.focuslock.app-debug-40:/mipmap-mdpi_ic_launcher.png.flat",
-        "source": "com.focuslock.app-main-42:/mipmap-mdpi/ic_launcher.png"
+        "merged": "com.focuslock.app-debug-51:/mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "com.focuslock.app-main-53:/mipmap-xxhdpi/ic_launcher.png"
     },
     {
-        "merged": "com.focuslock.app-debug-40:/layout_widget_focus.xml.flat",
-        "source": "com.focuslock.app-main-42:/layout/widget_focus.xml"
+        "merged": "com.focuslock.app-debug-51:/mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "com.focuslock.app-main-53:/mipmap-xhdpi/ic_launcher.png"
     },
     {
-        "merged": "com.focuslock.app-debug-40:/mipmap-hdpi_ic_launcher.png.flat",
-        "source": "com.focuslock.app-main-42:/mipmap-hdpi/ic_launcher.png"
+        "merged": "com.focuslock.app-debug-51:/drawable_widget_bg.xml.flat",
+        "source": "com.focuslock.app-main-53:/drawable/widget_bg.xml"
     },
     {
-        "merged": "com.focuslock.app-debug-40:/xml_accessibility_config.xml.flat",
-        "source": "com.focuslock.app-main-42:/xml/accessibility_config.xml"
+        "merged": "com.focuslock.app-debug-51:/mipmap-mdpi_ic_launcher.png.flat",
+        "source": "com.focuslock.app-main-53:/mipmap-mdpi/ic_launcher.png"
     },
     {
-        "merged": "com.focuslock.app-debug-40:/xml_device_admin.xml.flat",
-        "source": "com.focuslock.app-main-42:/xml/device_admin.xml"
+        "merged": "com.focuslock.app-debug-51:/xml_device_admin.xml.flat",
+        "source": "com.focuslock.app-main-53:/xml/device_admin.xml"
     },
     {
-        "merged": "com.focuslock.app-debug-40:/mipmap-xhdpi_ic_launcher.png.flat",
-        "source": "com.focuslock.app-main-42:/mipmap-xhdpi/ic_launcher.png"
+        "merged": "com.focuslock.app-debug-51:/layout_widget_focus.xml.flat",
+        "source": "com.focuslock.app-main-53:/layout/widget_focus.xml"
     },
     {
-        "merged": "com.focuslock.app-debug-40:/drawable_widget_bg.xml.flat",
-        "source": "com.focuslock.app-main-42:/drawable/widget_bg.xml"
+        "merged": "com.focuslock.app-debug-51:/mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "com.focuslock.app-main-53:/mipmap-xxxhdpi/ic_launcher.png"
     },
     {
-        "merged": "com.focuslock.app-debug-40:/xml_widget_info.xml.flat",
-        "source": "com.focuslock.app-main-42:/xml/widget_info.xml"
+        "merged": "com.focuslock.app-debug-51:/mipmap-hdpi_ic_launcher.png.flat",
+        "source": "com.focuslock.app-main-53:/mipmap-hdpi/ic_launcher.png"
     },
     {
-        "merged": "com.focuslock.app-debug-40:/mipmap-xxxhdpi_ic_launcher.png.flat",
-        "source": "com.focuslock.app-main-42:/mipmap-xxxhdpi/ic_launcher.png"
+        "merged": "com.focuslock.app-debug-51:/xml_accessibility_config.xml.flat",
+        "source": "com.focuslock.app-main-53:/xml/accessibility_config.xml"
     },
     {
-        "merged": "com.focuslock.app-debug-40:/mipmap-xxhdpi_ic_launcher.png.flat",
-        "source": "com.focuslock.app-main-42:/mipmap-xxhdpi/ic_launcher.png"
+        "merged": "com.focuslock.app-debug-51:/xml_shortcuts.xml.flat",
+        "source": "com.focuslock.app-main-53:/xml/shortcuts.xml"
     }
 ]

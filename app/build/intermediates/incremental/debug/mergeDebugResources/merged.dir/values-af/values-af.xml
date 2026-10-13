@@ -9,9 +9,31 @@
     <string msgid="59049573811482460" name="call_notification_screening_text">"Keur tans \'n inkomende oproep"</string>
     <string msgid="406453423630273620" name="close_drawer">"Maak navigasiekieslys toe"</string>
     <string msgid="7573152094250666567" name="close_sheet">"Maak sigblad toe"</string>
+    <string msgid="2523291102206661146" name="common_google_play_services_enable_button">Aktiveer</string>
+    <string msgid="227660514972886228" name="common_google_play_services_enable_text">%1$s sal nie werk nie tensy jy Google Play Dienste aktiveer.</string>
+    <string msgid="5122002158466380389" name="common_google_play_services_enable_title">Aktiveer Google Play Dienste</string>
+    <string msgid="7153882981874058840" name="common_google_play_services_install_button">Installeer</string>
+    <string name="common_google_play_services_install_text">%1$s sal nie sonder Google Play Dienste werk nie, wat nie op jou toestel is nie.</string>
+    <string msgid="7215213145546190223" name="common_google_play_services_install_title">Kry Google Play Dienste</string>
+    <string name="common_google_play_services_notification_channel_name">Beskikbaarheid van Google Play Dienste</string>
+    <string name="common_google_play_services_notification_ticker">Google Play Services-fout</string>
+    <string name="common_google_play_services_unknown_issue">%1$s ondervind probleme met Google Play Dienste. Probeer asseblief weer.</string>
+    <string name="common_google_play_services_unsupported_text">%1$s sal nie werk sonder Google Play Dienste nie, wat nie deur jou toestel gesteun word nie.</string>
+    <string msgid="6556509956452265614" name="common_google_play_services_update_button">Dateer op</string>
+    <string msgid="9053896323427875356" name="common_google_play_services_update_text">%1$s sal nie werk nie tensy jy Google Play Dienste opdateer.</string>
+    <string msgid="6006316683626838685" name="common_google_play_services_update_title">Dateer Google Play Dienste op</string>
+    <string name="common_google_play_services_updating_text">%1$s sal nie sonder Google Play Dienste werk nie, wat tans opdateer.</string>
+    <string name="common_google_play_services_wear_update_text">Nuwe weergawe van Google Play Dienste is nodig. Dit sal binnekort self opdateer.</string>
+    <string name="common_open_on_phone">Maak oop op foon</string>
+    <string name="common_signin_button_text">Meld aan</string>
+    <string name="common_signin_button_text_long">Meld aan met Google</string>
+    <string msgid="3260749812566568062" name="copy_toast_msg">"Skakel is na knipbord gekopieer"</string>
     <string msgid="8038256446254964252" name="default_error_message">"Ongeldige invoer"</string>
     <string msgid="6312721426453364202" name="default_popup_window_title">"Opspringvenster"</string>
     <string msgid="1890207353314751437" name="dropdown_menu">"Aftrekkieslys"</string>
+    <string msgid="4566929209979330987" name="fallback_menu_item_copy_link">"Kopieer skakel"</string>
+    <string msgid="3413186855122069269" name="fallback_menu_item_open_in_browser">"Maak in blaaier oop"</string>
+    <string msgid="7145444925855055364" name="fallback_menu_item_share_link">"Deel skakel"</string>
     <string msgid="6827826412747255547" name="in_progress">"Besig"</string>
     <string msgid="7933458017204019916" name="indeterminate">"Gedeeltelik gemerk"</string>
     <string msgid="2988463736136100848" name="m3c_bottom_sheet_collapse_description">"Vou onderste blad in"</string>
@@ -70,12 +92,33 @@
     <string msgid="6616362054113087709" name="m3c_time_picker_pm">"nm."</string>
     <string msgid="1805687647081129904" name="m3c_tooltip_long_press_label">"Wys nutswenk"</string>
     <string msgid="5460405025248574620" name="m3c_tooltip_pane_description">"Nutswenk"</string>
+    <string name="native_body">Teksinhoud</string>
+    <string name="native_headline">Opskrif</string>
+    <string name="native_media_view">Media-aansig</string>
     <string msgid="542007171693138492" name="navigation_menu">"Navigasiekieslys"</string>
     <string msgid="6610465462668679431" name="not_selected">"Nie gekies nie"</string>
+    <string name="notifications_permission_confirm">Laat toe</string>
+    <string name="notifications_permission_decline">Moenie toelaat nie</string>
+    <string name="notifications_permission_title">Laat app toe om vir jou kennisgewings te stuur?</string>
     <string msgid="875452955155264703" name="off">"Af"</string>
+    <string name="offline_dialog_image_description">Ikoon</string>
+    <string name="offline_dialog_text">Dankie vir jou belangstelling.\nOns sal meer deel sodra jy weer aanlyn is.</string>
+    <string name="offline_notification_title">Jy is weer aanlyn! Kom ons gaan aan waar ons opgehou het</string>
+    <string name="offline_notification_title_with_advertiser">Jy is weer aanlyn! Hou aan om te leer oor %s</string>
+    <string name="offline_opt_in_confirm">OK</string>
+    <string name="offline_opt_in_decline">Nee, dankie</string>
+    <string name="offline_opt_in_message">Ons sal vir jou \'n kennisgewing stuur met \'n skakel na die adverteerder se werf toe.</string>
+    <string name="offline_opt_in_title">Maak advertensie oop wanneer jy weer aanlyn is.</string>
     <string msgid="8655164131929253426" name="on">"Aan"</string>
     <string msgid="5941395253238309765" name="range_end">"Eindgrens"</string>
     <string msgid="7097486360902471446" name="range_start">"Begingrens"</string>
+    <string name="s1">Stoor prent</string>
+    <string name="s2">Laat advertensie toe om prent in Prentgalery te stoor?</string>
+    <string name="s3">Aanvaar</string>
+    <string name="s4">Wys af</string>
+    <string name="s5">Skep kalendergeleentheid</string>
+    <string name="s6">Laat advertensie toe om \'n kalendergeleentheid te skep?</string>
+    <string name="s7">Toetsadvertensie</string>
     <string msgid="6043586758067023" name="selected">"Gekies"</string>
     <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
     <string msgid="2561197295334830845" name="switch_role">"Skakel oor"</string>
@@ -83,4 +126,5 @@
     <string msgid="5946805113151406391" name="template_percent">"<ns1:g id="PERCENTAGE">%1$d</ns1:g> persent."</string>
     <string msgid="3765533235322692011" name="tooltip_description">"nutswenk"</string>
     <string msgid="3124740595719787496" name="tooltip_label">"wys nutswenk"</string>
+    <string name="watermark_label_prefix">AdMob - </string>
 </resources>

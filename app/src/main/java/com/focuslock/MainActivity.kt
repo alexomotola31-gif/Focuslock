@@ -94,6 +94,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         ThemePrefs.init(this)
         FocusSound.init(this)
+        Ads.init(this)
         goTo = intent?.getStringExtra("go")
         PomodoroPrefs.init(this)
         ScheduleAlarms.rescheduleAll(this)
@@ -163,7 +164,7 @@ class MainActivity : ComponentActivity() {
                     Text(
                         "FocusLock uses Android's Accessibility Service only to detect when an app " +
                         "you chose to lock is opened, and to block it during your lock timer or schedule.\n\n" +
-                        "It does not read your screen content, passwords or messages, and no data leaves your device."
+                        "It does not read your screen content, passwords or messages, and nothing it detects is shared with anyone, including advertisers."
                     )
                 },
                 confirmButton = {
@@ -275,6 +276,8 @@ class MainActivity : ComponentActivity() {
                                 TextButton(onClick = { page = Page.Setup }) { Text("Go to Setup") }
                             }
                         }
+                        Spacer(Modifier.height(16.dp))
+                        if (Ads.ready && !active) NxAdBanner(Ads.BANNER_ID)
                     }
 
                     Page.Apps -> if (active) {

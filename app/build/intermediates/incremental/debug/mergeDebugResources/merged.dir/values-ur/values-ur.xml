@@ -9,9 +9,31 @@
     <string msgid="59049573811482460" name="call_notification_screening_text">"اِن کمنگ کال کی اسکریننگ"</string>
     <string msgid="406453423630273620" name="close_drawer">"نیویگیشن مینیو بند کریں"</string>
     <string msgid="7573152094250666567" name="close_sheet">"شیٹ بند کریں"</string>
+    <string msgid="2523291102206661146" name="common_google_play_services_enable_button">فعال کریں</string>
+    <string msgid="227660514972886228" name="common_google_play_services_enable_text">‏جب تک آپ Google Play سروسز فعال نہیں کر لیتے، %1$s کام نہیں کرے گی۔</string>
+    <string msgid="5122002158466380389" name="common_google_play_services_enable_title">‏Google Play سروسز فعال کریں</string>
+    <string msgid="7153882981874058840" name="common_google_play_services_install_button">انسٹال کریں</string>
+    <string name="common_google_play_services_install_text">‏%1$s Google Play سروسز کے بغیر نہیں چلے گی، جو آپ کے آلہ سے غائب ہیں۔</string>
+    <string msgid="7215213145546190223" name="common_google_play_services_install_title">‏Google Play سروسز حاصل کریں</string>
+    <string name="common_google_play_services_notification_channel_name">‏Google Play سروسز کی دستیابی</string>
+    <string name="common_google_play_services_notification_ticker">‏Google Play سروسز کی خرابی</string>
+    <string name="common_google_play_services_unknown_issue">‏%1$s کو Google Play سروسز کے ساتھ مسئلہ پیش آ رہا ہے۔ براہ کرم دوبارہ کوشش کریں۔</string>
+    <string name="common_google_play_services_unsupported_text">‏%1$s Google Play سروسز کے بغیر نہیں چلے گی، جن کی آپ کا آلہ معاونت نہیں کرتا۔</string>
+    <string msgid="6556509956452265614" name="common_google_play_services_update_button">اپ ڈیٹ کریں</string>
+    <string msgid="9053896323427875356" name="common_google_play_services_update_text">‏جب تک آپ Google Play سروسز اپ ڈیٹ نہیں کر لیتے ہیں %1$s تب تک نہیں چلے گی۔</string>
+    <string msgid="6006316683626838685" name="common_google_play_services_update_title">‏Google Play سروسز اپ ڈیٹ کریں</string>
+    <string name="common_google_play_services_updating_text">‏%1$s Google Play سروسز کے بغیر نہیں چلے گی، جو فی الحال اپ ڈیٹ ہو رہی ہیں۔</string>
+    <string name="common_google_play_services_wear_update_text">‏Google Play سروسز کے نئے ورژن کی ضرورت ہے۔ یہ تھوڑی دیر میں خود ہی اپنے آپ کو اپ ڈیٹ کر لے گا۔</string>
+    <string name="common_open_on_phone">فون پر کھولیں</string>
+    <string name="common_signin_button_text">سائن ان کریں</string>
+    <string name="common_signin_button_text_long">‏Google کے ساتھ سائن ان کریں</string>
+    <string msgid="3260749812566568062" name="copy_toast_msg">"لنک کلپ بورڈ پر کاپی ہو گیا"</string>
     <string msgid="8038256446254964252" name="default_error_message">"غلط ان پٹ"</string>
     <string msgid="6312721426453364202" name="default_popup_window_title">"پاپ اپ ونڈو"</string>
     <string msgid="1890207353314751437" name="dropdown_menu">"ڈراپ ڈاؤن مینیو"</string>
+    <string msgid="4566929209979330987" name="fallback_menu_item_copy_link">"لنک کاپی کریں"</string>
+    <string msgid="3413186855122069269" name="fallback_menu_item_open_in_browser">"براؤزر میں کھولیں"</string>
+    <string msgid="7145444925855055364" name="fallback_menu_item_share_link">"لنک کا اشتراک کریں"</string>
     <string msgid="6827826412747255547" name="in_progress">"پیشرفت میں"</string>
     <string msgid="7933458017204019916" name="indeterminate">"جزوی طور پر چیک کردہ"</string>
     <string msgid="2988463736136100848" name="m3c_bottom_sheet_collapse_description">"نیچے کی شیٹ کو سکیڑیں"</string>
@@ -70,12 +92,33 @@
     <string msgid="6616362054113087709" name="m3c_time_picker_pm">"PM"</string>
     <string msgid="1805687647081129904" name="m3c_tooltip_long_press_label">"ٹول ٹپ دکھائیں"</string>
     <string msgid="5460405025248574620" name="m3c_tooltip_pane_description">"ٹول ٹپ"</string>
+    <string name="native_body">نفسِ مضمون</string>
+    <string name="native_headline">ہیڈ لائن</string>
+    <string name="native_media_view">میڈیا منظر</string>
     <string msgid="542007171693138492" name="navigation_menu">"نیویگیشن مینیو"</string>
     <string msgid="6610465462668679431" name="not_selected">"غیر منتخب کردہ"</string>
+    <string name="notifications_permission_confirm">اجازت دیں</string>
+    <string name="notifications_permission_decline">اجازت نہ دیں</string>
+    <string name="notifications_permission_title">آپ کو اطلاعات بھیجنے کیلئے ایپ کو اجازت دیں؟</string>
     <string msgid="875452955155264703" name="off">"آف ہے"</string>
+    <string name="offline_dialog_image_description">آئیکن</string>
+    <string name="offline_dialog_text">‏آپ کی دلچسپی کا شکریہ۔\nآپ کے واپس آن لائن آنے کے بعد ہم مزید اشتراک کریں گے۔</string>
+    <string name="offline_notification_title">آپ دوبارہ آن لائن ہیں! آئیے، جہاں ہم نے چھوڑا تھا وہیں سے شروع کریں</string>
+    <string name="offline_notification_title_with_advertiser">آپ دوبارہ آن لائن ہیں! %s کے بارے میں جاننا جاری رکھیں</string>
+    <string name="offline_opt_in_confirm">ٹھیک ہے</string>
+    <string name="offline_opt_in_decline">نہیں شکریہ</string>
+    <string name="offline_opt_in_message">ہم آپ کو مشتہر کی سائٹ کے لنک کے ساتھ اطلاع بھیجیں گے۔</string>
+    <string name="offline_opt_in_title">آن لائن واپس آنے پر اشتہار کھولیں۔</string>
     <string msgid="8655164131929253426" name="on">"آن ہے"</string>
     <string msgid="5941395253238309765" name="range_end">"رینج کا اختتام"</string>
     <string msgid="7097486360902471446" name="range_start">"رینج کی شروعات"</string>
+    <string name="s1">تصویر محفوظ کریں</string>
+    <string name="s2">اشتہار کو تصویری گیلری میں تصویر محفوظ کرنے کی اجازت دیں؟</string>
+    <string name="s3">قبول کریں</string>
+    <string name="s4">مسترد کریں</string>
+    <string name="s5">کیلنڈر ایونٹ بنائیں</string>
+    <string name="s6">اشتہار کو ایک کیلنڈر ایونٹ بنانے کی اجازت دیں؟</string>
+    <string name="s7">اشتہار ٹیسٹ کریں</string>
     <string msgid="6043586758067023" name="selected">"منتخب کردہ"</string>
     <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"+999"</string>
     <string msgid="2561197295334830845" name="switch_role">"سوئچ"</string>
@@ -83,4 +126,5 @@
     <string msgid="5946805113151406391" name="template_percent">"<ns1:g id="PERCENTAGE">%1$d</ns1:g> فیصد۔"</string>
     <string msgid="3765533235322692011" name="tooltip_description">"ٹول ٹپ"</string>
     <string msgid="3124740595719787496" name="tooltip_label">"ٹول ٹپ دکھائیں"</string>
+    <string name="watermark_label_prefix">AdMob - ‎ </string>
 </resources>

@@ -1,8 +1,10 @@
-#Mon Oct 12 05:30:12 UTC 2026
+#Mon Oct 12 05:40:20 UTC 2026
+path.4=classes3.dex
 path.3=classes2.dex
 path.2=9/classes.dex
 path.1=0/classes.dex
 path.0=classes.dex
+base.4=/workspaces/Focuslock/app/build/intermediates/dex/debug/mergeExtDexDebug/classes3.dex
 base.3=/workspaces/Focuslock/app/build/intermediates/dex/debug/mergeExtDexDebug/classes2.dex
 base.2=/workspaces/Focuslock/app/build/intermediates/dex/debug/mergeProjectDexDebug/9/classes.dex
 base.1=/workspaces/Focuslock/app/build/intermediates/dex/debug/mergeProjectDexDebug/0/classes.dex
@@ -11,3 +13,4 @@ renamed.3=classes4.dex
 renamed.2=classes3.dex
 renamed.1=classes2.dex
 renamed.0=classes.dex
+renamed.4=classes5.dex

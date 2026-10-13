@@ -9,9 +9,31 @@
     <string msgid="59049573811482460" name="call_notification_screening_text">"Prověřování příchozího hovoru"</string>
     <string msgid="406453423630273620" name="close_drawer">"Zavřít navigační panel"</string>
     <string msgid="7573152094250666567" name="close_sheet">"Zavřít sešit"</string>
+    <string msgid="2523291102206661146" name="common_google_play_services_enable_button">Povolit</string>
+    <string msgid="227660514972886228" name="common_google_play_services_enable_text">Ke spuštění aplikace %1$s je třeba aktivovat služby Google Play.</string>
+    <string msgid="5122002158466380389" name="common_google_play_services_enable_title">Aktivace služeb Google Play</string>
+    <string msgid="7153882981874058840" name="common_google_play_services_install_button">Instalovat</string>
+    <string name="common_google_play_services_install_text">Ke spuštění aplikace %1$s jsou potřeba služby Google Play, které v zařízení nemáte.</string>
+    <string msgid="7215213145546190223" name="common_google_play_services_install_title">Instalace služeb Google Play</string>
+    <string name="common_google_play_services_notification_channel_name">Dostupnost služeb Google Play</string>
+    <string name="common_google_play_services_notification_ticker">Chyba služeb Google Play</string>
+    <string name="common_google_play_services_unknown_issue">Aplikace %1$s má potíže se službami Google Play. Zkuste to prosím znovu.</string>
+    <string name="common_google_play_services_unsupported_text">Ke spuštění aplikace %1$s jsou potřeba služby Google Play, které v tomto zařízení nejsou podporovány.</string>
+    <string msgid="6556509956452265614" name="common_google_play_services_update_button">Aktualizovat</string>
+    <string msgid="9053896323427875356" name="common_google_play_services_update_text">Ke spuštění aplikace %1$s je třeba aktualizovat služby Google Play.</string>
+    <string msgid="6006316683626838685" name="common_google_play_services_update_title">Aktualizace služeb Google Play</string>
+    <string name="common_google_play_services_updating_text">Ke spuštění aplikace %1$s jsou potřeba služby Google Play, které jsou právě aktualizovány.</string>
+    <string name="common_google_play_services_wear_update_text">Je vyžadována nová verze služeb Google Play. Nová verze se brzy sama nainstaluje.</string>
+    <string name="common_open_on_phone">Otevřít v telefonu</string>
+    <string name="common_signin_button_text">Přihlásit se</string>
+    <string name="common_signin_button_text_long">Přihlásit se k účtu Google</string>
+    <string msgid="3260749812566568062" name="copy_toast_msg">"Odkaz zkopírován do schránky"</string>
     <string msgid="8038256446254964252" name="default_error_message">"Neplatný údaj"</string>
     <string msgid="6312721426453364202" name="default_popup_window_title">"Vyskakovací okno"</string>
     <string msgid="1890207353314751437" name="dropdown_menu">"Rozbalovací nabídka"</string>
+    <string msgid="4566929209979330987" name="fallback_menu_item_copy_link">"Kopírovat odkaz"</string>
+    <string msgid="3413186855122069269" name="fallback_menu_item_open_in_browser">"Otevřít v prohlížeči"</string>
+    <string msgid="7145444925855055364" name="fallback_menu_item_share_link">"Sdílet odkaz"</string>
     <string msgid="6827826412747255547" name="in_progress">"Probíhá"</string>
     <string msgid="7933458017204019916" name="indeterminate">"Částečně zaškrtnuto"</string>
     <string msgid="2988463736136100848" name="m3c_bottom_sheet_collapse_description">"Sbalit spodní tabulku"</string>
@@ -70,12 +92,33 @@
     <string msgid="6616362054113087709" name="m3c_time_picker_pm">"PM"</string>
     <string msgid="1805687647081129904" name="m3c_tooltip_long_press_label">"Zobrazit popisek"</string>
     <string msgid="5460405025248574620" name="m3c_tooltip_pane_description">"Popisek"</string>
+    <string name="native_body">Text</string>
+    <string name="native_headline">Nadpis</string>
+    <string name="native_media_view">Zobrazení mediálního souboru</string>
     <string msgid="542007171693138492" name="navigation_menu">"Navigační nabídka"</string>
     <string msgid="6610465462668679431" name="not_selected">"Nevybráno"</string>
+    <string name="notifications_permission_confirm">Povolit</string>
+    <string name="notifications_permission_decline">Nepovolovat</string>
+    <string name="notifications_permission_title">Chcete, aby vám aplikace zasílala oznámení?</string>
     <string msgid="875452955155264703" name="off">"Vypnuto"</string>
+    <string name="offline_dialog_image_description">Ikona</string>
+    <string name="offline_dialog_text">Děkujeme za váš zájem.\nAž budete znovu online, sdělíme vám víc.</string>
+    <string name="offline_notification_title">Jste opět online. Můžete pokračovat tam, kde jste přestali.</string>
+    <string name="offline_notification_title_with_advertiser">Jste opět online. Můžete zjistit další informace na téma %s</string>
+    <string name="offline_opt_in_confirm">OK</string>
+    <string name="offline_opt_in_decline">Ne, díky</string>
+    <string name="offline_opt_in_message">Pošleme vám oznámení s odkazem na web inzerenta.</string>
+    <string name="offline_opt_in_title">Reklama se otevře, až budete znovu online.</string>
     <string msgid="8655164131929253426" name="on">"Zapnuto"</string>
     <string msgid="5941395253238309765" name="range_end">"Konec rozsahu"</string>
     <string msgid="7097486360902471446" name="range_start">"Začátek rozsahu"</string>
+    <string name="s1">Uložení obrázku</string>
+    <string name="s2">Povolit reklamě, aby uložila obrázek do galerie fotek?</string>
+    <string name="s3">Přijmout</string>
+    <string name="s4">Odmítnout</string>
+    <string name="s5">Vytvoření události kalendáře</string>
+    <string name="s6">Povolit reklamě, aby vytvořila událost kalendáře?</string>
+    <string name="s7">Zkušební reklama</string>
     <string msgid="6043586758067023" name="selected">"Vybráno"</string>
     <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
     <string msgid="2561197295334830845" name="switch_role">"Přepnout"</string>
@@ -83,4 +126,5 @@
     <string msgid="5946805113151406391" name="template_percent">"<ns1:g id="PERCENTAGE">%1$d</ns1:g> procent."</string>
     <string msgid="3765533235322692011" name="tooltip_description">"popisek"</string>
     <string msgid="3124740595719787496" name="tooltip_label">"zobrazit popisek"</string>
+    <string name="watermark_label_prefix">AdMob – </string>
 </resources>

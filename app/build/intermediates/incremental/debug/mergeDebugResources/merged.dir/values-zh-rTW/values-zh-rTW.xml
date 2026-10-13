@@ -9,9 +9,31 @@
     <string msgid="59049573811482460" name="call_notification_screening_text">"正在過濾來電"</string>
     <string msgid="406453423630273620" name="close_drawer">"關閉導覽選單"</string>
     <string msgid="7573152094250666567" name="close_sheet">"關閉功能表"</string>
+    <string msgid="2523291102206661146" name="common_google_play_services_enable_button">啟用</string>
+    <string msgid="227660514972886228" name="common_google_play_services_enable_text">您必須啟用 Google Play 服務，才能執行「%1$s」。</string>
+    <string msgid="5122002158466380389" name="common_google_play_services_enable_title">啟用 Google Play 服務</string>
+    <string msgid="7153882981874058840" name="common_google_play_services_install_button">安裝</string>
+    <string name="common_google_play_services_install_text">您的裝置並未安裝 Google Play 服務，因此無法執行「%1$s」。</string>
+    <string msgid="7215213145546190223" name="common_google_play_services_install_title">取得 Google Play 服務</string>
+    <string name="common_google_play_services_notification_channel_name">Google Play 服務可用性</string>
+    <string name="common_google_play_services_notification_ticker">Google Play 服務發生錯誤</string>
+    <string name="common_google_play_services_unknown_issue">「%1$s」無法存取 Google Play 服務，請再試一次。</string>
+    <string name="common_google_play_services_unsupported_text">您的裝置不支援 Google Play 服務，因此無法執行「%1$s」。</string>
+    <string msgid="6556509956452265614" name="common_google_play_services_update_button">更新</string>
+    <string msgid="9053896323427875356" name="common_google_play_services_update_text">您必須更新 Google Play 服務，才能執行「%1$s」。</string>
+    <string msgid="6006316683626838685" name="common_google_play_services_update_title">更新 Google Play 服務</string>
+    <string name="common_google_play_services_updating_text">執行「%1$s」所需的 Google Play 服務正在更新。</string>
+    <string name="common_google_play_services_wear_update_text">必須使用新版 Google Play 服務。該服務稍後就會自動更新。</string>
+    <string name="common_open_on_phone">在手機上開啟</string>
+    <string name="common_signin_button_text">登入</string>
+    <string name="common_signin_button_text_long">使用 Google 帳戶登入</string>
+    <string msgid="3260749812566568062" name="copy_toast_msg">"已將連結複製到剪貼簿"</string>
     <string msgid="8038256446254964252" name="default_error_message">"輸入內容無效"</string>
     <string msgid="6312721426453364202" name="default_popup_window_title">"彈出式視窗"</string>
     <string msgid="1890207353314751437" name="dropdown_menu">"下拉式選單"</string>
+    <string msgid="4566929209979330987" name="fallback_menu_item_copy_link">"複製連結"</string>
+    <string msgid="3413186855122069269" name="fallback_menu_item_open_in_browser">"在瀏覽器中開啟"</string>
+    <string msgid="7145444925855055364" name="fallback_menu_item_share_link">"分享連結"</string>
     <string msgid="6827826412747255547" name="in_progress">"處理中"</string>
     <string msgid="7933458017204019916" name="indeterminate">"部分檢查"</string>
     <string msgid="2988463736136100848" name="m3c_bottom_sheet_collapse_description">"收合底部功能表"</string>
@@ -70,12 +92,33 @@
     <string msgid="6616362054113087709" name="m3c_time_picker_pm">"下午"</string>
     <string msgid="1805687647081129904" name="m3c_tooltip_long_press_label">"顯示工具提示"</string>
     <string msgid="5460405025248574620" name="m3c_tooltip_pane_description">"工具提示"</string>
+    <string name="native_body">內文</string>
+    <string name="native_headline">標題</string>
+    <string name="native_media_view">媒體檢視</string>
     <string msgid="542007171693138492" name="navigation_menu">"導覽選單"</string>
     <string msgid="6610465462668679431" name="not_selected">"未選取"</string>
+    <string name="notifications_permission_confirm">允許</string>
+    <string name="notifications_permission_decline">不允許</string>
+    <string name="notifications_permission_title">允許應用程式傳送通知給你嗎？</string>
     <string msgid="875452955155264703" name="off">"已關閉"</string>
+    <string name="offline_dialog_image_description">圖示</string>
+    <string name="offline_dialog_text">感謝你的支持。\n我們會在你重新連上網路後提供更多資訊。</string>
+    <string name="offline_notification_title">你已重新連上網路！讓我們從上次中斷的地方繼續</string>
+    <string name="offline_notification_title_with_advertiser">你已重新連上網路！請繼續瞭解「%s」的相關資訊</string>
+    <string name="offline_opt_in_confirm">確定</string>
+    <string name="offline_opt_in_decline">不用了，謝謝</string>
+    <string name="offline_opt_in_message">我們會傳送含有廣告主網站連結的通知給你。</string>
+    <string name="offline_opt_in_title">系統會在重新連上網路後開啟廣告。</string>
     <string msgid="8655164131929253426" name="on">"已開啟"</string>
     <string msgid="5941395253238309765" name="range_end">"範圍終點"</string>
     <string msgid="7097486360902471446" name="range_start">"範圍起點"</string>
+    <string name="s1">儲存圖片</string>
+    <string name="s2">要允許廣告將圖片儲存在相片庫中嗎？</string>
+    <string name="s3">接受</string>
+    <string name="s4">拒絕</string>
+    <string name="s5">建立日曆活動</string>
+    <string name="s6">要允許廣告建立日曆活動嗎？</string>
+    <string name="s7">測試廣告</string>
     <string msgid="6043586758067023" name="selected">"已選取"</string>
     <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
     <string msgid="2561197295334830845" name="switch_role">"切換鈕"</string>
@@ -83,4 +126,5 @@
     <string msgid="5946805113151406391" name="template_percent">"百分之 <ns1:g id="PERCENTAGE">%1$d</ns1:g>。"</string>
     <string msgid="3765533235322692011" name="tooltip_description">"工具提示"</string>
     <string msgid="3124740595719787496" name="tooltip_label">"顯示工具提示"</string>
+    <string name="watermark_label_prefix">AdMob - </string>
 </resources>

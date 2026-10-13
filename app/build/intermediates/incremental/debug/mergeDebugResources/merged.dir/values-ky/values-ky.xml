@@ -9,9 +9,31 @@
     <string msgid="59049573811482460" name="call_notification_screening_text">"Кирүүчү чалууну иргөө"</string>
     <string msgid="406453423630273620" name="close_drawer">"Чабыттоо менюсун жабуу"</string>
     <string msgid="7573152094250666567" name="close_sheet">"Баракты жабуу"</string>
+    <string msgid="2523291102206661146" name="common_google_play_services_enable_button">Иштетүү</string>
+    <string msgid="227660514972886228" name="common_google_play_services_enable_text">Google Play кызматтарын иштетмейиңизче %1$s иштебейт.</string>
+    <string msgid="5122002158466380389" name="common_google_play_services_enable_title">Google Play кызматтарын иштетүү</string>
+    <string msgid="7153882981874058840" name="common_google_play_services_install_button">Орнотуу</string>
+    <string name="common_google_play_services_install_text">Google Play кызматтарысыз %1$s иштебейт. Алар түзмөгүңүздө жок болуп жатат.</string>
+    <string msgid="7215213145546190223" name="common_google_play_services_install_title">Google Play кызматтарын алуу</string>
+    <string name="common_google_play_services_notification_channel_name">Google Play кызматтарынын иштеши</string>
+    <string name="common_google_play_services_notification_ticker">Google Play кызматтарынын катасы</string>
+    <string name="common_google_play_services_unknown_issue">%1$s колдонмосунун Google Play кызматтары менен иштөөдө көйгөй чыкты. Кайталап көрүңүз.</string>
+    <string name="common_google_play_services_unsupported_text">%1$s колдонмосу сиздин түзмөгүңүздө колдоого алынбаган Google Play кызматтары болбосо иштебейт.</string>
+    <string msgid="6556509956452265614" name="common_google_play_services_update_button">Жаңыртуу</string>
+    <string msgid="9053896323427875356" name="common_google_play_services_update_text">Google Play кызматтары жаңыртылмайынча %1$s иштебейт.</string>
+    <string msgid="6006316683626838685" name="common_google_play_services_update_title">Google Play кызматтарын жаңыртуу</string>
+    <string name="common_google_play_services_updating_text">Google Play кызматтарысыз %1$s иштебейт, алар учурда жаңыртылууда.</string>
+    <string name="common_google_play_services_wear_update_text">Google Play кызматтарынын жаңы версиясы талап кылынат. Бир аздан кийин ал өзү эле жаңыртылат.</string>
+    <string name="common_open_on_phone">Телефондо ачык</string>
+    <string name="common_signin_button_text">Кирүү</string>
+    <string name="common_signin_button_text_long">Google менен кирүү</string>
+    <string msgid="3260749812566568062" name="copy_toast_msg">"Шилтеме буферге көчүрүлдү"</string>
     <string msgid="8038256446254964252" name="default_error_message">"Киргизилген маалымат жараксыз"</string>
     <string msgid="6312721426453364202" name="default_popup_window_title">"Калкыма терезе"</string>
     <string msgid="1890207353314751437" name="dropdown_menu">"Түрүлмө меню"</string>
+    <string msgid="4566929209979330987" name="fallback_menu_item_copy_link">"Шилтемени көчүрүү"</string>
+    <string msgid="3413186855122069269" name="fallback_menu_item_open_in_browser">"Серепчиден ачуу"</string>
+    <string msgid="7145444925855055364" name="fallback_menu_item_share_link">"Шилтемени бөлүшүү"</string>
     <string msgid="6827826412747255547" name="in_progress">"Аткарылууда"</string>
     <string msgid="7933458017204019916" name="indeterminate">"Жарым-жартылай текшерилди"</string>
     <string msgid="2988463736136100848" name="m3c_bottom_sheet_collapse_description">"Ылдыйкы экранды жыйыштыруу"</string>
@@ -70,12 +92,33 @@
     <string msgid="6616362054113087709" name="m3c_time_picker_pm">"түштөн кийин"</string>
     <string msgid="1805687647081129904" name="m3c_tooltip_long_press_label">"Калкып чыгуучу кеңешти көрсөтүү"</string>
     <string msgid="5460405025248574620" name="m3c_tooltip_pane_description">"Калкып чыгуучу кеңеш"</string>
+    <string name="native_body">Текст</string>
+    <string name="native_headline">Башкы сап</string>
+    <string name="native_media_view">Мультимедия борбору</string>
     <string msgid="542007171693138492" name="navigation_menu">"Чабыттоо менюсу"</string>
     <string msgid="6610465462668679431" name="not_selected">"Тандалган жок"</string>
+    <string name="notifications_permission_confirm">Уруксат берүү</string>
+    <string name="notifications_permission_decline">Тыюу салуу</string>
+    <string name="notifications_permission_title">Колдонмого билдирмелерди жөнөтүүгө уруксат бересизби?</string>
     <string msgid="875452955155264703" name="off">"Өчүк"</string>
+    <string name="offline_dialog_image_description">Сүрөтчө</string>
+    <string name="offline_dialog_text">Кызыкканыңыз үчүн рахмат.\nИнтернетке кайра туташканыңыздан кийин дагы көп бөлүшөбүз.</string>
+    <string name="offline_notification_title">Интернетке кайра туташтыңыз! Келгиле, токтогон жерден уланталы</string>
+    <string name="offline_notification_title_with_advertiser">Интернетке кайра туташтыңыз! Жарнамачы %s жөнүндө маалымат алууну улантыңыз</string>
+    <string name="offline_opt_in_confirm">ЖАРАЙТ</string>
+    <string name="offline_opt_in_decline">Жок, рахмат</string>
+    <string name="offline_opt_in_message">Сизге жарнамачынын сайтына шилтеме камтылган билдирме жөнөтөбүз.</string>
+    <string name="offline_opt_in_title">Жарнама сиз онлайн режимине кайтып келгенде ачылат.</string>
     <string msgid="8655164131929253426" name="on">"Күйүк"</string>
     <string msgid="5941395253238309765" name="range_end">"Диапазондун аягы"</string>
     <string msgid="7097486360902471446" name="range_start">"Диапазондун башы"</string>
+    <string name="s1">Сүрөттү сактоо</string>
+    <string name="s2">Жарнамадан Сүрөт галереясына сүрөт сакталсынбы?</string>
+    <string name="s3">Кабыл алуу</string>
+    <string name="s4">Баш тартуу</string>
+    <string name="s5">Жылнаама окуясын түзүү</string>
+    <string name="s6">Жарнамада жылнаама окуясы түзүлсүнбү?</string>
+    <string name="s7">Жарнаманы сынап көрүңүз</string>
     <string msgid="6043586758067023" name="selected">"Тандалды"</string>
     <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
     <string msgid="2561197295334830845" name="switch_role">"Которгуч"</string>
@@ -83,4 +126,5 @@
     <string msgid="5946805113151406391" name="template_percent">"<ns1:g id="PERCENTAGE">%1$d</ns1:g> пайыз."</string>
     <string msgid="3765533235322692011" name="tooltip_description">"калкып чыгуучу кеңеш"</string>
     <string msgid="3124740595719787496" name="tooltip_label">"калкып чыгуучу кеңешти көрсөтүү"</string>
+    <string name="watermark_label_prefix">AdMob - </string>
 </resources>

@@ -17,7 +17,7 @@ fun PrivacyCard() {
         Text("Privacy", style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
         Spacer(Modifier.height(4.dp))
         Text(
-            "FocusLock keeps everything on your phone. No account, no ads, no analytics, and no internet access.",
+            "Your focus data stays on your phone. No account and no analytics. The free version shows ads from Google AdMob, which may use your device's advertising ID.",
             style = MaterialTheme.typography.bodySmall, color = cs.onSurfaceVariant
         )
         TextButton(onClick = { open = true }) { Text("Read details") }
@@ -35,7 +35,11 @@ fun PrivacyCard() {
                             "Accessibility is used only to notice when an app you chose is opened. It does not read your " +
                             "screen, typing, passwords or messages.\n\n" +
                             "Device admin is used only to stop uninstalling during a session.\n\n" +
-                            "Nothing is sent anywhere. Uninstalling the app or clearing its storage deletes all data."
+                            "Ads: the free version shows banner ads on the Home screen only when no focus session is running, never on lock screens. " +
+                            "They are served by Google AdMob, which may collect your device's advertising ID and IP address to show and measure ads, " +
+                            "under Google's privacy policy. In Europe and the UK you are asked for consent first. " +
+                            "The apps you lock, your schedules, your sessions and anything Accessibility detects are never shared with advertisers.\n\n" +
+                            "Your focus data stays on this phone. Uninstalling the app or clearing its storage deletes it."
                     )
                 }
             },

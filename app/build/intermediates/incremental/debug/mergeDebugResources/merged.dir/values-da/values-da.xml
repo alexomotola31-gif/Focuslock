@@ -9,9 +9,31 @@
     <string msgid="59049573811482460" name="call_notification_screening_text">"Et indgående opkald screenes"</string>
     <string msgid="406453423630273620" name="close_drawer">"Luk navigationsmenuen"</string>
     <string msgid="7573152094250666567" name="close_sheet">"Luk arket"</string>
+    <string msgid="2523291102206661146" name="common_google_play_services_enable_button">Aktivér</string>
+    <string msgid="227660514972886228" name="common_google_play_services_enable_text">Du skal aktivere Google Play-tjenester, for at %1$s kan fungere.</string>
+    <string msgid="5122002158466380389" name="common_google_play_services_enable_title">Aktivér Google Play-tjenester</string>
+    <string msgid="7153882981874058840" name="common_google_play_services_install_button">Installer</string>
+    <string name="common_google_play_services_install_text">Du skal installere Google Play-tjenester, før %1$s kan køre på din enhed.</string>
+    <string msgid="7215213145546190223" name="common_google_play_services_install_title">Hent Google Play-tjenester</string>
+    <string name="common_google_play_services_notification_channel_name">Google Play-tjenesters tilgængelighed</string>
+    <string name="common_google_play_services_notification_ticker">Fejl i Google Play-tjenester</string>
+    <string name="common_google_play_services_unknown_issue">%1$s har problemer med Google Play-tjenester. Prøv igen.</string>
+    <string name="common_google_play_services_unsupported_text">%1$s fungerer ikke uden Google Play-tjenester, som ikke understøttes på din enhed.</string>
+    <string msgid="6556509956452265614" name="common_google_play_services_update_button">Opdater</string>
+    <string msgid="9053896323427875356" name="common_google_play_services_update_text">%1$s kan ikke køre, medmindre du opdaterer Google Play-tjenester.</string>
+    <string msgid="6006316683626838685" name="common_google_play_services_update_title">Opdater Google Play-tjenester</string>
+    <string name="common_google_play_services_updating_text">%1$s kan ikke køre uden Google Play-tjenester, som i øjeblikket opdateres.</string>
+    <string name="common_google_play_services_wear_update_text">Du skal bruge en ny version af Google Play-tjenester. Opdateringen gennemføres automatisk om et øjeblik.</string>
+    <string name="common_open_on_phone">Åbn på telefonen</string>
+    <string name="common_signin_button_text">Log ind</string>
+    <string name="common_signin_button_text_long">Log ind med Google</string>
+    <string msgid="3260749812566568062" name="copy_toast_msg">"Linket er kopieret til udklipsholderen"</string>
     <string msgid="8038256446254964252" name="default_error_message">"Ugyldigt input"</string>
     <string msgid="6312721426453364202" name="default_popup_window_title">"Pop op-vindue"</string>
     <string msgid="1890207353314751437" name="dropdown_menu">"Rullemenu"</string>
+    <string msgid="4566929209979330987" name="fallback_menu_item_copy_link">"Kopiér link"</string>
+    <string msgid="3413186855122069269" name="fallback_menu_item_open_in_browser">"Åbn i browser"</string>
+    <string msgid="7145444925855055364" name="fallback_menu_item_share_link">"Del link"</string>
     <string msgid="6827826412747255547" name="in_progress">"I gang"</string>
     <string msgid="7933458017204019916" name="indeterminate">"Delvist markeret"</string>
     <string msgid="2988463736136100848" name="m3c_bottom_sheet_collapse_description">"Skjul felt i bunden"</string>
@@ -70,12 +92,33 @@
     <string msgid="6616362054113087709" name="m3c_time_picker_pm">"PM"</string>
     <string msgid="1805687647081129904" name="m3c_tooltip_long_press_label">"Se værktøjstip"</string>
     <string msgid="5460405025248574620" name="m3c_tooltip_pane_description">"Værktøjstip"</string>
+    <string name="native_body">Brødtekst</string>
+    <string name="native_headline">Overskrift</string>
+    <string name="native_media_view">Medievisning</string>
     <string msgid="542007171693138492" name="navigation_menu">"Navigationsmenu"</string>
     <string msgid="6610465462668679431" name="not_selected">"Ikke valgt"</string>
+    <string name="notifications_permission_confirm">Tillad</string>
+    <string name="notifications_permission_decline">Tillad ikke</string>
+    <string name="notifications_permission_title">Vil du tillade, at appen sender dig notifikationer?</string>
     <string msgid="875452955155264703" name="off">"Fra"</string>
+    <string name="offline_dialog_image_description">Ikon</string>
+    <string name="offline_dialog_text">Tak for din interesse.\nVi deler mere, når du er online igen.</string>
+    <string name="offline_notification_title">Du er online igen Lad os fortsætte, hvor vi slap</string>
+    <string name="offline_notification_title_with_advertiser">Du er online igen Fortsæt med at få flere oplysninger om %s</string>
+    <string name="offline_opt_in_confirm">OK</string>
+    <string name="offline_opt_in_decline">Nej tak</string>
+    <string name="offline_opt_in_message">Vi sender dig en notifikation med et link til annoncørens website.</string>
+    <string name="offline_opt_in_title">Åbn annoncen, når du er online igen.</string>
     <string msgid="8655164131929253426" name="on">"Til"</string>
     <string msgid="5941395253238309765" name="range_end">"Slutinterval"</string>
     <string msgid="7097486360902471446" name="range_start">"Startinterval"</string>
+    <string name="s1">Gem billede</string>
+    <string name="s2">Vil du tillade, at annoncen gemmer billedet i Galleri?</string>
+    <string name="s3">Acceptér</string>
+    <string name="s4">Afvis</string>
+    <string name="s5">Opret kalenderbegivenhed</string>
+    <string name="s6">Vil du tillade, at annoncen opretter en kalenderbegivenhed?</string>
+    <string name="s7">Testannonce</string>
     <string msgid="6043586758067023" name="selected">"Valgt"</string>
     <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
     <string msgid="2561197295334830845" name="switch_role">"Kontakt"</string>
@@ -83,4 +126,5 @@
     <string msgid="5946805113151406391" name="template_percent">"<ns1:g id="PERCENTAGE">%1$d</ns1:g> procent."</string>
     <string msgid="3765533235322692011" name="tooltip_description">"værktøjstip"</string>
     <string msgid="3124740595719787496" name="tooltip_label">"se værktøjstip"</string>
+    <string name="watermark_label_prefix">AdMob – </string>
 </resources>

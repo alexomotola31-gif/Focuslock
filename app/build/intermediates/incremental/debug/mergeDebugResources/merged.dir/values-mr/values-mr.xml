@@ -9,9 +9,31 @@
     <string msgid="59049573811482460" name="call_notification_screening_text">"इनकमिंग कॉल स्क्रीन करत आहे"</string>
     <string msgid="406453423630273620" name="close_drawer">"नेव्हिगेशन मेनू बंद करा"</string>
     <string msgid="7573152094250666567" name="close_sheet">"शीट बंद करा"</string>
+    <string msgid="2523291102206661146" name="common_google_play_services_enable_button">सुरू करा</string>
+    <string msgid="227660514972886228" name="common_google_play_services_enable_text">तुम्ही Google Play सेवा सक्षम केल्याशिवाय %1$s हा अ‍ॅप कार्य करणार नाही.</string>
+    <string msgid="5122002158466380389" name="common_google_play_services_enable_title">Google Play सेवा सुरू करा</string>
+    <string msgid="7153882981874058840" name="common_google_play_services_install_button">स्‍थापित करा</string>
+    <string name="common_google_play_services_install_text">Google Play सेवा आपल्या डिव्हाइसवर उपलब्ध नाही, त्याशिवाय %1$s चालणार नाही.</string>
+    <string msgid="7215213145546190223" name="common_google_play_services_install_title">Google Play सेवा मिळवा</string>
+    <string name="common_google_play_services_notification_channel_name">Google Play सेवा उपलब्धता</string>
+    <string name="common_google_play_services_notification_ticker">Google Play सेवा एरर</string>
+    <string name="common_google_play_services_unknown_issue">%1$s ला Google Play सेवांमध्ये समस्या येत आहे. कृपया पुन्हा प्रयत्न करा.</string>
+    <string name="common_google_play_services_unsupported_text">तुमचे डिव्हाइस सपोर्ट करत नसलेल्या, Google Play सेवांशिवाय %1$s चालणार नाही.</string>
+    <string msgid="6556509956452265614" name="common_google_play_services_update_button">अपडेट करा</string>
+    <string msgid="9053896323427875356" name="common_google_play_services_update_text">तुम्ही Google Play सेवा अपडेट करेपर्यंत %1$s चालणार नाही.</string>
+    <string msgid="6006316683626838685" name="common_google_play_services_update_title">Google Play सेवा अपडेट करा</string>
+    <string name="common_google_play_services_updating_text">सध्‍या अपडेट होत असलेल्‍या, Google Play सेवांशिवाय %1$s चालणार नाही.</string>
+    <string name="common_google_play_services_wear_update_text">Google Play सेवांच्या नवीन आवृत्तीची आवश्यकता आहे. हे स्वत:ला लवकरच अपडेट करेल.</string>
+    <string name="common_open_on_phone">फोनवर उघडा</string>
+    <string name="common_signin_button_text">साइन इन करा</string>
+    <string name="common_signin_button_text_long">Google सह साइन इन करा</string>
+    <string msgid="3260749812566568062" name="copy_toast_msg">"लिंक क्लिपबोर्डवर कॉपी केली"</string>
     <string msgid="8038256446254964252" name="default_error_message">"इनपुट चुकीचे आहे"</string>
     <string msgid="6312721426453364202" name="default_popup_window_title">"पॉप-अप विंडो"</string>
     <string msgid="1890207353314751437" name="dropdown_menu">"ड्रॉपडाउन मेनू"</string>
+    <string msgid="4566929209979330987" name="fallback_menu_item_copy_link">"लिंक कॉपी करा"</string>
+    <string msgid="3413186855122069269" name="fallback_menu_item_open_in_browser">"ब्राउझरमध्ये उघडा"</string>
+    <string msgid="7145444925855055364" name="fallback_menu_item_share_link">"लिंक शेअर करा"</string>
     <string msgid="6827826412747255547" name="in_progress">"प्रगतीपथावर आहे"</string>
     <string msgid="7933458017204019916" name="indeterminate">"अंशतः तपासले"</string>
     <string msgid="2988463736136100848" name="m3c_bottom_sheet_collapse_description">"तळाशी असलेली शीट कोलॅप्स करा"</string>
@@ -70,12 +92,33 @@
     <string msgid="6616362054113087709" name="m3c_time_picker_pm">"PM"</string>
     <string msgid="1805687647081129904" name="m3c_tooltip_long_press_label">"टूलटिप दाखवा"</string>
     <string msgid="5460405025248574620" name="m3c_tooltip_pane_description">"टूलटिप"</string>
+    <string name="native_body">मुख्य भाग</string>
+    <string name="native_headline">ठळक शीर्षक</string>
+    <string name="native_media_view">मीडिया व्ह्यू</string>
     <string msgid="542007171693138492" name="navigation_menu">"नेव्हिगेशन मेनू"</string>
     <string msgid="6610465462668679431" name="not_selected">"निवडला नाही"</string>
+    <string name="notifications_permission_confirm">अनुमती द्या</string>
+    <string name="notifications_permission_decline">अनुमती देऊ नका</string>
+    <string name="notifications_permission_title">अ‍ॅपला तुम्हाला सूचना पाठवण्याची अनुमती द्यायची आहे का?</string>
     <string msgid="875452955155264703" name="off">"बंद आहे"</string>
+    <string name="offline_dialog_image_description">आयकन</string>
+    <string name="offline_dialog_text">तुमच्या स्वारस्याबद्दल धन्यवाद.\nतुम्ही ऑनलाइन परत आल्यानंतर आम्ही आणखी माहिती शेअर करू.</string>
+    <string name="offline_notification_title">तुम्ही परत ऑनलाइन आला आहात! आपण जिथे सोडले होते तिथून पुन्‍हा सुरू करू या</string>
+    <string name="offline_notification_title_with_advertiser">तुम्ही परत ऑनलाइन आला आहात! %s बद्दल जाणून घेणे पुढे सुरू ठेवा</string>
+    <string name="offline_opt_in_confirm">ओके</string>
+    <string name="offline_opt_in_decline">नाही, नको</string>
+    <string name="offline_opt_in_message">आम्ही तुम्हाला जाहिरातदाराच्या साइटच्या लिंकसह एक सूचना पाठवू.</string>
+    <string name="offline_opt_in_title">तुम्ही पुन्हा ऑनलाइन याल तेव्हा जाहिरात उघडा.</string>
     <string msgid="8655164131929253426" name="on">"सुरू आहे"</string>
     <string msgid="5941395253238309765" name="range_end">"रेंजचा शेवट"</string>
     <string msgid="7097486360902471446" name="range_start">"रेंजची सुरुवात"</string>
+    <string name="s1">इमेज सेव्ह करा</string>
+    <string name="s2">चित्र गॅलरीत इमेज संग्रहित करण्याची जाहिरातीस अनुमती द्यायची?</string>
+    <string name="s3">स्वीकारा</string>
+    <string name="s4">नकार द्या</string>
+    <string name="s5">कॅलेंडर इव्हेंट तयार करा</string>
+    <string name="s6">जाहिरातीस कॅलेंडर इव्हेंट तयार करण्याची परवानगी द्यायची?</string>
+    <string name="s7">चाचणी जाहिरात</string>
     <string msgid="6043586758067023" name="selected">"निवडला"</string>
     <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"९९९+"</string>
     <string msgid="2561197295334830845" name="switch_role">"स्विच"</string>
@@ -83,4 +126,5 @@
     <string msgid="5946805113151406391" name="template_percent">"<ns1:g id="PERCENTAGE">%1$d</ns1:g> टक्के."</string>
     <string msgid="3765533235322692011" name="tooltip_description">"टूलटिप"</string>
     <string msgid="3124740595719787496" name="tooltip_label">"टूलटिप दाखवा"</string>
+    <string name="watermark_label_prefix">AdMob - </string>
 </resources>
