@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101827">
+  <meta name="description" content="Focus Lock helps you set boundaries around distracting apps and make time for what matters.">
+  <title>Focus Lock — Make time for what matters</title>
+  <style>
+    :root{color-scheme:dark;--bg:#0b1120;--panel:#121c2e;--text:#f5f7fb;--muted:#b5c0d2;--accent:#8bb8ff;--line:#26344b}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 75% 0%,#1b3152 0,transparent 42%),var(--bg);color:var(--text);font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.6}
+    a{color:inherit}.wrap{width:min(1080px,92%);margin:auto}.nav{display:flex;align-items:center;justify-content:space-between;padding:22px 0;border-bottom:1px solid var(--line)}.brand{display:flex;align-items:center;gap:10px;font-weight:750;font-size:1.08rem;text-decoration:none}.logo{display:grid;place-items:center;width:38px;height:38px;border-radius:12px;background:linear-gradient(145deg,#a8ccff,#4d83db);color:#081326;font-size:20px;font-weight:900}.nav a.policy{color:var(--muted);font-size:.94rem;text-decoration:none}.hero{padding:82px 0 66px;display:grid;grid-template-columns:1.25fr .75fr;gap:44px;align-items:center}.eyebrow{display:inline-block;border:1px solid #385174;border-radius:999px;padding:5px 12px;color:#c4dcff;font-size:.82rem;letter-spacing:.04em}.hero h1{font-size:clamp(2.5rem,6vw,4.5rem);line-height:1.05;letter-spacing:-.045em;margin:18px 0}.hero p{color:var(--muted);font-size:1.12rem;max-width:590px}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}.btn{display:inline-flex;align-items:center;justify-content:center;border-radius:12px;padding:12px 18px;font-weight:700;text-decoration:none;border:1px solid var(--line)}.primary{background:var(--accent);color:#0a1425;border-color:var(--accent)}.secondary{color:var(--text);background:#131f33}.note{font-size:.84rem!important;color:#94a5bd!important;margin-top:12px}.mock{background:linear-gradient(160deg,#1b2a43,#111a2a);border:1px solid #34445e;border-radius:28px;padding:22px;box-shadow:0 24px 70px #0005;max-width:340px;width:100%;justify-self:center}.phone-top{display:flex;justify-content:space-between;color:#b9c9e0;font-size:.85rem}.mock h2{font-size:1.45rem;margin:24px 0 4px}.mock p{font-size:.9rem;color:var(--muted);margin:0 0 18px}.app-row{display:flex;align-items:center;gap:12px;padding:12px;margin:10px 0;background:#0d1626;border:1px solid #263851;border-radius:14px}.app-icon{width:38px;height:38px;border-radius:11px;background:#243b5d;display:grid;place-items:center}.app-row small{display:block;color:#aab9cd}.pill{margin-left:auto;color:#a8c9ff;font-size:.8rem}.section{padding:46px 0}.section h2{font-size:clamp(1.65rem,3vw,2.25rem);margin:0 0 10px;letter-spacing:-.025em}.section-intro{color:var(--muted);max-width:650px;margin:0 0 24px}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card{padding:22px;background:#111b2c;border:1px solid var(--line);border-radius:18px}.card .symbol{font-size:1.5rem}.card h3{margin:10px 0 6px}.card p{color:var(--muted);margin:0}.cta{margin:40px 0 62px;padding:30px;border:1px solid #344b6d;border-radius:22px;background:linear-gradient(120deg,#172944,#111a2b)}.cta p{color:var(--muted)}footer{border-top:1px solid var(--line);padding:24px 0 34px;color:var(--muted);font-size:.9rem;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}footer a{color:#c4dcff}
+    @media(max-width:720px){.hero{grid-template-columns:1fr;padding:54px 0 40px;gap:30px}.mock{justify-self:start}.cards{grid-template-columns:1fr}.nav{padding:16px 0}.cta{padding:22px}}
+  </style>
+</head>
+<body>
+  <header class="wrap nav">
+    <a class="brand" href="./" aria-label="Focus Lock home"><span class="logo">F</span><span>Focus Lock</span></a>
+    <a class="policy" href="privacy.html">Privacy Policy</a>
+  </header>
+  <main>
+    <section class="wrap hero">
+      <div>
+        <span class="eyebrow">BUILD BETTER FOCUS HABITS</span>
+        <h1>Make time for what matters.</h1>
+        <p>Focus Lock helps you set boundaries around distracting apps, so you can spend more of your time on the things you choose to do.</p>
+        <div class="actions">
+          <a class="btn primary" href="https://github.com/alexomotola31-gif/Focuslock/releases/latest">Get Focus Lock</a>
+          <a class="btn secondary" href="privacy.html">Read the Privacy Policy</a>
+        </div>
+        <p class="note">Android app. Check the release page for the latest available version.</p>
+      </div>
+      <div class="mock" aria-label="Illustration of a focus app screen">
+        <div class="phone-top"><span>9:41</span><span>● ● ●</span></div>
+        <h2>Your time. Your focus.</h2>
+        <p>Choose what gets your attention.</p>
+        <div class="app-row"><span class="app-icon">◷</span><span><strong>Focus session</strong><small>Time set by you</small></span><span class="pill">Ready</span></div>
+        <div class="app-row"><span class="app-icon">▣</span><span><strong>Selected apps</strong><small>Set your boundaries</small></span><span class="pill">Manage</span></div>
+        <div class="app-row"><span class="app-icon">✓</span><span><strong>Stay on track</strong><small>Make space for priorities</small></span></div>
+      </div>
+    </section>
+    <section class="wrap section">
+      <h2>Designed to support your focus</h2>
+      <p class="section-intro">A straightforward way to create intentional limits around the apps that compete for your attention.</p>
+      <div class="cards">
+        <article class="card"><div class="symbol">⏱</div><h3>Set a time limit</h3><p>Choose a focus duration that works for your plans and routine.</p></article>
+        <article class="card"><div class="symbol">▣</div><h3>Choose apps</h3><p>Select the apps you want to keep out of reach during a focus session.</p></article>
+        <article class="card"><div class="symbol">⌁</div><h3>Build consistency</h3><p>Use focus sessions to give your tasks, study, and rest more room.</p></article>
+      </div>
+    </section>
+    <section class="wrap cta">
+      <h2>Ready to make room for focus?</h2>
+      <p>Visit the project release page to check whether an app download is available.</p>
+      <a class="btn primary" href="https://github.com/alexomotola31-gif/Focuslock/releases/latest">View available releases</a>
+    </section>
+  </main>
+  <footer class="wrap"><span>© <span id="year">2026</span> Focus Lock</span><span><a href="privacy.html">Privacy Policy</a></span></footer>
+</body>
+</html>
