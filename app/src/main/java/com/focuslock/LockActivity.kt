@@ -21,6 +21,17 @@ import androidx.compose.ui.unit.sp
 import kotlinx.coroutines.delay
 
 class LockActivity : ComponentActivity() {
+    companion object { @Volatile var visible = false }
+    private var legit = false
+    override fun finish() { legit = true; super.finish() }
+    override fun onResume() { super.onResume(); legit = false; visible = true }
+    override fun onPause() { visible = false; super.onPause() }
+    override fun onDestroy() {
+        visible = false
+        super.onDestroy()
+        if (!legit && !isChangingConfigurations) LockService.nudge()
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         ThemePrefs.init(this)
@@ -132,6 +143,7 @@ class LockActivity : ComponentActivity() {
     }
 
     private fun goHome() {
+        legit = true
         startActivity(Intent(Intent.ACTION_MAIN).addCategory(Intent.CATEGORY_HOME)
             .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
     }

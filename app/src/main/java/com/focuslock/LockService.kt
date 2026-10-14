@@ -2,6 +2,9 @@ package com.focuslock
 
 import android.accessibilityservice.AccessibilityService
 import android.content.Intent
+import android.os.Handler
+import android.os.Looper
+import android.os.SystemClock
 import android.view.accessibility.AccessibilityEvent
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -15,32 +18,67 @@ class LockService : AccessibilityService() {
         "com.android.packageinstaller",
         "com.samsung.android.packageinstaller"
     )
+    private val handler = Handler(Looper.getMainLooper())
+    private var lastCheck = 0L
+    private var lastLaunch = 0L
 
     companion object {
         /** True only while Android really has this service connected (Settings can show ON when it is not). */
         var connected by mutableStateOf(false)
+        @Volatile private var instance: LockService? = null
+        @Volatile private var lastGuarded: String? = null
+        /** Called when the lock screen is removed (e.g. swiped from recents) without being unlocked. */
+        fun nudge() { instance?.nudgeSoon() }
     }
 
-    override fun onServiceConnected() { connected = true; enforce(rootInActiveWindow?.packageName?.toString()) }
-    override fun onUnbind(intent: Intent?): Boolean { connected = false; return super.onUnbind(intent) }
-    override fun onDestroy() { connected = false; super.onDestroy() }
+    override fun onServiceConnected() {
+        instance = this; connected = true
+        enforce(rootInActiveWindow?.packageName?.toString())
+    }
+    override fun onUnbind(intent: Intent?): Boolean { connected = false; instance = null; return super.onUnbind(intent) }
+    override fun onDestroy() { connected = false; instance = null; super.onDestroy() }
 
     override fun onAccessibilityEvent(e: AccessibilityEvent) {
-        if (e.eventType != AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED) return
-        enforce(e.packageName?.toString())
+        when (e.eventType) {
+            AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED -> enforce(e.packageName?.toString())
+            AccessibilityEvent.TYPE_WINDOW_CONTENT_CHANGED -> {
+                val now = SystemClock.elapsedRealtime()
+                if (now - lastCheck < 300) return
+                lastCheck = now
+                enforce(e.packageName?.toString())
+            }
+        }
+    }
+
+    private fun shouldLock(pkg: String): Boolean {
+        val session = SessionStore.active(this)
+        val bySession = session != null &&
+            ((pkg in session.lockedApps && !SessionStore.breakUnlocked(this)) || pkg in guarded)
+        return bySession || Schedules.isBlocked(this, pkg)
     }
 
     private fun enforce(pkg: String?) {
         if (pkg == null || pkg == packageName) return // never block ourselves
-        val session = SessionStore.active(this)
-        val bySession = session != null &&
-            ((pkg in session.lockedApps && !SessionStore.breakUnlocked(this)) || pkg in guarded)
-        if (bySession || Schedules.isBlocked(this, pkg)) {
-            startActivity(
-                Intent(this, LockActivity::class.java)
-                    .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP)
-            )
-        }
+        if (shouldLock(pkg)) { lastGuarded = pkg; showLock() }
     }
+
+    private fun showLock() {
+        if (LockActivity.visible) return
+        val now = SystemClock.elapsedRealtime()
+        if (now - lastLaunch < 500) return
+        lastLaunch = now
+        startActivity(
+            Intent(this, LockActivity::class.java)
+                .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP)
+        )
+    }
+
+    private fun nudgeSoon() {
+        handler.postDelayed({
+            val p = lastGuarded ?: return@postDelayed
+            if (shouldLock(p)) showLock()
+        }, 400)
+    }
+
     override fun onInterrupt() {}
 }
