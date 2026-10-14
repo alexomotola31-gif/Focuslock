@@ -103,7 +103,7 @@ class LockActivity : ComponentActivity() {
                         Text("Enter your 6-digit code. Limited to ${Vault.MAX_DAILY_USES} uses per day.", color = cs.onSurfaceVariant, fontSize = 13.sp)
                         Spacer(Modifier.height(8.dp))
                         OutlinedTextField(
-                            value = input, onValueChange = { if (it.length <= 6) input = it.filter(Char::isDigit) },
+                            value = input, onValueChange = { input = it.filter(Char::isDigit).take(6) },
                             label = { Text("6-digit code") }, singleLine = true,
                             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.NumberPassword),
                             modifier = Modifier.fillMaxWidth()
