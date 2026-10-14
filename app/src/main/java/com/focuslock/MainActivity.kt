@@ -120,7 +120,9 @@ class MainActivity : ComponentActivity() {
     @Composable
     private fun MainScreen(apps: List<AppInfo>) {
         val refresh = tick
-        val a11y = remember(refresh) { isAccessibilityOn() }
+        val a11yOn = remember(refresh) { isAccessibilityOn() }
+        val a11y = a11yOn && LockService.connected
+        val svcStuck = a11yOn && !LockService.connected
         val admin = remember(refresh) { isAdminOn() }
         val battery = remember(refresh) { isBatteryExempt() }
 
@@ -203,6 +205,14 @@ class MainActivity : ComponentActivity() {
                     Page.Home -> Column(Modifier.fillMaxSize().verticalScroll(rememberScrollState())) {
                         Header(active)
                         Spacer(Modifier.height(18.dp))
+                        if (svcStuck) {
+                            FocusCard {
+                                Text("Lock service not running", fontWeight = FontWeight.Bold, color = Amber)
+                                Text("Android shows it as on, but it is not connected, so apps will NOT be locked. Open Setup, turn FocusLock off and on in Accessibility, then tap Recheck.")
+                                TextButton(onClick = { page = Page.Setup }) { Text("Open Setup") }
+                            }
+                            Spacer(Modifier.height(12.dp))
+                        }
                         DailyProgressCard(active)
                         Spacer(Modifier.height(12.dp))
                         Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {

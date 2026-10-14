@@ -110,12 +110,14 @@ class LockActivity : ComponentActivity() {
                         )
                         Spacer(Modifier.height(8.dp))
                         Button(enabled = input.length == 6, modifier = Modifier.fillMaxWidth(), onClick = {
-                            when (val r = Vault.tryCode(this@LockActivity, input)) {
+                            val r = try { Vault.tryCode(this@LockActivity, input) } catch (e: Exception) { null }
+                            when (r) {
+                                null -> message = "Could not check the code. Try again."
                                 is VaultResult.Ok -> { SessionStore.end(this@LockActivity, early = true); finish() }
                                 is VaultResult.Wrong -> message = "Wrong code. ${r.triesBeforeLockout} tries before a delay."
                                 is VaultResult.LockedOut -> message = "Too many attempts. Try again in ${r.ms / 1000}s."
                                 is VaultResult.DailyLimit -> message = "Daily emergency limit (${Vault.MAX_DAILY_USES}) reached."
-                                is VaultResult.NoSession -> finish()
+                                is VaultResult.NoSession -> message = "Emergency unlock is not available right now. This lock ends when the timer does."
                             }
                             input = ""
                         }) { Text("Unlock now") }
