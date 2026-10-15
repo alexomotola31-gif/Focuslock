@@ -1,3 +1,16 @@
 keystore.properties
 *.jks
 *.keystore
+
+.gradle/
+build/
+
+.gradle/
+build/
+*.jks
+keystore.properties
+
+.gradle/
+build/
+*.jks
+keystore.properties
