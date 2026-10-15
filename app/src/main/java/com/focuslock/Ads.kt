@@ -19,9 +19,9 @@ import com.google.android.ump.UserMessagingPlatform
 
 object Ads {
     // Google's TEST banner ID. Replace with your real AdMob banner unit ID before release.
-    const val BANNER_ID = "ca-app-pub-3940256099942544/6300978111"
+    const val BANNER_ID = "ca-app-pub-8156993824451105/3521533832"
     var ready by mutableStateOf(false)
-    private var started = false
+    private var started = false 
 
     fun init(activity: Activity) {
         val info = UserMessagingPlatform.getConsentInformation(activity)

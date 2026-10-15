@@ -277,7 +277,7 @@
 150-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:55:9-57:69
 151            android:name="com.google.android.gms.ads.APPLICATION_ID"
 151-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:56:13-69
-152            android:value="ca-app-pub-3940256099942544~3347511713" />
+152            android:value="ca-app-pub-8156993824451105/3521533832~3347511713" />
 152-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:57:13-67
 153        <!-- Include the AdActivity and InAppPurchaseActivity configChanges and themes. -->
 154        <activity
