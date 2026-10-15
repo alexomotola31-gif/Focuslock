@@ -222,6 +222,7 @@ class MainActivity : ComponentActivity() {
                         Spacer(Modifier.height(12.dp))
                         SoundCard()
                         Spacer(Modifier.height(12.dp))
+                        ExtraTimersCard(picked, a11y, active) { shownCode = it }
                         if (active) {
                             ActiveSessionCard { active = false }
                         } else {

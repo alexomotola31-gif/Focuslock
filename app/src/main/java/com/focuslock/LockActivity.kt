@@ -21,10 +21,14 @@ import androidx.compose.ui.unit.sp
 import kotlinx.coroutines.delay
 
 class LockActivity : ComponentActivity() {
-    companion object { @Volatile var visible = false }
+    companion object {
+        @Volatile var visible = false
+        @Volatile var shownPkg: String? = null
+    }
+    private var pkg: String? = null
     private var legit = false
     override fun finish() { legit = true; super.finish() }
-    override fun onResume() { super.onResume(); legit = false; visible = true }
+    override fun onResume() { super.onResume(); legit = false; visible = true; shownPkg = pkg }
     override fun onPause() { visible = false; super.onPause() }
     override fun onDestroy() {
         visible = false
@@ -34,6 +38,7 @@ class LockActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        pkg = intent.getStringExtra("pkg")
         ThemePrefs.init(this)
         // Back sends the user Home instead of back into the locked app
         onBackPressedDispatcher.addCallback(this) { goHome() }
@@ -46,6 +51,26 @@ class LockActivity : ComponentActivity() {
         }
     }
 
+    /** One lock covering the app on screen. manualId: "main" or an extra timer id; null = a schedule. */
+    private class Cover(val endMs: Long, val totalMs: Long, val manualId: String?)
+
+    private fun covers(): List<Cover> {
+        val p = pkg
+        val now = System.currentTimeMillis()
+        val out = ArrayList<Cover>()
+        val s = SessionStore.active(this)
+        if (s != null && !SessionStore.breakUnlocked(this) && (p == null || p in s.lockedApps || p in LockService.GUARDED)) {
+            out.add(Cover(now + SessionStore.remainingMs(this, s), SessionStore.plannedMs(this), "main"))
+        }
+        ExtraTimers.active(this).filter { p == null || p in it.apps || p in LockService.GUARDED }.forEach {
+            out.add(Cover(now + ExtraTimers.remainingMs(this, it), it.planned, it.id))
+        }
+        Schedules.activeWindows(this).filter { p == null || p in it.first.pkgs }.forEach {
+            out.add(Cover(it.second, 1L, null))
+        }
+        return out
+    }
+
     @Composable
     private fun LockContent() {
         val cs = MaterialTheme.colorScheme
@@ -53,24 +78,20 @@ class LockActivity : ComponentActivity() {
         var total by remember { mutableStateOf(1L) }
         var scheduled by remember { mutableStateOf(false) }
         var untilMs by remember { mutableStateOf(0L) }
+        var manualIds by remember { mutableStateOf(listOf<String>()) }
         var emergency by remember { mutableStateOf(false) }
         var input by remember { mutableStateOf("") }
         var message by remember { mutableStateOf("") }
         LaunchedEffect(Unit) {
             while (true) {
-                val s = SessionStore.active(this@LockActivity)
-                if (s != null) {
-                    if (SessionStore.breakUnlocked(this@LockActivity)) { finish(); break }
-                    scheduled = false
-                    remaining = SessionStore.remainingMs(this@LockActivity, s)
-                    total = SessionStore.plannedMs(this@LockActivity).coerceAtLeast(remaining).coerceAtLeast(1)
-                } else {
-                    val w = Schedules.activeWindows(this@LockActivity)
-                    if (w.isEmpty()) { finish(); break }
-                    scheduled = true
-                    untilMs = w.maxOf { it.second }
-                    remaining = untilMs - System.currentTimeMillis()
-                }
+                val cv = covers()
+                if (cv.isEmpty()) { finish(); break }
+                val last = cv.maxByOrNull { it.endMs }!!
+                scheduled = cv.any { it.manualId == null }
+                manualIds = cv.mapNotNull { it.manualId }
+                untilMs = last.endMs
+                remaining = untilMs - System.currentTimeMillis()
+                total = last.totalMs.coerceAtLeast(remaining).coerceAtLeast(1)
                 delay(1000)
             }
         }
@@ -98,13 +119,17 @@ class LockActivity : ComponentActivity() {
                     }
                     Text(format(remaining), fontSize = 48.sp, fontWeight = FontWeight.Light, color = cs.primary)
                     Text(if (scheduled) "remaining until this lock ends" else "remaining", color = cs.onSurfaceVariant)
+                    if (manualIds.size + (if (scheduled) 1 else 0) > 1) {
+                        Spacer(Modifier.height(6.dp))
+                        Text("More than one lock covers this app. It opens when the last one ends.", color = cs.onSurfaceVariant, fontSize = 12.sp, textAlign = TextAlign.Center)
+                    }
                     Spacer(Modifier.height(12.dp))
                     Text("Stay focused, you've got this.", color = cs.onSurfaceVariant, textAlign = TextAlign.Center)
                 }
             }
             Spacer(Modifier.height(16.dp))
             NxPillButton("Go home") { goHome() }
-            if (!scheduled) {
+            if (!scheduled && manualIds.isNotEmpty()) {
                 if (!emergency) {
                     TextButton(onClick = { emergency = true }) { Text("Emergency") }
                 } else {
@@ -121,10 +146,16 @@ class LockActivity : ComponentActivity() {
                         )
                         Spacer(Modifier.height(8.dp))
                         Button(enabled = input.length == 6, modifier = Modifier.fillMaxWidth(), onClick = {
-                            val r = try { Vault.tryCode(this@LockActivity, input) } catch (e: Exception) { null }
+                            val r = try { Vault.tryCode(this@LockActivity, input, manualIds) } catch (e: Exception) { null }
                             when (r) {
                                 null -> message = "Could not check the code. Try again."
-                                is VaultResult.Ok -> { SessionStore.end(this@LockActivity, early = true); finish() }
+                                is VaultResult.Ok -> {
+                                    val id = Vault.lastMatched
+                                    if (id == "main") SessionStore.end(this@LockActivity, early = true)
+                                    else if (id != null) ExtraTimers.end(this@LockActivity, id, early = true)
+                                    if (covers().isEmpty()) finish()
+                                    else message = "That timer ended, but another lock still covers this app."
+                                }
                                 is VaultResult.Wrong -> message = "Wrong code. ${r.triesBeforeLockout} tries before a delay."
                                 is VaultResult.LockedOut -> message = "Too many attempts. Try again in ${r.ms / 1000}s."
                                 is VaultResult.DailyLimit -> message = "Daily emergency limit (${Vault.MAX_DAILY_USES}) reached."
