@@ -37,11 +37,8 @@ fun ScheduleScreen(picked: Set<String>) {
     fun pickTime(cur: Int, onSet: (Int) -> Unit) {
         TimePickerDialog(ctx, { _, h, m -> onSet(h * 60 + m) }, cur / 60, cur % 60, false).show()
     }
-    fun clash(s: Schedule): String? {
-        val o = Schedules.conflict(s, list) ?: return null
-        return "Overlaps with ${Schedules.timeText(o.startMin)} to ${Schedules.timeText(o.endMin)} " +
-            "(${Schedules.daysLabel(o.days)}). Change the times or days."
-    }
+    // Overlapping schedules are allowed: an app stays locked until every schedule covering it has ended
+    fun clash(s: Schedule): String? = null
 
     Column(Modifier.fillMaxSize().verticalScroll(rememberScrollState())) {
         Text("Schedule", style = MaterialTheme.typography.headlineSmall, fontWeight = FontWeight.Bold)

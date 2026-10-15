@@ -58,7 +58,7 @@ object Schedules {
         val p = prefs(c)
         return ScheduleStore.all(c).filter { it.enabled }.mapNotNull { s ->
             val end = endIfActive(s, now) ?: return@mapNotNull null
-            if (end <= p.getLong("skip_${s.id}", 0L)) null else s to end
+            s to end // strict: a scheduled lock can never be skipped
         }
     }
 
