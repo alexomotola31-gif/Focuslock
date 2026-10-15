@@ -271,9 +271,9 @@ ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:53:13-103
 	android:name
 		ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:53:24-65
 meta-data#com.google.android.gms.ads.APPLICATION_ID
-ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:55:9-57:69
+ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:55:9-57:80
 	android:value
-		ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:57:13-67
+		ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:57:13-78
 	android:name
 		ADDED from /workspaces/Focuslock/app/src/main/AndroidManifest.xml:56:13-69
 uses-sdk

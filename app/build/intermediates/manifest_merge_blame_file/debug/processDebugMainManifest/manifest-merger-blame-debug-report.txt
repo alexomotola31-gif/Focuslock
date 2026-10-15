@@ -274,11 +274,11 @@
 148        </receiver>
 149
 150        <meta-data
-150-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:55:9-57:69
+150-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:55:9-57:80
 151            android:name="com.google.android.gms.ads.APPLICATION_ID"
 151-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:56:13-69
 152            android:value="ca-app-pub-8156993824451105/3521533832~3347511713" />
-152-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:57:13-67
+152-->/workspaces/Focuslock/app/src/main/AndroidManifest.xml:57:13-78
 153        <!-- Include the AdActivity and InAppPurchaseActivity configChanges and themes. -->
 154        <activity
 154-->[com.google.android.gms:play-services-ads-lite:23.6.0] /home/codespace/.gradle/caches/8.13/transforms/c7c147fefea0a1b549aa015aa273e7c5/transformed/play-services-ads-lite-23.6.0/AndroidManifest.xml:73:9-78:43
