@@ -92,6 +92,17 @@ class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        val crashPrefs = getSharedPreferences("crashlog", MODE_PRIVATE)
+        Thread.setDefaultUncaughtExceptionHandler { _, e ->
+            crashPrefs.edit().putString("trace", android.util.Log.getStackTraceString(e)).commit()
+            android.os.Process.killProcess(android.os.Process.myPid())
+        }
+        crashPrefs.getString("trace", null)?.let { trace ->
+            crashPrefs.edit().remove("trace").commit()
+            val tv = android.widget.TextView(this).apply { text = trace; textSize = 11f; setTextIsSelectable(true); setPadding(24, 64, 24, 24) }
+            setContentView(android.widget.ScrollView(this).apply { addView(tv) })
+            return
+        }
         ThemePrefs.init(this)
         FocusSound.init(this)
         Ads.init(this)
