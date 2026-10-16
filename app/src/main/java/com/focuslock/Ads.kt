@@ -27,7 +27,7 @@ object Ads {
     // Your real AdMob banner unit ID
     const val BANNER_ID = "ca-app-pub-8156993824451105/3521533832"
     // TEST BUILDS ONLY: shows a status line under the banner. Set to false before release.
-    const val SHOW_STATUS = true
+    const val SHOW_STATUS = false
     var ready by mutableStateOf(false)
     var status by mutableStateOf("Ad status: checking consent...")
     private var started = false
