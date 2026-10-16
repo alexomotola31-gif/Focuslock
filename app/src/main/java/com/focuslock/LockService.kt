@@ -14,6 +14,8 @@ class LockService : AccessibilityService() {
     private val handler = Handler(Looper.getMainLooper())
     private var lastCheck = 0L
     private var lastLaunch = 0L
+    private var lastFg: String? = null
+    private var lastNudge = 0L
 
     companion object {
         /** Blocked during a timer so the user can't switch off this service, the admin, or uninstall the app. */
@@ -40,7 +42,11 @@ class LockService : AccessibilityService() {
 
     override fun onAccessibilityEvent(e: AccessibilityEvent) {
         when (e.eventType) {
-            AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED -> enforce(e.packageName?.toString())
+            AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED -> {
+                val p = e.packageName?.toString()
+                if (p != null && p != packageName) lastFg = p
+                enforce(p)
+            }
             AccessibilityEvent.TYPE_WINDOW_CONTENT_CHANGED -> {
                 val now = SystemClock.elapsedRealtime()
                 if (now - lastCheck < 300) return
@@ -77,9 +83,13 @@ class LockService : AccessibilityService() {
     }
 
     private fun nudgeSoon() {
+        val now = SystemClock.elapsedRealtime()
+        if (now - lastNudge < 5000) return
+        lastNudge = now
         handler.postDelayed({
             val p = lastGuarded ?: return@postDelayed
-            if (shouldLock(p)) showLock(p)
+            // Only re-lock if that app is really still the one on screen
+            if (lastFg == p && shouldLock(p)) showLock(p)
         }, 400)
     }
 
