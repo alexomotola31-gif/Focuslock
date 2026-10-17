@@ -5,7 +5,7 @@ plugins {
     id("org.jetbrains.kotlin.android")
 }
 android {
-    namespace = "com.focuslock"
+    namespace = "com.alex.focuslock"
     compileSdk = 36
     defaultConfig {
         applicationId = "com.alex.focuslock"
