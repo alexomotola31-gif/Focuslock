@@ -8,7 +8,7 @@ android {
     namespace = "com.focuslock"
     compileSdk = 36
     defaultConfig {
-        applicationId = "com.focuslock"
+        applicationId = "com.alex.focuslock"
         minSdk = 24
         targetSdk = 36
         versionCode = 2
