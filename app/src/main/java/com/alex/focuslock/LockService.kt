@@ -35,10 +35,11 @@ class LockService : AccessibilityService() {
 
     override fun onServiceConnected() {
         instance = this; connected = true
+        startWatch()
         enforce(rootInActiveWindow?.packageName?.toString())
     }
-    override fun onUnbind(intent: Intent?): Boolean { connected = false; instance = null; return super.onUnbind(intent) }
-    override fun onDestroy() { connected = false; instance = null; super.onDestroy() }
+    override fun onUnbind(intent: Intent?): Boolean { connected = false; instance = null; stopWatch(); return super.onUnbind(intent) }
+    override fun onDestroy() { connected = false; instance = null; stopWatch(); super.onDestroy() }
 
     override fun onAccessibilityEvent(e: AccessibilityEvent) {
         when (e.eventType) {
@@ -92,6 +93,19 @@ class LockService : AccessibilityService() {
             if (lastFg == p && shouldLock(p)) showLock(p)
         }, 400)
     }
+
+    // Every 2 seconds, re-check the app on screen while the phone is in use, so a timer or schedule
+    // that starts while an app is already open locks it straight away.
+    private val watch = object : Runnable {
+        override fun run() {
+            val pm = getSystemService(android.content.Context.POWER_SERVICE) as android.os.PowerManager
+            val p = lastFg
+            if (p != null && pm.isInteractive) enforce(p)
+            handler.postDelayed(this, 2000)
+        }
+    }
+    private fun startWatch() { handler.removeCallbacks(watch); handler.postDelayed(watch, 2000) }
+    private fun stopWatch() { handler.removeCallbacks(watch) }
 
     override fun onInterrupt() {}
 }

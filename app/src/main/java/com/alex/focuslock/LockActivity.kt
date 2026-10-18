@@ -71,6 +71,12 @@ class LockActivity : ComponentActivity() {
         return out
     }
 
+    private fun scheduleNotes(): List<String> {
+        val p = pkg
+        return Schedules.activeWindows(this).filter { p == null || p in it.first.pkgs }
+            .map { it.first.note.trim() }.filter { it.isNotEmpty() }.distinct()
+    }
+
     @Composable
     private fun LockContent() {
         val cs = MaterialTheme.colorScheme
@@ -79,6 +85,7 @@ class LockActivity : ComponentActivity() {
         var scheduled by remember { mutableStateOf(false) }
         var untilMs by remember { mutableStateOf(0L) }
         var manualIds by remember { mutableStateOf(listOf<String>()) }
+        var notes by remember { mutableStateOf(listOf<String>()) }
         var emergency by remember { mutableStateOf(false) }
         var input by remember { mutableStateOf("") }
         var message by remember { mutableStateOf("") }
@@ -89,6 +96,7 @@ class LockActivity : ComponentActivity() {
                 val last = cv.maxByOrNull { it.endMs }!!
                 scheduled = cv.any { it.manualId == null }
                 manualIds = cv.mapNotNull { it.manualId }
+                notes = scheduleNotes()
                 untilMs = last.endMs
                 remaining = untilMs - System.currentTimeMillis()
                 total = last.totalMs.coerceAtLeast(remaining).coerceAtLeast(1)
@@ -124,6 +132,10 @@ class LockActivity : ComponentActivity() {
                         Text("More than one lock covers this app. It opens when the last one ends.", color = cs.onSurfaceVariant, fontSize = 12.sp, textAlign = TextAlign.Center)
                     }
                     Spacer(Modifier.height(12.dp))
+                    if (scheduled) notes.forEach { n ->
+                        Spacer(Modifier.height(10.dp))
+                        Text(n, fontSize = 18.sp, fontWeight = FontWeight.Medium, color = cs.onSurface, textAlign = TextAlign.Center)
+                    }
                     Text("Stay focused, you've got this.", color = cs.onSurfaceVariant, textAlign = TextAlign.Center)
                 }
             }

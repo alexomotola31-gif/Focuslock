@@ -27,6 +27,7 @@ fun ScheduleScreen(picked: Set<String>) {
     var startMin by remember { mutableStateOf(19 * 60) }
     var endMin by remember { mutableStateOf(22 * 60) }
     var days by remember { mutableStateOf(127) }
+    var note by remember { mutableStateOf("") }
     var formApps by remember { mutableStateOf(picked) }
     var error by remember { mutableStateOf("") }
     var saved by remember { mutableStateOf("") }
@@ -82,9 +83,15 @@ fun ScheduleScreen(picked: Set<String>) {
                 Text("Use the ${picked.size} apps selected on the Apps page")
             }
             Spacer(Modifier.height(10.dp))
+            OutlinedTextField(
+                value = note, onValueChange = { note = it.take(120) },
+                label = { Text("Note (optional), e.g. Go and study") },
+                modifier = Modifier.fillMaxWidth()
+            )
+            Spacer(Modifier.height(10.dp))
             Button(onClick = {
                 val keep = list.firstOrNull { it.id == editingId }?.enabled ?: true
-                val cand = Schedule(editingId ?: System.currentTimeMillis(), startMin, endMin, formApps, days, keep)
+                val cand = Schedule(editingId ?: System.currentTimeMillis(), startMin, endMin, formApps, days, keep, note.trim())
                 val c = clash(cand)
                 error = when {
                     startMin == endMin -> "Start and end time can't be the same."
@@ -96,7 +103,7 @@ fun ScheduleScreen(picked: Set<String>) {
                 if (error.isEmpty()) {
                     if (editingId == null) ScheduleStore.add(ctx, cand) else ScheduleStore.update(ctx, cand)
                     list = ScheduleStore.all(ctx)
-                    editingId = null; startMin = 19 * 60; endMin = 22 * 60; days = 127; formApps = picked
+                    editingId = null; startMin = 19 * 60; endMin = 22 * 60; days = 127; formApps = picked; note = ""
                     saved = "Schedule saved."
                 }
             }, modifier = Modifier.fillMaxWidth()) { Text(if (editingId == null) "Add schedule" else "Save changes", fontWeight = FontWeight.Bold) }
@@ -122,6 +129,7 @@ fun ScheduleScreen(picked: Set<String>) {
                         )
                         Text(Schedules.daysLabel(s.days), color = cs.onSurfaceVariant)
                         Text("${s.pkgs.size} apps", color = cs.onSurfaceVariant)
+                        if (s.note.isNotBlank()) Text(s.note, color = cs.onSurface)
                         if (endMs != null) {
                             Text("Locking now, until ${Schedules.clockText(endMs)}",
                                 style = MaterialTheme.typography.bodySmall, color = cs.primary)
@@ -142,7 +150,7 @@ fun ScheduleScreen(picked: Set<String>) {
                     Row {
                         TextButton(onClick = {
                             editingId = s.id; startMin = s.startMin; endMin = s.endMin
-                            days = s.days; formApps = s.pkgs; error = ""; saved = ""
+                            days = s.days; formApps = s.pkgs; note = s.note; error = ""; saved = ""
                         }) { Text("Edit") }
                         TextButton(onClick = {
                             ScheduleStore.remove(ctx, s.id); list = ScheduleStore.all(ctx); saved = ""

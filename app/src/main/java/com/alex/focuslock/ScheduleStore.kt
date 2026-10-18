@@ -6,7 +6,7 @@ import org.json.JSONObject
 
 data class Schedule(
     val id: Long, val startMin: Int, val endMin: Int, val pkgs: Set<String>,
-    val days: Int = 127, val enabled: Boolean = true
+    val days: Int = 127, val enabled: Boolean = true, val note: String = ""
 )
 
 object ScheduleStore {
@@ -20,7 +20,7 @@ object ScheduleStore {
             Schedule(
                 o.getLong("id"), o.getInt("start"), o.getInt("end"),
                 (0 until p.length()).map { p.getString(it) }.toSet(),
-                o.optInt("days", 127), o.optBoolean("on", true)
+                o.optInt("days", 127), o.optBoolean("on", true), o.optString("note", "")
             )
         }
     } catch (e: Exception) { emptyList() }
@@ -31,7 +31,7 @@ object ScheduleStore {
             arr.put(JSONObject()
                 .put("id", it.id).put("start", it.startMin).put("end", it.endMin)
                 .put("pkgs", JSONArray(it.pkgs.toList()))
-                .put("days", it.days).put("on", it.enabled))
+                .put("days", it.days).put("on", it.enabled).put("note", it.note))
         }
         prefs(c).edit().putString("list", arr.toString()).apply()
         ScheduleAlarms.rescheduleAll(c)
