@@ -23,7 +23,13 @@ class LockService : AccessibilityService() {
             "com.android.settings",
             "com.google.android.packageinstaller",
             "com.android.packageinstaller",
-            "com.samsung.android.packageinstaller"
+            "com.samsung.android.packageinstaller",
+            "com.miui.packageinstaller",
+            "com.transsion.packageinstaller",
+            "com.oplus.packageinstaller",
+            "com.coloros.packageinstaller",
+            "com.miui.securitycenter",
+            "com.transsion.phonemaster"
         )
         /** True only while Android really has this service connected (Settings can show ON when it is not). */
         var connected by mutableStateOf(false)
@@ -63,7 +69,10 @@ class LockService : AccessibilityService() {
         val byMain = session != null &&
             ((pkg in session.lockedApps && !SessionStore.breakUnlocked(this)) || pkg in GUARDED)
         val byExtra = extras.any { pkg in it.apps } || (pkg in GUARDED && extras.isNotEmpty())
-        return byMain || byExtra || Schedules.isBlocked(this, pkg)
+        // During a scheduled lock, Settings and the uninstallers are blocked too
+        val bySchedule = Schedules.isBlocked(this, pkg) ||
+            (pkg in GUARDED && Schedules.activeWindows(this).isNotEmpty())
+        return byMain || byExtra || bySchedule
     }
 
     private fun enforce(pkg: String?) {

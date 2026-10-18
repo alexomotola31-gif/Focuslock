@@ -65,7 +65,7 @@ class LockActivity : ComponentActivity() {
         ExtraTimers.active(this).filter { p == null || p in it.apps || p in LockService.GUARDED }.forEach {
             out.add(Cover(now + ExtraTimers.remainingMs(this, it), it.planned, it.id))
         }
-        Schedules.activeWindows(this).filter { p == null || p in it.first.pkgs }.forEach {
+        Schedules.activeWindows(this).filter { p == null || p in it.first.pkgs || p in LockService.GUARDED }.forEach {
             out.add(Cover(it.second, 1L, null))
         }
         return out
@@ -73,7 +73,7 @@ class LockActivity : ComponentActivity() {
 
     private fun scheduleNotes(): List<String> {
         val p = pkg
-        return Schedules.activeWindows(this).filter { p == null || p in it.first.pkgs }
+        return Schedules.activeWindows(this).filter { p == null || p in it.first.pkgs || p in LockService.GUARDED }
             .map { it.first.note.trim() }.filter { it.isNotEmpty() }.distinct()
     }
 
