@@ -57,7 +57,8 @@ private enum class Page(val title: String, val icon: ImageVector) {
     Setup("Setup", Icons.Filled.Settings),
     Schedule("Schedule", Icons.Filled.DateRange),
     Insights("Insights", Icons.Filled.Menu),
-    Goals("Goals", Icons.Filled.Menu)
+    Goals("Goals", Icons.Filled.Menu),
+    History("History", Icons.Filled.Menu)
 }
 
 private val Navy: Color
@@ -69,7 +70,7 @@ private val Amber: Color
 private val OnAmber: Color
     @Composable get() = MaterialTheme.colorScheme.onPrimary
 
-private fun Page.inBar() = this != Page.Insights && this != Page.Goals
+private fun Page.inBar() = this != Page.Insights && this != Page.Goals && this != Page.History
 
 private fun fmtTime(min: Int): String {
     val h = min / 60
@@ -127,7 +128,7 @@ class MainActivity : ComponentActivity() {
         val battery = remember(refresh) { isBatteryExempt() }
 
         var page by remember { mutableStateOf(Page.Home) }
-        BackHandler(enabled = page == Page.Insights || page == Page.Goals) { page = Page.Home }
+        BackHandler(enabled = page == Page.Insights || page == Page.Goals || page == Page.History) { page = Page.Home }
         LaunchedEffect(goTo) {
             when (goTo) {
                 "apps" -> page = Page.Apps
@@ -154,7 +155,14 @@ class MainActivity : ComponentActivity() {
                 onDismissRequest = {},
                 title = { Text("Your emergency code") },
                 text = { Text("$code\n\nThis is shown only once. You need it to end the session early (max ${Vault.MAX_DAILY_USES} times a day).") },
-                confirmButton = { TextButton(onClick = { shownCode = null }) { Text("I've saved it") } }
+                confirmButton = { TextButton(onClick = { shownCode = null }) { Text("I've saved it") } },
+                dismissButton = {
+                    TextButton(onClick = {
+                        val cm = getSystemService(android.content.Context.CLIPBOARD_SERVICE) as android.content.ClipboardManager
+                        cm.setPrimaryClip(android.content.ClipData.newPlainText("FocusLock emergency code", code))
+                        android.widget.Toast.makeText(this@MainActivity, "Code copied", android.widget.Toast.LENGTH_SHORT).show()
+                    }) { Text("Copy code") }
+                }
             )
         }
 
@@ -218,6 +226,7 @@ class MainActivity : ComponentActivity() {
                         Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
                             OutlinedButton(onClick = { page = Page.Insights }, modifier = Modifier.weight(1f)) { Text("Insights") }
                             OutlinedButton(onClick = { page = Page.Goals }, modifier = Modifier.weight(1f)) { Text("Goals") }
+                            OutlinedButton(onClick = { page = Page.History }, modifier = Modifier.weight(1f)) { Text("History") }
                         }
                         Spacer(Modifier.height(12.dp))
                         SoundCard()
@@ -346,6 +355,7 @@ class MainActivity : ComponentActivity() {
 
                     Page.Insights -> InsightsScreen()
                     Page.Goals -> GoalsScreen()
+                    Page.History -> HistoryScreen()
 
                     Page.Setup -> Column(Modifier.fillMaxSize().verticalScroll(rememberScrollState())) {
                         Text("Setup", style = MaterialTheme.typography.headlineSmall, fontWeight = FontWeight.Bold)

@@ -107,6 +107,7 @@ class LockService : AccessibilityService() {
     // that starts while an app is already open locks it straight away.
     private val watch = object : Runnable {
         override fun run() {
+            try { ScheduleHistory.logActive(applicationContext) } catch (e: Exception) { }
             val pm = getSystemService(android.content.Context.POWER_SERVICE) as android.os.PowerManager
             val p = lastFg
             if (p != null && pm.isInteractive) enforce(p)
